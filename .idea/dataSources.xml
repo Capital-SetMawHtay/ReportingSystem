@@ -5,21 +5,24 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:ReportingSystem1_development</jdbc-url>
-      <user-name>ReportingSystem1</user-name>
+      <user-name>postgres</user-name>
+      <user-password>dfd8dfc5dfc5dfdedfdfdfd9dfcfdfd8</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ReportingSystem1: test" uuid="ee557f11-13d7-409d-9a2b-273664840254">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:ReportingSystem1_test</jdbc-url>
-      <user-name>ReportingSystem1</user-name>
+      <jdbc-url>jdbc:postgresql:ReportingSystem1_development</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfd8dfc5dfc5dfdedfdfdfd9dfcfdfd8</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ReportingSystem1: production" uuid="31903ff4-c639-4abe-b586-fa67b7963149">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:ReportingSystem1_production</jdbc-url>
-      <user-name>ReportingSystem1</user-name>
+      <jdbc-url>jdbc:postgresql:ReportingSystem1_development</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfd8dfc5dfc5dfdedfdfdfd9dfcfdfd8</user-password>
       <libraries />
     </data-source>
   </component>
