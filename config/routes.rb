@@ -5,6 +5,7 @@ ReportingSystem1::Application.routes.draw do
   root :to => "home#index"
 
   resources :users
+  resources :teams
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

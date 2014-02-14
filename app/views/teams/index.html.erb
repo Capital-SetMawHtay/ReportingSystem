@@ -1,0 +1,15 @@
+<b>Teams</b>
+
+<ul id="teams">
+  <% @teams.each do |t| %>
+     <%= render t "\n"%>
+  <% end %>
+</ul>
+
+<br>
+
+<%= form_for(@team,remote: true) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <%= f.submit "Save" %>
+<% end %>

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140213085656) do
+ActiveRecord::Schema.define(:version => 20140214085044) do
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -33,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20140213085656) do
     t.string   "employee_number"
     t.date     "date_of_birth"
     t.date     "started_date"
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
