@@ -15,3 +15,5 @@
 /tmp
 workspace.xml
 dbc.xml
+npm-debug.log
+script/startzeus.sh
