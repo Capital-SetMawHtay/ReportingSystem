@@ -30,4 +30,8 @@
     = f.label :date_of_birth
     %br/
     = f.date_select :date_of_birth
+  %div
+    = f.label :teams
+    %br/
+    = f.collection_select :team_id, Team.all, :id, :name, prompt: true
   %div= f.submit "Sign up"

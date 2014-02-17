@@ -24,6 +24,7 @@ end
 group :development,:test do
   gem 'guard-rspec'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'zeus', '0.13.4.pre2'

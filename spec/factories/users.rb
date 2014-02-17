@@ -9,6 +9,7 @@ FactoryGirl.define do
     password "user"
     date_of_birth Date.today
     role "member"
+    team
   end
 
 end

@@ -3,6 +3,7 @@ require_relative '../spec_helper'
 describe "Authentication" do
   before :each do
     create(:user,email: "admin@gmail.com",password: "admin")
+    create(:team,name: "Ruby")
   end
   describe "user creation" do
 
@@ -29,9 +30,12 @@ describe "Authentication" do
         fill_in "Password confirmation", :with => "dbc"
         fill_in "Employee number",               :with => "AW-062"
         choose("member")
+        page.select('Ruby',:from => 'user[team_id]')
         click_button "Sign up"
         #
         page.should have_content("User successfully created!")
+        page.should have_content("Email: dbc@gmail.com")
+        page.should have_content("Team: Ruby")
       end
 
     end
