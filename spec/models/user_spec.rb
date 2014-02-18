@@ -49,6 +49,35 @@ describe User do
     end
   end
 
+  describe "role query method" do
+    context "when role is admin"
+    it "returns true for correct role" do
+      admin= build(:user,role: "admin")
+
+      (admin.admin?).should be_true
+      (admin.member?).should_not be_true
+      (admin.leader?).should_not be_true
+    end
+    context "when role is member" do
+      it "returns true for correct role" do
+        member= build(:user,role: "member")
+
+        (member.admin?).should_not be_true
+        (member.member?).should be_true
+        (member.leader?).should_not be_true
+      end
+    end
+    context "when role is leader" do
+      it "returns true for correct role" do
+        leader= build(:user,role: "leader")
+
+        (leader.admin?).should_not be_true
+        (leader.member?).should_not be_true
+        (leader.leader?).should be_true
+      end
+    end
+  end
+
 
 
 

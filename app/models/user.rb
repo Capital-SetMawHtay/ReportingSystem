@@ -21,6 +21,17 @@ class User < ActiveRecord::Base
   validates :name,:employee_number, :role, :date_of_birth, presence: true
   validates :role, inclusion: {in: ROLES }
 
+  def admin?
+     self.role == "admin"
+  end
+
+  def member?
+    self.role == "member"
+  end
+
+  def leader?
+    self.role == "leader"
+  end
 
 
 

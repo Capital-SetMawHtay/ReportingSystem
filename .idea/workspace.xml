@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e27fe78-7114-4ef9-bc2d-9ae0ea74fd4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/edit.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ability.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/users/index.html.haml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ReportingSystem1.iml" afterPath="$PROJECT_DIR$/.idea/ReportingSystem1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/features/authentication_spec.rb" afterPath="$PROJECT_DIR$/spec/features/authentication_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/teams.rb" afterPath="$PROJECT_DIR$/spec/factories/teams.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ReportingSystem1.iws" />
@@ -29,13 +25,13 @@
     <SUITE FILE_PATH="coverage/ReportingSystem1@RP1_Preload_zeus.coverage" NAME="RP1 Preload zeus Coverage Results" MODIFIED="1392270855075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__user_spec___ReportingSystem1.coverage" NAME="Run spec 'user_spec': ReportingSystem1 Coverage Results" MODIFIED="1392708754322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Rspec_all.coverage" NAME="Rspec all Coverage Results" MODIFIED="1392706528251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Reporting_System_Rspec.coverage" NAME="Reporting System Rspec Coverage Results" MODIFIED="1392710569028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__teams_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'teams_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392706955207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Reporting_System_Rspec.coverage" NAME="Reporting System Rspec Coverage Results" MODIFIED="1392706473724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1392273746262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__users_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'users_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392708875113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Start_Zeus_Server__ReportingSystem1.coverage" NAME="Start Zeus Server: ReportingSystem1 Coverage Results" MODIFIED="1392706520198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Start_Zeus_Server__ReportingSystem1.coverage" NAME="Start Zeus Server: ReportingSystem1 Coverage Results" MODIFIED="1392710036881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__users_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'users_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392710020710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Development__ReportingSystem1.coverage" NAME="Development: ReportingSystem1 Coverage Results" MODIFIED="1392607194826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Model_Rspec_Tests.coverage" NAME="Model Rspec Tests Coverage Results" MODIFIED="1392706502145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Model_Rspec_Tests.coverage" NAME="Model Rspec Tests Coverage Results" MODIFIED="1392720402295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -49,15 +45,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="43" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/new.html.haml">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,16 +57,34 @@
       <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+            <state line="8" column="42" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_controller_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users_controller_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="29" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.31937173" vertical-offset="1438" max-vertical-offset="1820">
+            <state line="78" column="29" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.0" vertical-offset="1024" max-vertical-offset="1820">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ability.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="22" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -88,7 +93,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="2" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="660">
+            <state line="32" column="24" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="880">
               <folding />
             </state>
           </provider>
@@ -112,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_spec.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="27" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0" vertical-offset="718" max-vertical-offset="1220">
+            <state line="71" column="41" selection-start="2020" selection-end="2020" vertical-scroll-proportion="0.6585366" vertical-offset="1177" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
@@ -125,15 +130,6 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="5" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="24" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="760">
               <folding />
             </state>
           </provider>
@@ -162,7 +158,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
         <option value="$PROJECT_DIR$/script/startzeus.sh" />
         <option value="$PROJECT_DIR$/script/rspec_runner.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140213085656_add_user_profiles_to_user.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/spec/helpers/users_helper_spec.rb" />
@@ -179,7 +174,6 @@
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/features/user_registrations_spec.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/team.rb" />
         <option value="$PROJECT_DIR$/spec/factories/users.rb" />
         <option value="$PROJECT_DIR$/app/views/users/new.html.haml" />
@@ -190,10 +184,13 @@
         <option value="$PROJECT_DIR$/app/views/users/edit.html.haml" />
         <option value="$PROJECT_DIR$/spec/factories/teams.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/ability.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-        <option value="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" />
       </list>
     </option>
   </component>
@@ -385,6 +382,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -502,6 +513,7 @@
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/spec/models" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -509,7 +521,7 @@
       <recent name="$PROJECT_DIR$/spec/features" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.Run spec 'users_controller_spec': ReportingSystem1">
+  <component name="RunManager" selected="RSpec.Model Rspec Tests">
     <configuration default="false" name="UsersHelper: ReportingSystem1" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="ReportingSystem1" />
@@ -1047,7 +1059,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.396875" sideWeight="0.5003984" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3622291" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3622291" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1079,11 +1091,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="74" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="900" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="19" selection-start="61" selection-end="65" vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="1320">
@@ -1158,11 +1165,6 @@
     <entry file="file://$PROJECT_DIR$/script/rspec_runner.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="28" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0591716" vertical-offset="0" max-vertical-offset="500" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="45" selection-start="229" selection-end="229" vertical-scroll-proportion="0.66481996" vertical-offset="0" max-vertical-offset="420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
@@ -1245,13 +1247,6 @@
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.182266" vertical-offset="480" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="2" selection-start="555" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="1120">
           <folding />
         </state>
       </provider>
@@ -1339,16 +1334,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="2" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="660">
+        <state line="36" column="12" selection-start="767" selection-end="767" vertical-scroll-proportion="0.4225352" vertical-offset="540" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="27" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0" vertical-offset="718" max-vertical-offset="1220">
+        <state line="6" column="22" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="29" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.0" vertical-offset="1204" max-vertical-offset="1820">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <folding />
         </state>
       </provider>
@@ -1360,16 +1376,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+        <state line="32" column="24" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="880">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
+    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="29" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.31937173" vertical-offset="1438" max-vertical-offset="1820">
+        <state line="71" column="41" selection-start="2020" selection-end="2020" vertical-scroll-proportion="0.6585366" vertical-offset="1177" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
