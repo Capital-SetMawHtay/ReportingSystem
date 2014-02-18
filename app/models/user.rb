@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   #===Associations====
   belongs_to :team
 
+  #======Scopes========
+
+  scope :non_admin, lambda {where("role != 'admin'")}
 
   # attr_accessible :title, :body
   validates :name,:employee_number, :role, :date_of_birth, presence: true

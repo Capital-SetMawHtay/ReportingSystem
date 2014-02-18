@@ -42,6 +42,12 @@ describe User do
 
   it {should belong_to(:team)}
 
+  describe "User#non_admin" do
+    it "excludes admin user" do
+      user1, user2, admin= create(:user), create(:user), create(:user,role: "admin")
+      User.non_admin.should_not include(admin)
+    end
+  end
 
 
 

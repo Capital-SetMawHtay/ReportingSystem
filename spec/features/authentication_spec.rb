@@ -38,6 +38,26 @@ describe "Authentication" do
         page.should have_content("Team: Ruby")
       end
 
+      it "shows member list" do
+        visit '/users'
+        page.should have_content("Member List")
+        page.should have_selector('.user')
+        find('.user a').should have_content('Edit Profile')
+      end
+      it "allows admin to edit users" do
+        @member = create(:user)
+        visit "/users"
+        within('#user'+@member.id.to_s) do
+          click_link('Edit Profile')
+        end
+        page.should have_content("Edit member")
+        find("#user_name").value.should eq(@member.name)
+        find("#user_email").value.should eq(@member.email)
+        fill_in "Name", :with => "edited_name"
+        click_button "Update"
+        page.should have_content "User successfully updated"
+      end
+
     end
   end
 

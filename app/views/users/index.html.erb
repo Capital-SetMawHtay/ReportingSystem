@@ -1,0 +1,10 @@
+<h1> Member List </h1>
+<% @users.each do |u| %>
+  <div id='<%= "user#{u.id}" %>' class="user">
+    <%= u.name %>
+    <%= u.team.name %>
+    <%= link_to "Edit Profile",edit_user_path(u) %>
+  </div>
+<%end%>
+
+<%=link_to "New Member",new_user_path%>

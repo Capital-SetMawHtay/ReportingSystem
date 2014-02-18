@@ -1,0 +1,32 @@
+%h1 "Edit member"
+.errors
+  =@user.errors
+
+= form_for(@user,method: :put) do |f|
+
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email, :autofocus => true
+  %div
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %div
+    = f.label :employee_number
+    %br/
+    = f.text_field :employee_number
+  %div
+    member
+    = f.radio_button :role, "member",:id=> "member"
+    leader
+    = f.radio_button :role, "leader", :id=> "leader"
+  %div
+    = f.label :date_of_birth
+    %br/
+    = f.date_select :date_of_birth
+  %div
+    = f.label :teams
+    %br/
+    = f.collection_select :team_id, Team.all, :id, :name, prompt: true
+  %div= f.submit "Update"
