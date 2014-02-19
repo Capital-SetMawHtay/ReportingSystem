@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   #===Associations====
   belongs_to :team
+  has_many :reports
 
   #======Scopes========
 

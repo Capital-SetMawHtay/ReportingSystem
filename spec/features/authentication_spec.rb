@@ -2,7 +2,8 @@ require_relative '../spec_helper'
 
 describe "Authentication" do
   before :each do
-    create(:user,email: "admin@gmail.com",password: "admin")
+    create(:user,email: "admin@gmail.com",password: "admin",role: "admin")
+    create(:user)
     create(:team,name: "Ruby")
   end
   describe "user creation" do
@@ -40,7 +41,7 @@ describe "Authentication" do
 
       it "shows member list" do
         visit '/users'
-        page.should have_content("Member List")
+        page.should have_content('Member List')
         page.should have_selector('.user')
         find('.user a').should have_content('Edit Profile')
       end

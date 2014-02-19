@@ -80,6 +80,31 @@ describe UsersController do
         expect(response.status).to eq(403)
       end
     end
-
+    context "when trying to access a single resource" do
+      before(:each) do
+        @user = create(:user)
+      end
+      describe "GET #update" do
+        it "responds with a 403 unauthorized" do
+          post :update,id: @user.id
+          expect(response).not_to be_success
+          expect(response.status).to eq(403)
+        end
+      end
+      describe "GET #show" do
+        it "responds with a 403 unauthorized" do
+          get :show,id: @user.id
+          expect(response).not_to be_success
+          expect(response.status).to eq(403)
+        end
+      end
+      describe "GET #edit" do
+        it "responds with a 403 unauthorized" do
+          get :edit,id: @user.id
+          expect(response).not_to be_success
+          expect(response.status).to eq(403)
+        end
+      end
+    end
   end
 end
