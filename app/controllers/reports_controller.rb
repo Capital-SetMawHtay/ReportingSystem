@@ -1,7 +1,8 @@
 class ReportsController < ApplicationController
+  load_and_authorize_resource :report
 
   def index
-    @reports = Report.all
+    @reports = Report.get_by_date(Date.today)
   end
 
   def show
@@ -10,6 +11,14 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+  end
+
+  def new
+    @report = Report.new
+  end
+
+  def update
+
   end
 
 end

@@ -2,12 +2,12 @@
 
 FactoryGirl.define do
   factory :report do
-    plan "MyText"
-    experience "MyText"
-    problem "MyText"
-    solution "MyText"
-    status "MyString"
-    review "MyText"
+    plan "My Plan"
+    experience "My Experience"
+    problem "My Problem"
+    solution "My Solution"
+    status "My Status"
+    review "My Review"
     user
   end
 end

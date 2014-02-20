@@ -1,1 +1,2 @@
-$("#teams").append("<%= escape_javascript(render @team) %>");
+$('<%= escape_javascript(render(:partial => @team))%>').appendTo('#teams');
+$(":input:not(input[type=submit])").val("");

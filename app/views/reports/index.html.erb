@@ -1,0 +1,11 @@
+<h1>Today Reports</h1>
+
+<div id="reports">
+   <% @reports.each do |report| %>
+    <div id='<%= "report#{report.id}"%>'>
+        <%= report.user.name %>
+        <%= report.report_date %>
+        <%= link_to "View Detail",report_path(report) %>
+    </div>
+  <% end %>
+</div>

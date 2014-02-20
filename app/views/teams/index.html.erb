@@ -1,15 +1,15 @@
-<b>Teams</b>
-
-<ul id="teams">
+<table id="teams">
   <% @teams.each do |t| %>
-     <li><%= render t %> </li>
+      <%= render t %>
   <% end %>
-</ul>
+</table>
 
-<br>
+<br />
+<div id="info">
+  new
+</div>
+<div id="form">
+    <%= render :partial => "form" %>
+</div>
 
-<%= form_for(@team,remote: true) do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-    <%= f.submit "Save" %>
-<% end %>
+

@@ -1,0 +1,32 @@
+<h2>
+  <%= @report.user.name %>
+  <%= @report.report_date %>
+  <%= @report.user.team.name %>
+</h2>
+
+<div class="report_view">
+  <div>
+    plan
+  </div>
+  <div>
+    <%= @report.plan %>
+  </div>
+  <div>
+    experience
+  </div>
+  <div>
+    <%= @report.experience %>
+  </div>
+  <div>
+    problem
+  </div>
+  <div>
+    <%= @report.problem %>
+  </div>
+  <div>
+    solution
+  </div>
+  <div>
+    <%= @report.solution %>
+  </div>
+</div>

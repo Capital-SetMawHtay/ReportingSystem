@@ -1,0 +1,5 @@
+$("#<%= dom_id(@team)%>").replaceWith("<%= escape_javascript(render(:partial => @team))%>");
+<% @team = Team.new %>
+$(".edit_team").replaceWith("<%= escape_javascript(render(:partial => "form"))%>");
+$(".new_team")[0].reset();
+
