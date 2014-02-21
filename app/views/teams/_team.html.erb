@@ -1,5 +1,6 @@
 <tr id="<%= dom_id team %>">
     <td><%= team.name %></td>
+    <td><%= team.users.count %></td>
     <td><%= link_to "Delete",team,:remote => true,:method => :delete %></td>
     <td><%= link_to "Rename",edit_team_path(team), :remote => true %></td>
 </tr>

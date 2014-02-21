@@ -1,2 +1,13 @@
 $('<%= escape_javascript(render(:partial => @team))%>').appendTo('#teams');
 $(":input:not(input[type=submit])").val("");
+$('#notice').text('Team successfully created');
+//========function to clear notice after 2 sec
+//var timer = setTimeout(function(){
+//   $('#notice').text('');
+//},2000);
+//========add a button to clear notice
+//$('#notice').append('<button>hide me </button>');
+//
+//$('#notice button').on('click',function(){
+//   $('#notice').text('');
+//});

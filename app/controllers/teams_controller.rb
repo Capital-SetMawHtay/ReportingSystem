@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
     @team = Team.new(params[:team])
     respond_to do |format|
       if @team.save
-        format.html { redirect_to(@team)}
+        format.html { redirect_to(@team,notice: 'Team successfully created')}
         format.js
       else
         format.html { render action: "new"}

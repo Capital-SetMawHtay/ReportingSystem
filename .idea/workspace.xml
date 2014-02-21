@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e27fe78-7114-4ef9-bc2d-9ae0ea74fd4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/reports/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/features/reports_checking_spec.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ReportingSystem1.iml" afterPath="$PROJECT_DIR$/.idea/ReportingSystem1.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teams/_team.html.erb" afterPath="$PROJECT_DIR$/app/views/teams/_team.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ability.rb" afterPath="$PROJECT_DIR$/app/models/ability.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teams/create.js.erb" afterPath="$PROJECT_DIR$/app/views/teams/create.js.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/features/create_teams_spec.rb" afterPath="$PROJECT_DIR$/spec/features/create_teams_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teams/index.html.erb" afterPath="$PROJECT_DIR$/app/views/teams/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/reports.rb" afterPath="$PROJECT_DIR$/spec/factories/reports.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/reports_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/reports_controller_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/helpers/reports_helper_spec.rb" afterPath="$PROJECT_DIR$/spec/helpers/reports_helper_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/show.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teams_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ReportingSystem1.iws" />
@@ -33,20 +22,21 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ReportingSystem1@Rspec_all.coverage" NAME="Rspec all Coverage Results" MODIFIED="1392888035714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__create_teams_spec___ReportingSystem1.coverage" NAME="Run spec 'create_teams_spec': ReportingSystem1 Coverage Results" MODIFIED="1392891649479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Development__ReportingSystem1.coverage" NAME="Development: ReportingSystem1 Coverage Results" MODIFIED="1392882637895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__create_teams_spec___ReportingSystem1.coverage" NAME="Run spec 'create_teams_spec': ReportingSystem1 Coverage Results" MODIFIED="1392954752513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Development__ReportingSystem1.coverage" NAME="Development: ReportingSystem1 Coverage Results" MODIFIED="1392952262594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@spec.coverage" NAME="spec Coverage Results" MODIFIED="1392887788606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Model_Rspec_Tests.coverage" NAME="Model Rspec Tests Coverage Results" MODIFIED="1392778284788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Authentication_user_creation_when_admin_is_signed_in__ReportingSystem1.coverage" NAME="Authentication user creation when admin is signed in: ReportingSystem1 Coverage Results" MODIFIED="1392778276118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@RP1_Preload_zeus.coverage" NAME="RP1 Preload zeus Coverage Results" MODIFIED="1392270855075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__user_spec___ReportingSystem1.coverage" NAME="Run spec 'user_spec': ReportingSystem1 Coverage Results" MODIFIED="1392708754322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__reports_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'reports_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392885160709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__teams_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'teams_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392956643622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1392273746262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__teams_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'teams_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392706955207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Reporting_System_Rspec.coverage" NAME="Reporting System Rspec Coverage Results" MODIFIED="1392710569028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__reports_checking_spec___ReportingSystem1.coverage" NAME="Run spec 'reports_checking_spec': ReportingSystem1 Coverage Results" MODIFIED="1392887741613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
-    <SUITE FILE_PATH="coverage/ReportingSystem1@Start_Zeus_Server__ReportingSystem1.coverage" NAME="Start Zeus Server: ReportingSystem1 Coverage Results" MODIFIED="1392880831783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Start_Zeus_Server__ReportingSystem1.coverage" NAME="Start Zeus Server: ReportingSystem1 Coverage Results" MODIFIED="1392950868472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__users_controller_spec___ReportingSystem1.coverage" NAME="Run spec 'users_controller_spec': ReportingSystem1 Coverage Results" MODIFIED="1392721590667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__reports_checking_spec___ReportingSystem1.coverage" NAME="Run spec 'reports_checking_spec': ReportingSystem1 Coverage Results" MODIFIED="1392887741613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
+    <SUITE FILE_PATH="coverage/ReportingSystem1@CreatTeams_deletes_teams__ReportingSystem1.coverage" NAME="CreatTeams deletes teams: ReportingSystem1 Coverage Results" MODIFIED="1392953502129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
     <SUITE FILE_PATH="coverage/ReportingSystem1@Run_spec__report_spec___ReportingSystem1.coverage" NAME="Run spec 'report_spec': ReportingSystem1 Coverage Results" MODIFIED="1392786891626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ReportingSystem1" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -64,7 +54,25 @@
       <file leaf-file-name="teams_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1200">
+            <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1200">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="destroy.js.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teams/destroy.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.js.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teams/create.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="38" selection-start="330" selection-end="330" vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="380">
               <folding />
             </state>
           </provider>
@@ -74,6 +82,24 @@
         <entry file="file://$PROJECT_DIR$/app/views/reports/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="5" column="46" selection-start="151" selection-end="151" vertical-scroll-proportion="-3.4482758" vertical-offset="0" max-vertical-offset="320">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_team.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teams/_team.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="31" selection-start="90" selection-end="90" vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -91,34 +117,25 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/teams/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="5" selection-start="118" selection-end="118" vertical-scroll-proportion="-5.5172415" vertical-offset="0" max-vertical-offset="420">
+            <state line="2" column="21" selection-start="67" selection-end="67" vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="420">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_team.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/teams/_team.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="48" selection-start="180" selection-end="184" vertical-scroll-proportion="-2.0689654" vertical-offset="0" max-vertical-offset="220">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_teams_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="create_teams_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/features/create_teams_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="40" selection-start="918" selection-end="918" vertical-scroll-proportion="0.8429319" vertical-offset="378" max-vertical-offset="1020">
+            <state line="18" column="53" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="593" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/teams/update.js.erb">
+      <file leaf-file-name="teams_controller_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="220">
+            <state line="60" column="48" selection-start="1557" selection-end="1557" vertical-scroll-proportion="0.45799458" vertical-offset="1031" max-vertical-offset="1560">
               <folding />
             </state>
           </provider>
@@ -137,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/requests/user_registrations_spec.rb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.haml" />
@@ -152,7 +168,6 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/spec/helpers/teams_helper_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/team_spec.rb" />
-        <option value="$PROJECT_DIR$/app/views/teams/_team.html.erb" />
         <option value="$PROJECT_DIR$/spec/support/database_cleaner.rb" />
         <option value="$PROJECT_DIR$/spec/features/user_registrations_spec.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -163,7 +178,6 @@
         <option value="$PROJECT_DIR$/app/views/users/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/users/edit.html.haml" />
         <option value="$PROJECT_DIR$/spec/factories/teams.rb" />
-        <option value="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
@@ -183,11 +197,14 @@
         <option value="$PROJECT_DIR$/spec/factories/reports.rb" />
         <option value="$PROJECT_DIR$/spec/features/reports_checking_spec.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/teams/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/teams/edit.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/teams/_team.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/teams/create.js.erb" />
         <option value="$PROJECT_DIR$/spec/features/create_teams_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb" />
       </list>
     </option>
   </component>
@@ -200,7 +217,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="764" />
+    <option name="y" value="-4" />
     <option name="width" value="1303" />
     <option name="height" value="773" />
   </component>
@@ -246,6 +263,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,6 +392,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -440,6 +472,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReportingSystem1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -479,7 +533,6 @@
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -500,7 +553,7 @@
       <recent name="$PROJECT_DIR$/spec/features" />
     </key>
   </component>
-  <component name="RunManager" selected="RSpec.Run spec 'create_teams_spec': ReportingSystem1">
+  <component name="RunManager" selected="RSpec.Run spec 'teams_controller_spec': ReportingSystem1">
     <configuration default="false" name="Run spec 'create_teams_spec': ReportingSystem1" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="ReportingSystem1" />
@@ -536,6 +589,78 @@
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <RunnerSettings RunnerId="RubyRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CreatTeams deletes teams: ReportingSystem1" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="ReportingSystem1" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/features/create_teams_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="CreatTeams deletes teams" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="true" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Run spec 'teams_controller_spec': ReportingSystem1" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="ReportingSystem1" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/controllers/teams_controller_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="true" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
@@ -839,7 +964,7 @@
       <SPORK_RUN_CONFIG NAME="SPORK_RUN_CONFIG" VALUE="RSPEC" />
       <method />
     </configuration>
-    <list size="10">
+    <list size="12">
       <item index="0" class="java.lang.String" itemvalue="IRB console.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="RSpec.Reporting System Rspec" />
       <item index="2" class="java.lang.String" itemvalue="RSpec.Rspec all" />
@@ -850,10 +975,14 @@
       <item index="7" class="java.lang.String" itemvalue="Zeus Server.RP1 Preload zeus" />
       <item index="8" class="java.lang.String" itemvalue="Zeus Server.Start Zeus Server: ReportingSystem1" />
       <item index="9" class="java.lang.String" itemvalue="RSpec.Run spec 'create_teams_spec': ReportingSystem1" />
+      <item index="10" class="java.lang.String" itemvalue="RSpec.CreatTeams deletes teams: ReportingSystem1" />
+      <item index="11" class="java.lang.String" itemvalue="RSpec.Run spec 'teams_controller_spec': ReportingSystem1" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.Run spec 'create_teams_spec': ReportingSystem1" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="RSpec.Run spec 'teams_controller_spec': ReportingSystem1" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.Run spec 'create_teams_spec': ReportingSystem1" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.CreatTeams deletes teams: ReportingSystem1" />
       </list>
     </recent_temporary>
   </component>
@@ -913,7 +1042,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="764" width="1303" height="773" extended-state="6" />
+    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -921,7 +1050,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32662538" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31633466" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32191235" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.396875" sideWeight="0.5003984" order="7" side_tool="true" content_ui="tabs" />
@@ -929,12 +1058,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -953,9 +1082,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31075698" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3622291" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3622291" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -980,18 +1109,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/helpers/teams_helper_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140214085044_add_team_id_to_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="419" />
@@ -1055,13 +1172,6 @@
         <state line="2" column="44" selection-start="92" selection-end="92" vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="300" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" vertical-offset="638" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="29" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
@@ -1071,9 +1181,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="900">
-          <folding />
-        </state>
+        <state line="14" column="19" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="900" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140219032458_create_reports.rb">
@@ -1088,9 +1196,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="39" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0" vertical-offset="1351" max-vertical-offset="1960">
-          <folding />
-        </state>
+        <state line="53" column="39" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0" vertical-offset="1351" max-vertical-offset="1960" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/factories/teams.rb">
@@ -1110,9 +1216,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/team_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="260">
-          <folding />
-        </state>
+        <state line="5" column="5" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/report.rb">
@@ -1124,25 +1228,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/authentication_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="286" selection-end="507" vertical-scroll-proportion="-0.10471204" vertical-offset="300" max-vertical-offset="1880">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="286" selection-end="507" vertical-scroll-proportion="-0.10471204" vertical-offset="300" max-vertical-offset="1880" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="7" selection-start="1779" selection-end="2898" vertical-scroll-proportion="0.0" vertical-offset="1198" max-vertical-offset="1580">
-          <folding>
-            <element signature="e#1822#2898#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="108" column="7" selection-start="1779" selection-end="2898" vertical-scroll-proportion="0.0" vertical-offset="1198" max-vertical-offset="1580" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
+        <state line="7" column="24" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
@@ -1154,62 +1250,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/controllers/reports_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="31" selection-start="3204" selection-end="3204" vertical-scroll-proportion="0.0" vertical-offset="2231" max-vertical-offset="2600">
-          <folding />
-        </state>
+        <state line="116" column="31" selection-start="3204" selection-end="3204" vertical-scroll-proportion="0.0" vertical-offset="2231" max-vertical-offset="2600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/report_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="57" selection-start="1038" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="411" max-vertical-offset="780">
-          <folding />
-        </state>
+        <state line="27" column="57" selection-start="1038" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="411" max-vertical-offset="780" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/factories/reports.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
-          <folding />
-        </state>
+        <state line="9" column="21" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/reports_checking_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="19" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="980">
-          <folding>
-            <element signature="e#429#1359#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="59" column="19" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="980" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reports/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="426" selection-end="426" vertical-scroll-proportion="-21.37931" vertical-offset="0" max-vertical-offset="740">
-          <folding>
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1392886179553" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="31" column="19" selection-start="426" selection-end="426" vertical-scroll-proportion="-21.37931" vertical-offset="0" max-vertical-offset="740" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reports_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="47" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teams/create.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="382">
           <folding />
         </state>
       </provider>
@@ -1251,9 +1317,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reports/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="382">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="382" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/capybara/capybara-201402201612274818759959.html">
@@ -1267,28 +1331,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/teams/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="63" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="353">
-          <folding />
-        </state>
+        <state line="0" column="63" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="353" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="30" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0" vertical-offset="511" max-vertical-offset="980">
-          <folding />
-        </state>
+        <state line="42" column="30" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0" vertical-offset="511" max-vertical-offset="980" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teams/_team.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/teams/update.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="48" selection-start="180" selection-end="184" vertical-scroll-proportion="-2.0689654" vertical-offset="0" max-vertical-offset="220">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teams/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="5" selection-start="118" selection-end="118" vertical-scroll-proportion="-5.5172415" vertical-offset="0" max-vertical-offset="420">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="369">
           <folding />
         </state>
       </provider>
@@ -1307,23 +1360,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/teams/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="1200">
+        <state line="7" column="38" selection-start="330" selection-end="330" vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="380">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teams/update.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/teams/destroy.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="369">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="382">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/teams_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teams/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="21" selection-start="67" selection-end="67" vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teams/_team.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="31" selection-start="90" selection-end="90" vertical-scroll-proportion="-1.3793104" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="382">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/features/create_teams_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="40" selection-start="918" selection-end="918" vertical-scroll-proportion="0.8429319" vertical-offset="378" max-vertical-offset="1020">
+        <state line="18" column="53" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/controllers/teams_controller_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="48" selection-start="1557" selection-end="1557" vertical-scroll-proportion="0.45799458" vertical-offset="1031" max-vertical-offset="1560">
           <folding />
         </state>
       </provider>

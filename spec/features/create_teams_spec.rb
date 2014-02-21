@@ -6,14 +6,17 @@ describe "CreatTeams" do
     visit teams_path
     fill_in 'Name', with: 'Random'
     click_button "Save"
+    page.should have_content('Team successfully created')
   end
 
   it "deletes teams",js: true do
     @team = create(:team, :name => "Ruby")
+    count = Team.all.count
     visit teams_path
     within ("##{dom_id(@team)}") do
-      expect {click_link('Delete')}. to change(Team, :count).by(-1)
+      click_link 'Delete'
     end
+    page.should_not have_selector("##{dom_id(@team)}")
   end
 
   it "renames teams",js: true do
@@ -34,13 +37,13 @@ describe "CreatTeams" do
 
     page.should have_selector('#new_team')
     find('#team_name').value.should eq('')
-
-    #click_link("a[href='/teams/#{@team.id}']")
-    #find("#edit_form").should have_selector('form')
-    #fill_in 'Name', with: 'Rename'
-    #click_button "Save"
-    #find("#team_name").value.should eq('')
-    #find('#team'+@team.id.to_s).should have_content('Rename')
-
+  end
+  it 'shows member counts of each team' do
+    team1 = create(:team)
+    user1, user2 = create(:user,team: team1), create(:user,team: team1)
+    visit teams_path
+    within("##{dom_id(team1)}")do
+      page.should have_content(team1.users.count)
+    end
   end
 end
