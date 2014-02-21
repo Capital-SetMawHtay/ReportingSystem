@@ -30,6 +30,7 @@ group :development,:test do
   gem 'zeus', '0.13.4.pre2'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
 end
 gem 'jquery-rails'
 gem 'haml-rails'

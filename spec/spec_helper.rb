@@ -5,6 +5,9 @@ require 'rspec/rails'
 #require 'rspec/autorun'
 require 'capybara/rspec'
 require 'support/database_cleaner'
+require 'capybara/webkit'
+require 'capybara/webkit/matchers'
+Capybara.javascript_driver = :webkit
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -39,5 +42,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
   config.include Capybara::DSL, type: :request
+  config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
 end
 Capybara.default_wait_time = 5
