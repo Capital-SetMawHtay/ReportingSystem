@@ -1,15 +1,10 @@
-require 'spec_helper'
+require_relative '../support/feature_helpers'
 
 describe "Reports Checking" do
   context "When logged in user is admin" do
     before :each do
       create(:user,email: 'admin@gmail.com',password: 'admin',role: 'admin')
-      visit "/users/sign_in"
-
-      fill_in "Email",                 :with => "admin@gmail.com"
-      fill_in "Password",              :with => "admin"
-
-      click_button "Sign in"
+      admin_login
     end
 
     describe 'admin today report checking' do

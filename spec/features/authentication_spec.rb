@@ -1,5 +1,5 @@
-require_relative '../spec_helper'
-
+require_relative '../support/feature_helpers'
+include ActionController::RecordIdentifier
 describe "Authentication" do
   before :each do
     create(:user,email: "admin@gmail.com",password: "admin",role: "admin")
@@ -12,12 +12,7 @@ describe "Authentication" do
     context "when admin is signed in" do
 
       before :each do
-        visit "/users/sign_in"
-
-        fill_in "Email",                 :with => "admin@gmail.com"
-        fill_in "Password",              :with => "admin"
-
-        click_button "Sign in"
+        admin_login
       end
       it "allows admin to add users" do
         visit "/users"
@@ -43,12 +38,14 @@ describe "Authentication" do
         visit '/users'
         page.should have_content('Member List')
         page.should have_selector('.user')
-        find('.user a').should have_content('Edit Profile')
+        within('.user') do
+          page.should have_link('Edit Profile')
+        end
       end
       it "allows admin to edit users" do
         @member = create(:user)
         visit "/users"
-        within('#user'+@member.id.to_s) do
+        within("##{dom_id(@member)}") do
           click_link('Edit Profile')
         end
         page.should have_content("Edit member")

@@ -1,16 +1,11 @@
-require 'spec_helper'
+require_relative '../support/feature_helpers'
 include ActionController::RecordIdentifier
 describe "Member team transfer" do
   before(:each) do
     @team1, @team2 = create(:team,name: 'java'), create(:team,name: 'ruby')
     @user1 = create(:user,team: @team1)
     @admin = create(:user,role: 'admin',email: 'admin@gmail.com',password: 'admin')
-    visit "/users/sign_in"
-
-    fill_in "Email",                 :with => "admin@gmail.com"
-    fill_in "Password",              :with => "admin"
-
-    click_button "Sign in"
+    admin_login
   end
 
   it 'has a team transfer link' do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../support/feature_helpers'
 include ActionController::RecordIdentifier
 
 describe "CreatTeams" do
