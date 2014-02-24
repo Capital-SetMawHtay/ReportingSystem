@@ -1,10 +1,17 @@
 <h1> Member List </h1>
 <% @users.each do |u| %>
-  <div id='<%= "user#{u.id}" %>' class='user'>
-    <%= u.name %>
-    <%= u.team.name %>
+  <div id='<%= dom_id(u) %>' class='user'>
+    <div class="name">
+        <%= u.name %>
+    </div>
+    <div class="team_name">
+      <%= u.team.name %>
+    </div>
     <%= link_to "Edit Profile",edit_user_path(u) %>
+    <a href="#" class="transfer_link">Transfer Team</a>
+    <%= render partial: 'team_transfer_form',locals:{user: u} %>
   </div>
 <%end%>
 
 <%=link_to "New Member",new_user_path%>
+

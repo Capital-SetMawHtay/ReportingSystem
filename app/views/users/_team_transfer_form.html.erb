@@ -1,0 +1,4 @@
+<%= form_for(user,method: :put,html: {class: 'team_transfer_form',remote: true}) do |f|%>
+  <%= f.select(:team_id,Team.all.map{|t|[t.name,t.id]})%>
+  <%= f.submit 'Transfer' %>
+<%end%>

@@ -46,4 +46,5 @@ describe "CreatTeams" do
       page.should have_content(team1.users.count)
     end
   end
+
 end
