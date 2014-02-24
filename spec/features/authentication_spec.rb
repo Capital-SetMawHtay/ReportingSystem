@@ -2,7 +2,6 @@ require_relative '../support/feature_helpers'
 include ActionController::RecordIdentifier
 describe "Authentication" do
   before :each do
-    create(:user,email: "admin@gmail.com",password: "admin",role: "admin")
     create(:user)
     create(:team,name: "Ruby")
   end
@@ -62,6 +61,7 @@ describe "Authentication" do
 
   describe "user sign in" do
     it "allows admin users to sign in" do
+      create(:user,email: 'admin@gmail.com',password: 'admin',role: 'admin')
       visit "/users/sign_in"
 
       fill_in "Email",                 :with => "admin@gmail.com"
@@ -81,6 +81,20 @@ describe "Authentication" do
       click_button "Sign in"
 
       page.should have_content("Invalid email or password")
+    end
+  end
+
+  describe 'user sign out' do
+    before(:each) do
+      admin_login
+    end
+
+    it 'has a sign out link' do
+      page.should have_link "sign out"
+    end
+    it 'allows a logged in user to sign out' do
+      click_link 'sign out'
+      page.should have_content('Signed out successfully.')
     end
   end
 end

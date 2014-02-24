@@ -1,11 +1,4 @@
 <h1>Today Reports</h1>
+<%= render(partial: 'report_generator',locals: {reports: @reports}) unless current_user.admin? %>
 
-<div id="reports">
-   <% @reports.each do |report| %>
-    <div id='<%= "report#{report.id}"%>'>
-        <%= report.user.name %>
-        <%= report.report_date %>
-        <%= link_to "View Detail",report_path(report) %>
-    </div>
-  <% end %>
-</div>
+

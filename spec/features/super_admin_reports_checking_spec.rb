@@ -3,7 +3,6 @@ require_relative '../support/feature_helpers'
 describe "Reports Checking" do
   context "When logged in user is admin" do
     before :each do
-      create(:user,email: 'admin@gmail.com',password: 'admin',role: 'admin')
       admin_login
     end
 
@@ -15,7 +14,7 @@ describe "Reports Checking" do
        end
 
        it 'shows today reports' do
-        page.should have_content('Today Report')
+        page.should have_content('Reports')
         page.should have_selector('#reports')
         within('#reports') do
           page.should have_selector("#report#{@today_report.id}")

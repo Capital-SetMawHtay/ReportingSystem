@@ -30,4 +30,13 @@ describe Report do
 
     end
   end
+
+  describe '#this week' do
+    it 'only return reports by this week' do
+      report1,report2 = create(:report,report_date: Date.today.beginning_of_week),create(:report,report_date: Date.today+1)
+      report3 = create(:report,report_date: Date.today.end_of_week+2)
+      (Report.this_week).should_not include(report3)
+    end
+  end
+
 end

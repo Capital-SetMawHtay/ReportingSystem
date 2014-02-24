@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url,status: 403,notice: "Access Denied"
   end
 
+  def after_sign_in_path_for(resource)
+    reports_path
+  end
+
   def resource_name
     :user
   end

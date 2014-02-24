@@ -8,4 +8,5 @@
   %body
     %p#notice= notice
     %p#alert= alert
+    =link_to('sign out',logout_path(),method: :delete) if current_user
     = yield

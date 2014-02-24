@@ -4,7 +4,6 @@ describe "Member team transfer" do
   before(:each) do
     @team1, @team2 = create(:team,name: 'java'), create(:team,name: 'ruby')
     @user1 = create(:user,team: @team1)
-    @admin = create(:user,role: 'admin',email: 'admin@gmail.com',password: 'admin')
     admin_login
   end
 

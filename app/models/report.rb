@@ -5,6 +5,9 @@ class Report < ActiveRecord::Base
   #====Associations=====
   belongs_to :user
 
+  #=====Scopes=====
+  scope :this_week,lambda{where(:report_date => ((Date.today.beginning_of_week)..(Date.today.end_of_week))) }
+
   #====Logic====
 
   def self.get_by_team(team_name)
@@ -14,4 +17,5 @@ class Report < ActiveRecord::Base
   def self.get_by_date(date)
     where(report_date: date)
   end
+
 end

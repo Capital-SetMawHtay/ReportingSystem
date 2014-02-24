@@ -2,8 +2,10 @@ ReportingSystem1::Application.routes.draw do
 
   resources :reports
 
-
   devise_for :users
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
 
   root :to => "home#index"
 

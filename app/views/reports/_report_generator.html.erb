@@ -1,0 +1,18 @@
+<div id="reports">
+  <% unless reports.empty? %>
+      asd
+      <% reports.each do |report| %>
+          <div id='<%= "report#{report.id}"%>'>
+            <%= report.user.name %>
+            <%= report.report_date %>
+            <%= link_to "View Detail",report_path(report) %>
+          </div>
+      <% end %>
+  <% else %>
+      You have not generated reports for this week yet.
+      <%= form_tag(reports_path) do %>
+         <%= submit_tag 'Generate Now' %>
+      <%end%>
+
+  <%end%>
+</div>
