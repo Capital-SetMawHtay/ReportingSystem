@@ -150,5 +150,16 @@ describe ReportsController do
 
     end
 
+    describe 'PUT#update' do
+      it 'updates attributes correctly' do
+        report1 = create(:report)
+        put :update,id: report1.id,report: {plan: 'new plan',experience: 'new exp'}
+        new_report1=Report.find(report1.id)
+        new_report1.plan.should eq('new plan')
+        new_report1.experience.should eq('new exp')
+      end
+
+    end
+
   end
 end

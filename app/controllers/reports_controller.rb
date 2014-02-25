@@ -39,7 +39,9 @@ class ReportsController < ApplicationController
   end
 
   def update
-
+     @report = Report.find(params[:id])
+     @report.update_attributes(params[:report])
+     redirect_to reports_path,notice: 'Report successfully updated'
   end
 
 end

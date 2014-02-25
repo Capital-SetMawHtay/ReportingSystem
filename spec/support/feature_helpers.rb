@@ -1,7 +1,6 @@
 require 'spec/spec_helper'
 
 def member_login
-  create(:user,email: 'member@gmail.com',password: 'member',role: 'member')
   visit "/users/sign_in"
 
   fill_in "Email",                 :with => "member@gmail.com"
