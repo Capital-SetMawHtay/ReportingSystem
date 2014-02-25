@@ -20,5 +20,16 @@ admin.date_of_birth = Date.today - 500
 admin.save!
 
 5.times do|i|
-  Team.create!(name: "team#{i}")
+  team=Team.create!(name: "team#{i}")
+  user = User.new
+  user.email ="member#{i}@gmail.com"
+  user.name = Faker::Company.name
+  user.password = 'member'
+  user.address = Faker::Address.city
+  user.employee_number = "AW-#{i}"
+  user.phone_number = '1234'
+  user.role = 'member'
+  user.team_id = team.id
+  user.date_of_birth = Date.today - 5000
+  user.save!
 end

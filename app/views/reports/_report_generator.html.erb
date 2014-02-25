@@ -2,7 +2,7 @@
   <% unless reports.empty? %>
       asd
       <% reports.each do |report| %>
-          <div id='<%= "report#{report.id}"%>'>
+          <div id='<%= dom_id(report)%>'>
             <%= report.user.name %>
             <%= report.report_date %>
             <%= link_to "View Detail",report_path(report) %>

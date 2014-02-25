@@ -31,6 +31,7 @@ group :development,:test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'faker'
 end
 gem 'jquery-rails'
 gem 'haml-rails'
