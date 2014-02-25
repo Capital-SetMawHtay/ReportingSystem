@@ -17,6 +17,7 @@ end
 
 module ReportingSystem1
   class Application < Rails::Application
+    Rails.env = ENV['RAILS_ENV'] unless ENV['RAILS_ENV'].blank?
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
