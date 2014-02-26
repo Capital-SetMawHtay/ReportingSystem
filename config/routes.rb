@@ -8,7 +8,7 @@ ReportingSystem1::Application.routes.draw do
   end
 
   root :to => "home#index"
-
+  resources :member_reports
   resources :users
   resources :teams
   # The priority is based upon order of creation:
