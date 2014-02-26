@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     if current_user.admin? then
       @reports = Report.get_by_date(Date.today)
     elsif current_user.member? then
-      @reports = Report.this_week.where(:user_id=> current_user)
+      @reports = Report.this_week.where(:user_id=> current_user).order(:report_date)
     else
       @reports = Report.all
     end
