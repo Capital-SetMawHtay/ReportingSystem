@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(:version => 20140226093847) do
 
   create_table "team_reports", :force => true do |t|
     t.text     "content"
+    t.string   "status"
+    t.date     "report_date"
     t.integer  "team_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "teams", :force => true do |t|
