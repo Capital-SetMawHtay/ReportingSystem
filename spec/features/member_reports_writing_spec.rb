@@ -12,20 +12,20 @@ describe 'Member Report Writing' do
       click_button "Sign in"
     end
     it 'shows this week report page' do
-      visit reports_path
+      visit member_reports_path
       page.should have_selector('#reports')
 
     end
     context 'when this week reports are not generated yet' do
 
       it 'shows generate report button' do
-        visit reports_path
+        visit member_reports_path
         page.should have_content('You have not generated reports for this week yet')
         page.should have_button('Generate Now')
       end
       context 'when generate report button is clicked' do
         before(:each) do
-           visit reports_path
+           visit member_reports_path
            click_button 'Generate Now'
            @first = Date.today.beginning_of_week
            @last = Date.today.beginning_of_week + 4
@@ -53,7 +53,7 @@ describe 'Member Report Writing' do
       end
 
       it 'has links to write report' do
-         visit reports_path
+         visit member_reports_path
          within("##{dom_id(@report2)}") do
             page.should have_link('Edit')
          end
