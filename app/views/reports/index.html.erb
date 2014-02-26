@@ -1,4 +1,13 @@
 <h1>Today Reports</h1>
-<%= render(partial: 'report_generator',locals: {reports: @reports}) %>
+<div id="reports">
+  <% @reports.each do |report| %>
+      <div id='<%= dom_id(report)%>'>
+        <%= report.user.name %>
+        <%= report.report_date %>
+        <%= link_to "View Detail",report_path(report) %>
+        <%= link_to "Edit",edit_report_path(report) %>
+      </div>
+  <% end %>
+</div>
 
 
