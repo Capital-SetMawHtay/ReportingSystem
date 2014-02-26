@@ -1,5 +1,8 @@
 ReportingSystem1::Application.routes.draw do
 
+  resources :team_reports
+
+
   resources :reports
 
   devise_for :users
