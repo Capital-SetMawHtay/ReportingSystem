@@ -17,5 +17,7 @@ workspace.xml
 dbc.xml
 npm-debug.log
 script/startzeus.sh
+.idea
 /.idea/*
+
 
