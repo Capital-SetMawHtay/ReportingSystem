@@ -14,6 +14,10 @@ ReportingSystem1::Application.routes.draw do
   resources :member_reports
   resources :users
   resources :teams
+  resource :team do
+    resources :team_reports
+    resources :member_reports
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

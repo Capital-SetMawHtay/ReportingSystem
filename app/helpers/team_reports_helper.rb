@@ -1,0 +1,2 @@
+module TeamReportsHelper
+end

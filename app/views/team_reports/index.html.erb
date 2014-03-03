@@ -1,0 +1,15 @@
+<div id="team_reports">
+  <%= @team_reports.each do |team_report| %>
+    <div class="date">
+      <%= team_report.report_date %>
+    </div>
+    <div class="status">
+      <%= team_report.status %>
+    </div>
+    <div class="actions">
+      <%= link_to 'View Detail',team_report_path(team_report) %>
+      <%= link_to 'Edit',edit_team_report_path(team_report) %>
+    </div>
+  <% end %>
+</div>
+

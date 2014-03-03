@@ -61,7 +61,7 @@ describe 'Member Report Writing' do
 
       describe 'Writing report' do
         before(:each) do
-          visit reports_path
+          visit member_reports_path
           within("##{dom_id(@report2)}") do
             click_link 'Edit'
           end
