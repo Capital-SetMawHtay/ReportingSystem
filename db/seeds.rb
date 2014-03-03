@@ -32,4 +32,16 @@ admin.save!
   user.team_id = team.id
   user.date_of_birth = Date.today - 5000
   user.save!
+
+  user = User.new
+  user.email ="leader#{i}@gmail.com"
+  user.name = Faker::Company.name
+  user.password = 'leader'
+  user.address = Faker::Address.city
+  user.employee_number = "AW-#{i}"
+  user.phone_number = '1234'
+  user.role = 'leader'
+  user.team_id = team.id
+  user.date_of_birth = Date.today - 5000
+  user.save!
 end
