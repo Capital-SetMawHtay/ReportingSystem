@@ -1,6 +1,6 @@
 Edit Report
 
-<%= form_for(@report,method: :put) do|f| %>
+<%= form_for(@report,url: member_report_path(@report),method: :put) do|f| %>
     <%= f.label :plan %>
     <%= f.text_field :plan, rows: 5 %>
     <%= f.label :experience %>

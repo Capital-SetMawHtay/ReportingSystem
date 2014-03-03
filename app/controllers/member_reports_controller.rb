@@ -34,6 +34,6 @@ class MemberReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     @report.update_attributes(params[:report])
-    redirect_to reports_path,notice: 'Report successfully updated'
+    redirect_to member_reports_path,notice: 'Report successfully updated'
   end
 end
