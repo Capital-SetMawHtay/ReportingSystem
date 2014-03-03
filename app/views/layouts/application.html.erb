@@ -13,7 +13,11 @@
 <p id="alert">
   <%= alert %>
 </p>
-<%= link_to('sign out',logout_path(),method: :delete) if current_user %>
+<% if current_user then %>
+    <%= link_to('sign out',logout_path(),method: :delete) %>
+<% else %>
+    <%= link_to('sign in',new_user_session_path) %>
+<% end %>
 <%= yield %>
 </body>
 </html>
