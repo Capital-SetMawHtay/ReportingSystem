@@ -10,8 +10,10 @@ class Ability
       can :manage,Report do
         Report.this_week.where(:user_id => user.id)
       end
-
-
+    elsif(user.leader?)
+      can [:index,:show,:edit,:update],Report do
+        Report.user.team_id == user.team_id
+      end
     end
 
   end

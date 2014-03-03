@@ -10,7 +10,6 @@ def member_login
 end
 
 def leader_login
-  create(:user,email: 'leader@gmail.com',password: 'leader',role: 'leader')
   visit "/users/sign_in"
 
   fill_in "Email",                 :with => "leader@gmail.com"

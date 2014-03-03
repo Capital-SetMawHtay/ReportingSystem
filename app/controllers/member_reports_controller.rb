@@ -17,7 +17,7 @@ class MemberReportsController < ApplicationController
     first = Date.today.beginning_of_week
     last = Date.today.beginning_of_week+4
     (first..last).each do |date|
-      @reports<<Report.create!(report_date: date,user_id: current_user.id)
+      @reports<<Report.create!(report_date: date,user_id: current_user.id,status: 'pending')
     end
     respond_to do |format|
       format.html do
@@ -35,5 +35,11 @@ class MemberReportsController < ApplicationController
     @report = Report.find(params[:id])
     @report.update_attributes(params[:report])
     redirect_to member_reports_path,notice: 'Report successfully updated'
+  end
+
+  def submit
+    @report = Report.find(params[:id])
+    @report.update_attributes(status: 'submitted')
+    redirect_to member_reports_path
   end
 end

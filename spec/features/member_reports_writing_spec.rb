@@ -39,6 +39,13 @@ describe 'Member Report Writing' do
           end
 
         end
+
+        it 'sets correct status for the generated reports' do
+          generated_report1 = Report.last
+          within("##{dom_id(generated_report1)}")do
+            page.should have_content('pending')
+          end
+        end
       end
 
     end
@@ -89,6 +96,27 @@ describe 'Member Report Writing' do
             click_button 'Write'
           end
           page.should have_content('Report successfully updated')
+        end
+      end
+
+      describe 'Submitting report' do
+        before(:each) do
+          visit member_reports_path
+        end
+
+        it 'has a submit report button' do
+          within("##{dom_id(@report1)}") do
+            page.should have_button('Submit Report')
+          end
+        end
+
+        it'allows to submit report' do
+          within("##{dom_id(@report1)}") do
+            click_button 'Submit Report'
+          end
+          within("##{dom_id(@report1)}") do
+            page.should have_content('submitted')
+          end
         end
       end
     end

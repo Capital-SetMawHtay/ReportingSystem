@@ -4,8 +4,13 @@
           <div id='<%= dom_id(report)%>'>
             <%= report.user.name %>
             <%= report.report_date %>
+            <%= report.status %>
             <%= link_to "View Detail",member_report_path(report) %>
             <%= link_to "Edit",edit_member_report_path(report) %>
+            <%= form_for(report,url: submit_member_report_path(report),method: :put) do |f| %>
+
+               <%= f.submit 'Submit Report' %>
+            <%end %>
           </div>
       <% end %>
   <% else %>

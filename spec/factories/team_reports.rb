@@ -3,6 +3,8 @@
 FactoryGirl.define do
   factory :team_report do
     content "MyText"
-    team_id 1
+    report_date Date.today
+    team
   end
+
 end

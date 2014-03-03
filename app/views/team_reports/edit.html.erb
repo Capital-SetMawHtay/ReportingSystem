@@ -1,0 +1,9 @@
+<h1>Edit Team Report</h1>
+
+<div id='<%= dom_id(@team_report)%>'>
+  <div class="header">
+    <%= @team_report.report_date %>
+    <%= @team_report.team.name %>
+  </div>
+  <%= render 'form' %>
+</div>

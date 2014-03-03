@@ -11,7 +11,11 @@ ReportingSystem1::Application.routes.draw do
   end
 
   root :to => "home#index"
-  resources :member_reports
+  resources :member_reports do
+    member do
+      put :submit
+    end
+  end
   resources :users
   resources :teams
   resource :team do
