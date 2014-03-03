@@ -1,8 +1,5 @@
-<h1>"Edit member"</h1>
-<div class="errors">
-  <%= @user.errors %>
-</div>
-<%= form_for(@user,method: :put) do |f| %>
+<h1>"New member"</h1>
+<%= form_for(@user) do |f| %>
     <div>
       <%= f.label :email %>
       <br/>
@@ -12,6 +9,16 @@
       <%= f.label :name %>
       <br/>
       <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <br/>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation %>
+      <br/>
+      <%= f.password_field :password_confirmation %>
     </div>
     <div>
       <%= f.label :employee_number %>
@@ -35,6 +42,6 @@
       <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
     </div>
     <div>
-      <%= f.submit "Update" %>
+      <%= f.submit "Sign up" %>
     </div>
 <% end %>
