@@ -1,0 +1,28 @@
+<%= form_for @team_report do |f| %>
+    <% if @team_report.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= "#{pluralize(@team_report.errors.count, "error")} prohibited this team_report from being saved:" %>
+          </h2>
+          <ul>
+            <% @team_report.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+    <div class="field">
+      <%= f.label :team_id %>
+      <%= f.number_field :team_id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Save' %>
+    </div>
+<% end %>
+
