@@ -1,0 +1,16 @@
+<h1>Reports</h1>
+<div id="reports">
+<% @reports.each do |report| %>
+    <div id='<%= dom_id(report)%>'>
+      <%= report.user.name %>
+      <%= report.report_date %>
+      <%= report.status %>
+      <%= link_to "View Detail",user_report_path(report.user,report) %>
+      <%= link_to "Edit",edit_user_report_path(report.user,report) %>
+      <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
+
+          <%= f.submit 'Submit Report' %>
+      <%end %>
+    </div>
+<% end %>
+</div>

@@ -10,7 +10,7 @@ describe "Reports Checking" do
        before(:each) do
          @today_report,@yesterday_report = create(:report,report_date: Date.today),create(:report,report_date: Date.today-1)
          @report3 = create(:report,report_date: Date.today)
-         visit '/reports'
+         visit '/admin/reports'
        end
 
        it 'shows today reports' do
@@ -38,7 +38,7 @@ describe "Reports Checking" do
       before(:each) do
         @today_report,@yesterday_report = create(:report,report_date: Date.today),create(:report,report_date: Date.today-1)
         @report3 = create(:report,report_date: Date.today)
-        visit '/reports'
+        visit '/admin/reports'
         within("##{dom_id(@today_report)}") do
           click_link('View Detail')
         end

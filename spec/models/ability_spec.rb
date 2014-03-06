@@ -4,7 +4,7 @@ describe Ability do
     context 'when leader' do
       before(:each) do
         @team = build(:team,name: 'Ruby')
-        @leader = build(id: 1,:user,role: 'leader',team: @team)
+        @leader = build(:user,id: 1,role: 'leader',team: @team)
         @ability = Ability.new(@leader)
       end
       it 'allows to access own reports' do
