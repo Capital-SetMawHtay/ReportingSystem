@@ -3,14 +3,14 @@ class ApplicationController < ActionController::Base
 
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url,status: 403,notice: "Access Denied"
+    redirect_to root_url,status: 403,notice: "Access Denied on #{exception.action} with #{exception.subject.inspect}"
   end
 
   def after_sign_in_path_for(resource)
     case resource.role
-      when 'admin' then reports_path
-      when 'leader'then member_reports_path
-      when 'member'then member_reports_path
+      when 'admin' then teams_path
+      when 'leader'then user_reports_path(resource)
+      when 'member'then user_reports_path(resource)
       else root_url
     end
 

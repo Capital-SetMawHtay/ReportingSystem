@@ -71,12 +71,11 @@ describe UsersController do
   end
   context "When signed in user is non-admin" do
     before(:each) do
-      sign_in(:user,create(:user))
+      sign_in(:user,create(:user,role: 'member'))
     end
     describe "GET #index" do
       it "responds with a 403 unauthorized" do
         get :index
-        expect(response).not_to be_success
         expect(response.status).to eq(403)
       end
     end

@@ -4,28 +4,21 @@ describe 'Member Report Writing' do
   context 'When member is logged in' do
     before(:each) do
       @member=create(:user,email: 'member@gmail.com',password: 'member',role: 'member')
-      visit "/users/sign_in"
-
-      fill_in "Email",                 :with => "member@gmail.com"
-      fill_in "Password",              :with => "member"
-
-      click_button "Sign in"
+      member_login
     end
     it 'shows this week report page' do
-      visit member_reports_path
       page.should have_selector('#reports')
 
     end
     context 'when this week reports are not generated yet' do
 
       it 'shows generate report button' do
-        visit member_reports_path
         page.should have_content('You have not generated reports for this week yet')
         page.should have_button('Generate Now')
       end
       context 'when generate report button is clicked' do
         before(:each) do
-           visit member_reports_path
+           visit user_reports_path(@member)
            click_button 'Generate Now'
            @first = Date.today.beginning_of_week
            @last = Date.today.beginning_of_week + 4
@@ -57,10 +50,10 @@ describe 'Member Report Writing' do
         @report3 = create(:report,report_date: @first+2,user: @member)
         @report4 = create(:report,report_date: @first+3,user: @member)
         @report5 = create(:report,report_date: @first+4,user: @member)
+        visit user_reports_path(@member)
       end
 
       it 'has links to write report' do
-         visit member_reports_path
          within("##{dom_id(@report2)}") do
             page.should have_link('Edit')
          end
@@ -68,7 +61,6 @@ describe 'Member Report Writing' do
 
       describe 'Writing report' do
         before(:each) do
-          visit member_reports_path
           within("##{dom_id(@report2)}") do
             click_link 'Edit'
           end
@@ -101,7 +93,7 @@ describe 'Member Report Writing' do
 
       describe 'Submitting report' do
         before(:each) do
-          visit member_reports_path
+          visit user_reports_path(@member)
         end
 
         it 'has a submit report button' do

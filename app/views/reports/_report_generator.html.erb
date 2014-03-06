@@ -1,0 +1,23 @@
+<div id="reports">
+  <% unless reports.empty? %>
+      <% reports.each do |report| %>
+          <div id='<%= dom_id(report)%>'>
+            <%= report.user.name %>
+            <%= report.report_date %>
+            <%= report.status %>
+            <%= link_to "View Detail",user_report_path(report.user,report) %>
+            <%= link_to "Edit",edit_user_report_path(report.user,report) %>
+            <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
+
+               <%= f.submit 'Submit Report' %>
+            <%end %>
+          </div>
+      <% end %>
+  <% else %>
+      You have not generated reports for this week yet.
+      <%= form_tag(user_reports_path(current_user)) do %>
+         <%= submit_tag 'Generate Now' %>
+      <%end%>
+
+  <%end%>
+</div>

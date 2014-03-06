@@ -1,125 +1,190 @@
 require 'spec_helper'
-
 describe ReportsController do
-  context "When signed in user is admin" do
+  context 'When a member is signed in' do
     before(:each) do
-      sign_in(:user,create(:user,role: "admin"))
+      @team1 = create(:team)
+      @member = create(:user,role: 'member',team: @team1)
+      sign_in(:user,@member)
     end
-    describe "GET #index" do
-      it "responds successfully with an HTTP 200 status code" do
-        get :index
-        expect(response).to be_success
+    describe 'GET#index' do
+      describe 'With Generated Reports' do
+        before(:each) do
+          @other_user = create(:user)
+          @report1, @report2, @report3 = create(:report,user: @member,report_date: Date.today),
+                                        create(:report,user: @other_user ),
+                                        create(:report,user: @member,report_date: Date.today.beginning_of_week-5)
+          @report4 = create(:report,user: @member,report_date: Date.today.beginning_of_week+1)
+        end
+
+        it 'loads correct reports for the member' do
+
+          get :index,{team_id: @team1.id, user_id: @member.id}
+          assigns(:reports).should match_array([@report1,@report4])
+        end
+      end
+
+      describe 'With Reports not yet generated' do
+        it 'does not load any report of  the member' do
+          @report4 = create(:report,user: @member,report_date: Date.today.beginning_of_week-4)
+          get :index,{team_id: @team1.id, user_id: @member.id}
+          assigns(:reports).should match_array([])
+        end
+      end
+
+      it 'reponse with 200 and correct template' do
+        get :index,{team_id: @team1.id, user_id: @member.id}
         expect(response.status).to eq(200)
-      end
+        expect{response}.to render_template('index')
 
-      it "renders the index template" do
-        get :index
-        expect(response).to render_template("index")
-      end
-
-      it "loads all of today reports into @reports" do
-        report1, report2 = create(:report,report_date: Date.today), create(:report,report_date: Date.yesterday)
-        get :index
-
-        expect(assigns(:reports)).to match_array([report1])
-      end
-
-    end
-
-    describe "GET #edit" do
-      before(:each) {@report = create(:report)}
-      it "responds successfully with an HTTP 200 status code" do
-        get :edit,id: @report.id
-        expect(response).to be_success
-        expect(response.status).to eq(200)
-      end
-
-      it "renders the edit template" do
-
-        get :edit,id: @report
-        expect(response).to render_template("edit")
-      end
-
-      it "loads correct report into @report" do
-
-        get :edit,id: @report
-
-        expect(assigns(:report)).to eq(@report)
       end
     end
-    describe "GET #show" do
-      before(:each) {@report = create(:report)}
-      it "responds successfully with an HTTP 200 status code" do
-        get :show,id: @report.id
-        expect(response).to be_success
-        expect(response.status).to eq(200)
+    describe 'POST#create' do
+
+      it "redirects to reports path" do
+        post :create,user_id: @member.id
+        #expect(response).to be_success
+        expect(response.status).to eq(302)
+      end
+      it "create a set of reports for current week" do
+        (Report.this_week.where(user_id: @member.id)).should be_empty
+        post :create,user_id: @member.id
+        (Report.this_week.where(user_id: @member.id)).should_not be_empty
       end
 
-      it "renders the show template" do
+    end
 
-        get :show,id: @report
+    describe 'PUT#update' do
+      it 'updates attributes correctly' do
+        report1 = create(:report,user: @member)
+        put :update,user_id: report1.user.id, id: report1.id,report: {plan: 'new plan',experience: 'new exp'}
+        new_report1=Report.find(report1.id)
+        new_report1.plan.should eq('new plan')
+        new_report1.experience.should eq('new exp')
+      end
+
+    end
+
+    describe 'GET#show' do
+      before(:each) do
+        @report1 = create(:report,user: @member)
+      end
+      it 'assigns correct report into @report' do
+
+        get :show,{user_id: @member.id,id: @report1.id}
+        expect(assigns(:report)).to eq(@report1)
+      end
+
+      it 'renders correct show template' do
+        get :show,{user_id: @member.id,id: @report1.id}
         expect(response).to render_template("show")
       end
 
-      it "loads correct report into @report" do
-
-        get :show,id: @report
-
-        expect(assigns(:report)).to eq(@report)
+      describe 'authorization' do
+        context 'When accessing other member reports' do
+          before(:each) do
+            @report2 = create(:report,user: create(:user, role: 'leader'))
+          end
+          it 'raises CanCan::AccessDenied exception' do
+             get :show,{user_id: @report2.user.id,id: @report2.id}
+              expect(response.status).to eq(403)
+          end
+        end
       end
     end
 
-    describe "GET# new" do
-      it "responds successfully with an HTTP 200 status code" do
-        get :new
-        expect(response).to be_success
-        expect(response.status).to eq(200)
-      end
-      it "renders the show template" do
-
-        get :new
-        expect(response).to render_template("new")
-      end
-    end
   end
 
-  context "When no user is signed in" do
+  context 'When a leader is signed in' do
     before(:each) do
+      @team1 = create(:team,name: 'Ruby')
+      @member = create(:user,role: 'leader',team: @team1)
+      sign_in(:user,@member)
     end
-    describe "GET #index" do
-      it "responds with a 403 unauthorized" do
-        get :index
-        expect(response).not_to be_success
-        expect(response.status).to eq(403)
+    describe 'GET#index' do
+      describe 'With Generated Reports' do
+        before(:each) do
+          @other_user = create(:user)
+          @report1, @report2, @report3 = create(:report,user: @member,report_date: Date.today),
+              create(:report,user: @other_user ),
+              create(:report,user: @member,report_date: Date.today.beginning_of_week-5)
+          @report4 = create(:report,user: @member,report_date: Date.today.beginning_of_week+1)
+        end
+
+        it 'loads correct reports for the member' do
+
+          get :index,{team_id: @team1.id, user_id: @member.id}
+          assigns(:reports).should match_array([@report1,@report4])
+        end
+      end
+
+      describe 'With Reports not yet generated' do
+        it 'does not load any report of  the member' do
+          @report4 = create(:report,user: @member,report_date: Date.today.beginning_of_week-4)
+          get :index,{team_id: @team1.id, user_id: @member.id}
+          assigns(:reports).should match_array([])
+        end
+      end
+
+      it 'reponse with 200 and correct template' do
+        get :index,{team_id: @team1.id, user_id: @member.id}
+        expect(response.status).to eq(200)
+        expect{response}.to render_template('index')
+
       end
     end
-    context "when trying to access a single resource" do
+    describe 'POST#create' do
+
+      it "redirects to reports path" do
+        post :create,user_id: @member.id
+        #expect(response).to be_success
+        expect(response.status).to eq(302)
+      end
+      it "create a set of reports for current week" do
+        (Report.this_week.where(user_id: @member.id)).should be_empty
+        post :create,user_id: @member.id
+        (Report.this_week.where(user_id: @member.id)).should_not be_empty
+      end
+
+    end
+
+    describe 'PUT#update' do
+      it 'updates attributes correctly' do
+        report1 = create(:report,user: @member)
+        put :update,user_id: report1.user.id, id: report1.id,report: {plan: 'new plan',experience: 'new exp'}
+        new_report1=Report.find(report1.id)
+        new_report1.plan.should eq('new plan')
+        new_report1.experience.should eq('new exp')
+      end
+
+    end
+
+    describe 'GET#show' do
       before(:each) do
-        @report = create(:report)
+        @report1 = create(:report,user: @member)
       end
-      describe "GET #update" do
-        it "responds with a 403 unauthorized" do
-          post :update,id: @report.id
-          expect(response).not_to be_success
-          expect(response.status).to eq(403)
-        end
+      it 'assigns correct report into @report' do
+
+        get :show,{user_id: @member.id,id: @report1.id}
+        expect(assigns(:report)).to eq(@report1)
       end
-      describe "GET #show" do
-        it "responds with a 403 unauthorized" do
-          get :show,id: @report.id
-          expect(response).not_to be_success
-          expect(response.status).to eq(403)
-        end
+
+      it 'renders correct show template' do
+        get :show,{user_id: @member.id,id: @report1.id}
+        expect(response).to render_template("show")
       end
-      describe "GET #edit" do
-        it "responds with a 403 unauthorized" do
-          get :edit,id: @report.id
-          expect(response).not_to be_success
-          expect(response.status).to eq(403)
+
+      describe 'authorization' do
+        context 'When accessing other member reports' do
+          before(:each) do
+            @report2 = create(:report,user: create(:user, role: 'leader'))
+          end
+          it 'raises CanCan::AccessDenied exception' do
+            get :show,{user_id: @report2.user.id,id: @report2.id}
+            expect(response.status).to eq(403)
+          end
         end
       end
     end
   end
-
 
 end

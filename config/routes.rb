@@ -1,9 +1,6 @@
 ReportingSystem1::Application.routes.draw do
 
-  resources :team_reports
 
-
-  resources :reports
 
   devise_for :users
   devise_scope :user do
@@ -11,16 +8,19 @@ ReportingSystem1::Application.routes.draw do
   end
 
   root :to => "home#index"
-  resources :member_reports do
-    member do
-      put :submit
-    end
+  namespace :admin do
+    resources :reports
   end
-  resources :users
-  resources :teams
-  resource :team do
+
+  resources :teams do
     resources :team_reports
-    resources :member_reports
+  end
+  resources :users do
+    resources :reports do
+      member do
+        put :submit
+      end
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

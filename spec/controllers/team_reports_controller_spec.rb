@@ -23,41 +23,81 @@ describe TeamReportsController do
   # This should return the minimal set of attributes required to create a valid
   # TeamReport. As you add validations to TeamReport, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "content" => "MyText" } }
+  before(:each) do
+    @team1 = create(:team)
+    @user1 = create(:user, role: 'leader',team: @team1)
+    sign_in(:user,@user1)
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # TeamReportsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+
 
   describe "GET index" do
-    it "assigns all team_reports as @team_reports" do
-      team_report = TeamReport.create! valid_attributes
-      get :index, {}, valid_session
+    it "assigns all team_reports of the team as @team_reports" do
+      team2 = create(:team)
+      team_report1 = create(:team_report,team: team2)
+      team_report = create(:team_report,team: @team1)
+      get :index, {:team_id => @team1.id}
       assigns(:team_reports).should eq([team_report])
+    end
+
+    it 'reponse with 200 and correct template' do
+      get :index,team_id: @team1.id,user_id: @user1.id
+      expect(response.status).to eq(200)
+      expect{response}.to render_template('index')
+
     end
   end
 
   describe "GET show" do
+    before(:each) do
+      @team_report = create(:team_report,team: @team1)
+    end
     it "assigns the requested team_report as @team_report" do
-      team_report = TeamReport.create! valid_attributes
-      get :show, {:id => team_report.to_param}, valid_session
-      assigns(:team_report).should eq(team_report)
+
+      get :show, {:team_id => @team1.id,:id => @team_report.to_param}
+      assigns(:team_report).should eq(@team_report)
+    end
+
+    it {expect(response.status).to eq(200)}
+    it 'render correct template' do
+      get :show, {:team_id => @team1.id,:id => @team_report.to_param}
+      expect{response}.to render_template('show')
     end
   end
 
   describe "GET new" do
     it "assigns a new team_report as @team_report" do
-      get :new, {}, valid_session
+      get :new, {:team_id => @team1.id }
       assigns(:team_report).should be_a_new(TeamReport)
+    end
+    it 'respond with correct status' do
+      get :new, {:team_id => @team1.id}
+      expect(response.status).to eq(200)
+    end
+    it 'render correct template' do
+      get :new, {:team_id => @team1.id}
+      expect{response}.to render_template('new')
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested team_report as @team_report" do
-      team_report = TeamReport.create! valid_attributes
-      get :edit, {:id => team_report.to_param}, valid_session
-      assigns(:team_report).should eq(team_report)
+    before(:each) do
+      @team_report = create(:team_report,team: @team1)
+    end
+    it 'assigns the requested team_report as @team_report' do
+      get :edit, {:team_id => @team1.id, :id => @team_report.to_param}
+      assigns(:team_report).should eq(@team_report)
+      end
+    it 'respond with correct status' do
+      get :edit, {:team_id => @team1.id, :id => @team_report.to_param}
+      expect(response.status).to eq(200)
+    end
+    it 'render correct template' do
+      get :edit, {:team_id => @team1.id,:id => @team_report.to_param}
+      expect{response}.to render_template('edit')
     end
   end
 
@@ -65,19 +105,19 @@ describe TeamReportsController do
     describe "with valid params" do
       it "creates a new TeamReport" do
         expect {
-          post :create, {:team_report => valid_attributes}, valid_session
+          post :create, {:team_id => @team1.id,:team_report => build(:team_report,team: @team1)}
         }.to change(TeamReport, :count).by(1)
       end
 
       it "assigns a newly created team_report as @team_report" do
-        post :create, {:team_report => valid_attributes}, valid_session
+        post :create, {:team_id => @team1.id,:team_report => build(:team_report,team: @team1)}
         assigns(:team_report).should be_a(TeamReport)
         assigns(:team_report).should be_persisted
       end
 
       it "redirects to the created team_report" do
-        post :create, {:team_report => valid_attributes}, valid_session
-        response.should redirect_to(TeamReport.last)
+        post :create, {:team_id => @team1.id,:team_report => build(:team_report,team: @team1)}
+        response.should redirect_to(team_team_report_path(@team1,TeamReport.last))
       end
     end
 
@@ -85,14 +125,14 @@ describe TeamReportsController do
       it "assigns a newly created but unsaved team_report as @team_report" do
         # Trigger the behavior that occurs when invalid params are submitted
         TeamReport.any_instance.stub(:save).and_return(false)
-        post :create, {:team_report => { "content" => "invalid value" }}, valid_session
+        post :create, {:team_id => @team1.id,:team_report => build(:team_report,content: 'invalid',team: @team1)}
         assigns(:team_report).should be_a_new(TeamReport)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         TeamReport.any_instance.stub(:save).and_return(false)
-        post :create, {:team_report => { "content" => "invalid value" }}, valid_session
+        post :create, {:team_id => @team1.id,:team_report => build(:team_report,content: 'invalid',team: @team1)}
         response.should render_template("new")
       end
     end
@@ -100,60 +140,62 @@ describe TeamReportsController do
 
   describe "PUT update" do
     describe "with valid params" do
+      before(:each) do
+        @team_report = create(:team_report,team: @team1)
+      end
       it "updates the requested team_report" do
-        team_report = TeamReport.create! valid_attributes
         # Assuming there are no other team_reports in the database, this
         # specifies that the TeamReport created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         TeamReport.any_instance.should_receive(:update_attributes).with({ "content" => "MyText" })
-        put :update, {:id => team_report.to_param, :team_report => { "content" => "MyText" }}, valid_session
+        put :update, {:team_id => @team1.id,:id => @team_report.id, :team_report => { "content" => "MyText" } }
       end
 
       it "assigns the requested team_report as @team_report" do
-        team_report = TeamReport.create! valid_attributes
-        put :update, {:id => team_report.to_param, :team_report => valid_attributes}, valid_session
-        assigns(:team_report).should eq(team_report)
+        put :update, {:team_id => @team1.id,:id => @team_report.id, :team_report => { "content" => "MyText" } }
+        assigns(:team_report).should eq(@team_report)
       end
 
       it "redirects to the team_report" do
-        team_report = TeamReport.create! valid_attributes
-        put :update, {:id => team_report.to_param, :team_report => valid_attributes}, valid_session
-        response.should redirect_to(team_report)
+        put :update, {:team_id => @team1.id,:id => @team_report.id, :team_report => { "content" => "MyText" } }
+        response.should redirect_to(team_team_report_path(@team1,@team_report))
       end
     end
 
     describe "with invalid params" do
+      before(:each) do
+        @team_report = create(:team_report,team: @team1,content: 'invalid')
+      end
       it "assigns the team_report as @team_report" do
-        team_report = TeamReport.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         TeamReport.any_instance.stub(:save).and_return(false)
-        put :update, {:id => team_report.to_param, :team_report => { "content" => "invalid value" }}, valid_session
-        assigns(:team_report).should eq(team_report)
+        put :update, {:team_id => @team1.id,:id => @team_report.id, :team_report => { "content" => "MyText" } }
+        assigns(:team_report).should eq(@team_report)
       end
 
       it "re-renders the 'edit' template" do
-        team_report = TeamReport.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         TeamReport.any_instance.stub(:save).and_return(false)
-        put :update, {:id => team_report.to_param, :team_report => { "content" => "invalid value" }}, valid_session
+        put :update, {:team_id => @team1.id,:id => @team_report.id, :team_report => { "content" => "MyText" } }
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
+    before(:each) do
+      @team_report = create(:team_report,team: @team1)
+    end
     it "destroys the requested team_report" do
-      team_report = TeamReport.create! valid_attributes
       expect {
-        delete :destroy, {:id => team_report.to_param}, valid_session
+        delete :destroy, {:team_id => @team1.id,:id => @team_report.id}
       }.to change(TeamReport, :count).by(-1)
     end
 
     it "redirects to the team_reports list" do
-      team_report = TeamReport.create! valid_attributes
-      delete :destroy, {:id => team_report.to_param}, valid_session
-      response.should redirect_to(team_reports_url)
+      delete :destroy, {:team_id => @team1.id,:id => @team_report.id}
+      response.should redirect_to(action: :index)
     end
   end
 

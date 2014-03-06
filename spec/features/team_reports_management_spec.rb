@@ -6,7 +6,7 @@ describe 'Team leader Team Reports Management' do
   context 'When team leader is logged in' do
     before(:each) do
       @team1 = create(:team,name: 'ruby')
-      @leader = create(:user,role: 'leader',team: @team1)
+      @leader = create(:user,email: 'leader@gmail.com',password: 'leader',role: 'leader',team: @team1)
       leader_login
     end
     it 'allows to view team reports' do
@@ -15,9 +15,9 @@ describe 'Team leader Team Reports Management' do
     end
 
     it 'shows correct team reports' do
-      r1 = create(:team_report)
-      r2 = create(:team_report)
-      visit team_reports_path
+      r1 = create(:team_report,team: @team1)
+      r2 = create(:team_report,team: @team1)
+      visit team_team_reports_path(@leader.team)
       within('#team_reports') do
         page.should have_content(r1.report_date)
         page.should have_content(r2.report_date)
@@ -26,12 +26,12 @@ describe 'Team leader Team Reports Management' do
 
     describe 'team report detail' do
       before(:each) do
-        @r1 = create(:team_report)
-        @r2 = create(:team_report)
+        @r1 = create(:team_report,team: @team1)
+        @r2 = create(:team_report,team: @team1)
       end
 
       it 'shows team report content' do
-        visit team_reports_path
+        visit team_team_reports_path(@team1)
         within("##{dom_id(@r1)}")do
           click_link 'View Detail'
         end
@@ -43,12 +43,12 @@ describe 'Team leader Team Reports Management' do
     end
     describe 'team report edit' do
       before(:each) do
-        @r1 = create(:team_report)
-        @r2 = create(:team_report)
+        @r1 = create(:team_report,team: @team1)
+        @r2 = create(:team_report,team: @team1)
       end
 
       it 'shows team report content' do
-        visit team_reports_path
+        visit team_team_reports_path(@team1)
         within("##{dom_id(@r1)}")do
           click_link 'Edit'
         end

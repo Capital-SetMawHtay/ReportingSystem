@@ -6,14 +6,19 @@ class Ability
     if(user.admin?)
       can :manage,User
       can :manage,Report
+      can :manage,Team
+      can :manage,TeamReport
     elsif(user.member?)
-      can :manage,Report do
-        Report.this_week.where(:user_id => user.id)
-      end
+      can [:show],User,:id => user.id
+      can :index,Team,:users =>{:id => user.id}
+      can [:index,:create], Report
+      can :manage, Report.where(:user_id => user.id)
     elsif(user.leader?)
-      can [:index,:show,:edit,:update],Report do
-        Report.user.team_id == user.team_id
-      end
+      can [:show],User
+      can :show, Team
+      can :manage,Report,:user => {:team =>{:users => {id: user.id}}}
+      can :manage, TeamReport,:team =>{:users => {:id => user.id}}
+    else
     end
 
   end

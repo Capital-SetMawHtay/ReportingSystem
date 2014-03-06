@@ -1,7 +1,7 @@
 <% if user.leader? then %>
    <div id="leader_reports_navigation">
-     <%= link_to 'Team Reports',team_reports_path %>
-     <%= link_to 'Member Reports', team_member_reports_path(:team_id => current_user.team.id) %>
+     <%= link_to 'Team Reports',team_team_reports_path(user.team) %>
+
    </div>
 <%else %>
 

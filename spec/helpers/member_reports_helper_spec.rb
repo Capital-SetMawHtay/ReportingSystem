@@ -10,6 +10,6 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe MemberReportsHelper do
+describe ReportsHelper do
 
 end
