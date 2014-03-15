@@ -44,4 +44,5 @@ admin.save!
   user.team_id = team.id
   user.date_of_birth = Date.today - 5000
   user.save!
+
 end

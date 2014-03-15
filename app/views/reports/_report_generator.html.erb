@@ -7,10 +7,12 @@
             <%= report.status %>
             <%= link_to "View Detail",user_report_path(report.user,report) %>
             <%= link_to "Edit",edit_user_report_path(report.user,report) %>
-            <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
+            <% if can?(:submit,report) then%>
+                <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
 
-               <%= f.submit 'Submit Report' %>
-            <%end %>
+                   <%= f.submit 'Submit Report' %>
+                <%end %>
+            <% end %>
           </div>
       <% end %>
   <% else %>

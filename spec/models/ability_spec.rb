@@ -12,16 +12,17 @@ describe Ability do
         @ability.should be_able_to(:index,rp1)
       end
 
-      it 'allows to access own team member reports' do
+      it 'allows to update own team member reports' do
         team_member_reports = build(:report,user: build(:user,team: @team))
-        (@ability.can?(:index, team_member_reports)).should be_true
+        (@ability.can?(:update, team_member_reports)).should be_true
       end
 
-      it 'does not allow to access other team members reports' do
-        other_team = build(:team,name: 'Java')
-        rp1 = build(:report,user: build(:user,team: other_team))
-        (@ability.cannot?(:index, rp1)).should be_true
+      it 'does not allow to create others reports' do
+        rp1 = build(:report,user: build(:user,role: 'leader'))
+        (@ability.cannot?(:update, rp1)).should be_true
       end
+
+
     end
 
     context 'when member' do
@@ -35,9 +36,10 @@ describe Ability do
       end
 
 
-      it 'does not allow to access others reports' do
-        rp1 = build(:report,user: build(:user,role: 'leader'))
-        (@ability.cannot?(:index, rp1)).should be_true
+      it 'does not allow to update others reports' do
+        user2 = create(:user,role: 'member')
+        rp1 = build(:report,user: user2)
+        (@ability.cannot?(:update, rp1)).should be_true
       end
     end
 

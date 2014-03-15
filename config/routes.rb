@@ -12,6 +12,12 @@ ReportingSystem1::Application.routes.draw do
     resources :reports
   end
 
+  namespace :leader do
+    resource :team do
+      resources :reports
+    end
+  end
+
   resources :teams do
     resources :team_reports
   end

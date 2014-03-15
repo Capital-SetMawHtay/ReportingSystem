@@ -18,8 +18,11 @@
       <%= f.text_area :content %>
     </div>
     <div class="field">
-      <%= f.label :team_id %>
-      <%= f.number_field :team_id %>
+      <%= f.label :report_date %>
+      <%= f.date_select :report_date %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :team_id,:value => current_user.team_id %>
     </div>
     <div class="actions">
       <%= f.submit 'Save' %>

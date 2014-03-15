@@ -31,11 +31,58 @@ describe Report do
     end
   end
 
+  describe '#today' do
+    it 'only return today reports' do
+      report1,report2 = create(:report,report_date: Date.today),create(:report,report_date: Date.today+1)
+      report3 = create(:report,report_date: Date.today)
+      Report.today.should eq([report1,report3])
+    end
+  end
+
   describe '#this week' do
     it 'only return reports by this week' do
       report1,report2 = create(:report,report_date: Date.today.beginning_of_week),create(:report,report_date: Date.today+1)
       report3 = create(:report,report_date: Date.today.end_of_week+2)
       (Report.this_week).should_not include(report3)
+    end
+  end
+
+  describe '#submitted' do
+    it 'only return reports that has submitted status' do
+      report1, report2 = create(:report,status: 'submitted'), create(:report,status: 'pending')
+      (Report.submitted).should_not include(report2)
+    end
+  end
+
+  describe '#submitted_today' do
+    it 'only returns reports that are submitted and report date is today' do
+      report1,report2 = create(:report,report_date: Date.today,status: 'submitted'),create(:report,report_date: Date.today,status: 'pending')
+      report3 = create(:report,report_date: Date.today.end_of_week+2,status: 'submitted')
+      (Report.submitted_today).should match_array([report1])
+    end
+  end
+
+  describe '#review' do
+    it 'update the status as reviewed' do
+      report1 = create(:report,status: 'submitted')
+
+      report1.update_review({review: 'very good'})
+      (report1.status).should eq('reviewed')
+    end
+  end
+  describe '#reviewed' do
+    it 'only return reports that has reviewed status' do
+      report1, report2 = create(:report,status: 'reviewed'), create(:report,status: 'sumitted')
+      (Report.submitted).should_not include(report2)
+    end
+  end
+  describe '#reviewed_today' do
+    it 'only retrieves report that are reviewed today' do
+    report1 = create(:report,status: 'submitted',report_date: Date.today)
+    report2 = create(:report,status: 'reviewed',report_date: Date.today-1)
+    report3 = create(:report,status: 'reviewed',report_date: Date.today)
+    (Report.reviewed_today).should match_array([report3])
+
     end
   end
 

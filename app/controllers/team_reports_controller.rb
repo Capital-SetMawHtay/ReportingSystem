@@ -1,8 +1,7 @@
 class TeamReportsController < ApplicationController
   # GET /team_reports
   # GET /team_reports.json
-  # People who say it can not be done, should not interrupt those who are doing it.
-  #George Bernhard Shaw
+
   load_and_authorize_resource :team
   load_and_authorize_resource :team_report,:through => :team
 
@@ -46,7 +45,7 @@ class TeamReportsController < ApplicationController
   # POST /team_reports.json
   def create
     #@team_report = TeamReport.new(params[:team_report])
-
+    @team_report.status = 'submitted'
     respond_to do |format|
       if @team_report.save
         format.html { redirect_to team_team_report_path(@team,@team_report), notice: 'Team report was successfully created.' }

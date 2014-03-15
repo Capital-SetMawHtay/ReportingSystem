@@ -9,14 +9,27 @@ class Ability
       can :manage,Team
       can :manage,TeamReport
     elsif(user.member?)
-      can [:show],User,:id => user.id
-      can :index,Team,:users =>{:id => user.id}
-      can [:index,:create], Report
-      can :manage, Report.where(:user_id => user.id)
+      can :read,User
+      can :read,Team
+      can :read, Report
+      can :submit,Report,{:user_id => user.id }
+      cannot :submit,Report,{:status => 'submitted'}
+      can [:edit,:update],Report,{:user_id => user.id}
+      cannot :update,Report do|report|
+        report.user_id != user.id
+      end
+      can :create,Report
     elsif(user.leader?)
-      can [:show],User
-      can :show, Team
-      can :manage,Report,:user => {:team =>{:users => {id: user.id}}}
+      team_id = user.team_id
+      can :read,User
+      can :read, Team
+      can :read,Report
+      can :submit,Report,{:user_id => user.id }
+      cannot :submit,Report,{:status => 'submitted'}
+      can :create,Report,{:user_id => user.id}
+      can :update,Report do|report|
+         report.try(:user).try(:team) == user.team
+      end
       can :manage, TeamReport,:team =>{:users => {:id => user.id}}
     else
     end
