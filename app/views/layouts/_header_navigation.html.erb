@@ -28,7 +28,7 @@
                       <%= link_to teams_path  do %>
                         <i class="fa fa-group tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Your Team"></i>
                       <% end %>
-                      <%= link_to user_reports_path(current_user) do %>
+                      <%= link_to logout_path,method: :delete do %>
                         <i class="fa fa-gears tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Settings"></i>
                       <% end %>
                     </span>

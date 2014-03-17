@@ -1,8 +1,11 @@
 // Place all the styles related to the MemberReports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-  $list_header: #2C3E50;
+@import "foundation/components/alert-boxes";
 
+  $list_header: #2C3E50;
+  $alert-bg: #C0392B;
+  $notice-bg: #27AE60;
   ul.cm-listview{
     list-style: none;
 
@@ -11,3 +14,34 @@
     background-color: $list_header;
     color: whitesmoke;
   }
+
+  @mixin cm-base-alert{
+    width: 100%;
+    text-align: center;
+  }
+
+.cm-alert {
+  @include alert-base;
+  @include alert-style($alert-bg);
+  @include cm-base-alert;
+
+}
+
+.cm-notice {
+  @include alert-base;
+  @include alert-style($notice-bg);
+  @include cm-base-alert;
+
+}
+
+.cm-bigger{
+  font-size: 5em;
+}
+
+ul.cm-home-ads{
+  text-align: center;
+  font-size: 2em;
+  color: ghostwhite;
+  background-color: #333333;
+  padding: 10px;
+}

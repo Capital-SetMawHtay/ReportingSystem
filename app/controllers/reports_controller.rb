@@ -40,7 +40,7 @@ class ReportsController < ApplicationController
   def submit
     @report = Report.find(params[:id])
     @report.update_attributes(status: 'submitted')
-    redirect_to user_reports_path(@report.user)
+    redirect_to user_reports_path(@report.user),notice: 'Report successfully submitted'
   end
 
 end

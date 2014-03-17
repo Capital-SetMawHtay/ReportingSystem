@@ -1,6 +1,6 @@
 
-
-      <div class="row tmgt-view-report-page">
+   <ul class="cm-listview">
+      <li class="row tmgt-view-report-page cm-listheader">
           <div class="large-3 columns tmgt-container">
             Date
           </div>
@@ -10,10 +10,10 @@
           <div class="large-5 columns tmgt-container">
             Actions
           </div>
-      </div> <!-- eo rows -->
+      </li> <!-- eo rows -->
 <% unless reports.empty? %>
   <% reports.each do |report| %>
-      <div id='<%= dom_id(report)%>'  class="row tmgt-view-report-page">
+      <li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page">
         <div class="large-3 columns tmgt-container">
           <%= report.report_date %>
         </div>
@@ -42,13 +42,13 @@
 
           </div>
         </div>
-      </div>
+      </li>
   <% end %>
 <% else %>
   You have not generated reports for this week yet.
   <%= form_tag(user_reports_path(current_user)) do %>
-      <%= submit_tag 'Generate Now' %>
+      <%= submit_tag 'Generate Now',class: 'button radius' %>
   <%end%>
 
 <%end%>
-
+</ul>
