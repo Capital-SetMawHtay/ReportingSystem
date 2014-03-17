@@ -1,3 +1,13 @@
 // Place all the styles related to the MemberReports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+  $list_header: #2C3E50;
+
+  ul.cm-listview{
+    list-style: none;
+
+  }
+  li.cm-listheader div{
+    background-color: $list_header;
+    color: whitesmoke;
+  }

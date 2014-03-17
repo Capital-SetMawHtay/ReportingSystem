@@ -1,13 +1,37 @@
 Edit Report
 
 <%= form_for([@report.user,@report],method: :put) do|f| %>
-    <%= f.label :plan %>
-    <%= f.text_field :plan, rows: 5 %>
-    <%= f.label :experience %>
-    <%= f.text_field :experience, rows: 5 %>
-    <%= f.label :problem %>
-    <%= f.text_field :problem, rows: 5 %>
-    <%= f.label :solution %>
-    <%= f.text_field :solution, rows: 5 %>
-    <%= f.submit 'Write'%>
+    <!-- Form url  -->
+      <div class="large-6 columns">
+        <section class="tmgt-report-detail-container-budge">
+          <header class="tmgt-plan">Plan</header>
+          <%= f.text_area :plan %>
+          <!--<textarea name="plan" id="" cols="30" rows="10"></textarea>-->
+        </section>
+      </div>
+      <div class="large-6 columns">
+        <section class="tmgt-report-detail-container-budge">
+          <header class="tmgt-problem">Problems</header>
+          <%= f.text_area :problem,class: 'tmgt-container-textarea'%>
+          <!--<textarea name="problem" id="" cols="30" rows="10"></textarea>-->
+        </section>
+      </div>
+      <div class="large-6 columns">
+        <section class="tmgt-report-detail-container-budge">
+          <header class="tmgt-exp">Experience</header>
+          <!--<textarea name="experience" id="" cols="30" rows="10"></textarea>-->
+          <%= f.text_area :experience %>
+        </section>
+      </div>
+      <div class="large-6 columns">
+        <section class="tmgt-report-detail-container-budge">
+          <header class="tmgt-solution">Solution</header>
+          <%= f.text_area :solution%>
+          <!--<textarea name="solution" id="" cols="30" rows="10"></textarea>-->
+        </section>
+      </div>
+      <div class="large-12 tmgt-right-btn-group">
+        <%= f.submit 'Write and Preview',class: 'button radius'%>
+      </div>
+    <!-- eo form -->
 <% end %>

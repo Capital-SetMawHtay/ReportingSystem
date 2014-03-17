@@ -1,19 +1,46 @@
 <h1> Member List </h1>
-<% @users.each do |u| %>
-  <div id='<%= dom_id(u) %>' class='user'>
-    <div class="name">
-        <%= u.name %>
-    </div>
-    <div class="team_name">
-      <%= u.team.name %>
-    </div>
-    <% if can? :edit,u then%>
-        <%= link_to "Edit Profile",edit_user_path(u) %>
-        <a href="#" class="transfer_link">Transfer Team</a>
-        <%= render partial: 'team_transfer_form',locals:{user: u} %>
-    <% end %>
+<ul class="cm-listview">
+
+<li class="row tmgt-view-report-page cm-listheader">
+  <div class="large-3 columns tmgt-container">
+    Date
   </div>
+  <div class="large-3 columns tmgt-container">
+    Status
+  </div>
+  <div class="large-5 columns tmgt-container">
+    Actions
+  </div>
+</li> <!-- eo rows -->
+  <% @users.each do |u| %>
+    <li id='<%= dom_id(u) %>' class='row tmgt-view-report-page'>
+
+      <div class="large-3 columns tmgt-container">
+        <%= u.name %>
+      </div>
+
+      <div class="large-3 columns tmgt-container">
+        <%= u.team.name %>
+      </div>
+
+
+      <div class="large-5 columns tmgt-container">
+        <% if can? :edit,u then%>
+            <div class="row">
+                <div class="large-6 columns">
+                  <%= link_to "Edit Profile",edit_user_path(u) %>
+                </div>
+                <div class="large-6 columns">
+                  <a href="#" class="transfer_link">Transfer Team</a>
+                  <%= render partial: 'team_transfer_form',locals:{user: u} %>
+                </div>
+             </div>
+
+        <% end %>
+      </div>
+    </li>
+
+
 <%end%>
-
+</ul>
 <%=link_to "New Member",new_user_path%>
-

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<%= render partial: 'layouts/header_navigation' %>
+<p id="notice">
+  <%= notice %>
+</p>
+<p id="alert">
+  <%= alert %>
+</p>
+<% if current_user then %>
+    <%= link_to('sign out',logout_path(),method: :delete) %>
+<% else %>
+    <%= link_to('sign in',new_user_session_path) %>
+<% end %>
+
+
+<!-- Body -->
+<section class="main-section" id="main-section">
+  <div class="row hack-row">
+    <div class="large-12 columns">
+      <div class="row">
+        <div class="large-3 columns tmgt-off-canvas-parent-before" id="tmgt-off-canvas-parent">
+          <section id="tmgt-container-off-canvas-menu">
+            <ul>
+              <li>Write Report</li>
+              <li>View Report</li>
+            </ul>
+            <h4>Notifications</h4>
+          </section> <!-- eo tmgt-container-off-canvas-menu -->
+        </div> <!-- eo tmgt-off-canvas-parent-before -->
+        <div class="large-12 columns main-process-before" id="main-process">
+          <div class="rows">
+            <%= yield %>
+          </div><!-- eo rows -->
+        </div> <!-- eo large-12columns -->
+      </div>  <!-- eo rows -->
+    </div> <!-- eo large-12columns -->
+  </div>  <!-- eo row hack-row -->
+</section>  <!-- eo main-section -->
+<%= javascript_include_tag "application" %>
+</body>
+</html>

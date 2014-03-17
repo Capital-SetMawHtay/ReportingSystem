@@ -1,3 +1,497 @@
 // Place all the styles related to the Reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/**
+	* By the use of the foundation offcanvs menu , some of the foundation must be hacked.
+	* -- Override --  means this override foundation built in style
+	* this style is written with the laws of smacc
+	* my moudles are prefix with tmgt (Definition - Team Management ) without prefix with html element and also avoid id selector because it will be inherited from the other class.
+*/
+
+
+@import 'mixin';
+
+// variable
+$bodyBg 		: #f0f0f0;
+$font   		: Raleway,sans-serif;
+$problem-color  : #c0392b;
+$plan-color		: #1ca6ff;
+$exp-color		: #2c3e50;
+$solut-color	: #27ae60;
+$background 	: #6f7b82;
+$submit-color 	: #e67e22;
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src:  local('?'),url('../fonts/Raleway-Medium.otf') format('otf'), url('../fonts/Raleway-Regular.ttf') format('truetype');
+}
+
+
+
+// foundations framework hack
+.tab-bar {
+  background: $background; //-- Override --
+}
+
+.tab-bar-section h1 {
+  position: absolute;
+  font-weight: normal;
+}
+// end of foundations framework hack
+
+
+/* TODO: breaks the categories into a single file  according to the rules */
+/* Base */
+*,h1,h2,h3,h4,h5,h6,p,div,section {
+  font-family: $font;
+}
+body {
+  background: $bodyBg;
+  font-family: $font;
+}
+
+/* end of Base */
+
+/* Layout */
+
+// minor layout
+section.tab-bar-section  {
+  i {
+    font-size: 2em;
+    margin: 10px 30px 0px 0px;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 40px; // solve the overflow problems when hovered on index page
+    }
+  }
+  i:hover {
+    color: #aac6d1;
+  }
+}
+
+// foundation's row has max-width 100px by default so hack for a little bit to full screen width
+.hack-row {
+  min-width: 100% !important;
+}
+
+// major layout
+aside#off-canvas-menu {
+  color: #fff;
+  ul {
+    margin-top: 30px; // make room for offcanvas btn
+    margin-left: 0px;
+    li {
+      list-style-type: none;
+      padding: 15px 0px 15px 10px;
+      border-bottom: 1px solid #222;
+      &::first-child {
+        borderr-top: 1px solid #222;
+      }
+      &::hover {
+        background: rgba(0,0,0,.6);
+      }
+    }
+  }
+}
+
+div#main-process {
+  overflow: hidden;
+  @include transition(all,ease-in-out,.5s);
+}
+
+.main-process-after {
+  left: 350px;
+}
+.main-process-before {
+  left: 0px;
+}
+
+div#tmgt-off-canvas-parent {
+  position: absolute;
+  @include transition(all,ease-in-out,.5s);
+}
+
+/* state behavior of tmgt-off-canvas-parent before clicking the canvas btn*/
+div.tmgt-off-canvas-parent-before {
+  left: -350px;
+  position: absolute;
+}
+
+.tmgt-off-canvas-parent-after {
+  left: 0px;
+  opacity: 1;
+}
+
+section#tmgt-container-off-canvas-menu {
+  @extend %tmgt-container;
+  border-radius: 2px;
+  min-height: 500px;
+  padding: 20px;
+  ul {
+    margin-left: 0;
+    @extend .tmgt-container-member-btn-group;
+    li {
+      border: 1px solid rgba(33,33,33,.2);
+      &:hover {
+        border {
+          top: 0px solid rgba(0,0,0,0);
+          left: 0px solid rgba(0,0,0,0);
+        }
+      }
+    }
+  }
+}
+
+section#main-section {
+  overflow: hidden;
+  margin-top: 10px;
+  height: 100%;
+  display: block;
+}
+/* end of layout*/
+
+
+
+/* Module reusable component */
+
+// Most of the container and positioning element will share this common style
+%tmgt-container,.tmgt-container {
+  @include tmgt-boxshadow();
+  background: #fff;
+}
+.tmgt-container-textarea {
+  @extend %tmgt-container;
+}
+.tmgt-input {
+
+}
+.tmgt-budge {
+
+}
+.tmgt-btn {
+
+}
+.tmgt-container-section {
+  @extend %tmgt-container;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+/* tmgt chat box, chat box is only available in chat box page */
+.tmgt-chat-box {
+  // TODO: this is just a simple testing approach, make better implementation after discussing
+  height: 300px;
+  // common features
+  .profile-pic {
+    img {
+      padding: 2px;
+      border: 1px solid #ccc;
+      width: 64px;
+      height: 64px;
+    }
+    float: left;
+  }
+  .msg {
+    padding: 10px 20px;
+    border-radius: 5px;
+    float: left;
+    position: absolute;
+    max-width: 500px;
+    line-height: 20px;
+
+  }
+  .user-chat , .member-chat {
+    position: relative;
+  }
+  .user-chat {
+    .msg {
+      background: rgba(51,51,51,.8);
+      color: #ccc;
+
+      top: 20px;
+      left: 80px;
+      &::before {
+        right:-23px;
+        top: 25%;
+        border-left: 10px solid #aaa;
+      }
+    }
+  }
+  .member-chat {
+    float: right;
+    .profile-pic {
+      float: right;
+    }
+    .msg {
+      max-width: 500px;
+      line-height: 20px;
+      bottom: 20px;
+      right: 80px;
+      float: left;
+      background: rgba(204,204,204,.8);
+      color: #333;
+    }
+  }
+  .clear {
+    clear: both;
+  }
+
+  /*
+  span {
+      display: inline-block;
+      div.profile-pic {
+          font-weight: normal;
+          text-align: center;
+          float: left;
+          img {
+              width: 64px;
+              height: 64px;
+              border-radius: 50%;
+
+          }
+      }
+      .chat-msg {
+          padding: 0;
+          margin: 0;
+      }
+      p {
+          position: relative;
+          background-color: #444;
+          background-image: -moz-linear-gradient(top,#444,#444);
+          color: #ccc;
+          padding: 10px;
+          margin: 0 10px 0px 0px !important;
+          border-radius: 3px;
+          @include tmgt-boxshadow-mixin(0,0,20px,0,#999);
+          margin: 25px;
+          min-height: 50px;
+          border: 1px solid #333;
+          text-shadow: 0 0 1px #000;
+          -webkit-text-shadow: 0 0 1px #000;
+          -moz-text-shadow: 0 0 1px #000;
+          -o-text-shadow: 0 0 1px #000;
+      }
+      p::before {
+          content: "";
+          width: 0px;
+          height: 0px;
+          border: 0.8em solid transparent;
+          position: absolute;
+      }
+  }
+  span.user {
+      p {
+          border-radius: 5px;
+          margin-bottom: 10px;
+          &::before {
+              left: -23px;
+              top: 25%;
+              border-right: 10px solid #333;
+          }
+      }
+  }
+  span.member {
+      background: #ccc;
+      border-color: #999;
+      color: #333;
+      text-shadow: 0 0 1px #aaa;
+      -webkit-text-shadow: 0 0 1px #111;
+      -moz-text-shadow: 0 0 1px #111;
+      -o-text-shadow: 0 0 1px #111;
+      &::before {
+          right:-23px;
+          top: 25%;
+          border-left: 10px solid #aaa;
+      }
+      em {
+          color: #f3cdef
+      }
+  }
+  */
+}
+
+/* this container is only used for positioning it dun have drop shadow and background*/
+.tmgt-position-container {
+
+}
+
+.tmgt-chat-control {
+  .tmgt-btn-red {
+    margin-top: 30px;
+  }
+}
+
+.tmgt-container-member-btn-group {
+  li {
+    @extend %tmgt-container;
+    border-radius: 5px;
+    color: #222;
+    margin-bottom: 15px;
+    list-style-type: none;
+    padding: 15px 0px 15px 10px;
+    cursor: pointer;
+    @include transition(all,ease-in,0.3s);
+    &:hover {
+      @include tmgt-hover-boxshadow();
+      @include tmgt-text-shadow();
+    }
+  }
+}
+
+.tmgt-btn-red {
+  background: #f3686b;
+  padding: 10px 30px;
+  border: 1px solid #e57e25;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  @include transition(background,ease-out,0.2s);
+  &:hover {
+    background: #f13a3e;
+  }
+}
+
+.tmgt-btn-budge-style1 {
+  @include tmgt-boxshadow-mixin(-5px,2px,5px,0px,rgba(111,112,127,.55));
+  max-width: 220px;
+  margin: 0px 15px 20px 0px;
+  padding: 15px;
+  position: relative;
+  border-right: 25px solid rgba(0,0,0,0);
+  border-top: 25px solid $background;
+  border-bottom: 25px solid $background;
+  display: block;
+  margin-bottom: 20px;
+  padding: 0px;
+  h5 {
+    position: absolute;
+    font-weight: normal;
+    font-size: 16px;
+    top: -13px;
+    padding-left: 8px;
+    color: #FFF;
+  }
+}
+
+.tmgt-container-back-btn {
+  @extend %tmgt-container;
+  max-width: 200px;
+  padding: 16px 0px;
+  text-align: center;
+  background: #3498db;
+  @include transition(all,ease-out,0.3s);
+  color: #eee;
+  &:hover {
+    background-color: #d35400;
+    color: #fff;
+  }
+}
+
+.tmgt-report-detail-container-budge {
+  header {
+    @extend %tmgt-container;
+    max-width: 120px;
+    margin: 10px;
+    border-radius: 2px;
+    text-align: center;
+    padding: 10px;
+  }
+  textarea {
+    @extend %tmgt-container;
+    min-height: 180px;
+  }
+}
+.tmgt-right-btn-group {
+  text-align: right;
+}
+
+.tmgt-containner-leader-review {
+  display: block;
+  @extend %tmgt-container;
+  min-height: 190px;
+  textarea {
+    margin-top: 5px;
+  }
+  button {
+    margin-top: 75px;
+  }
+  span {
+    color: #EEE;
+    @extend %tmgt-container;
+    border: 1px solid #7e7e7e;
+    height: 180px;
+    background: #db4342;
+    display: block;
+    padding: 85px 20px 0px 25px;
+    margin-top: 5px;
+  }
+}
+
+header.tmgt-plan, header.tmgt-problem, header.tmgt-exp, header.tmgt-solution {
+  color: #FFF;
+}
+
+header.tmgt-plan {
+  background: $plan-color;
+}
+header.tmgt-problem {
+  background: $problem-color;
+}
+header.tmgt-exp {
+  background: $exp-color;
+}
+header.tmgt-solution {
+  background: $solut-color;
+}
+
+// this will append to the notification specified area when notifcation event is triggered . FYI: control by jquery
+.tmgt-notification-budge {
+  // this is before state
+  border-radius: 50%; // create rounded corner
+  background: $problem-color; // notification budge color will be used problem color which is red
+  position: absolute;
+  z-index: 1000; // must be situated on top of every element
+  width: 20px;
+  height: 20px; // specified with and height
+  font-size: 12px;
+  @include transition(all,ease-in-out,.2s);
+  text-align: center;
+  padding-top: 1px;
+  top: 15px;
+  opacity: 0;
+  border: 1px solid #fff;
+}
+.tmgt-notification-budge-after {
+  opacity: 1;
+  top: 5px;
+}
+
+// view report page
+.tmgt-view-report-page {
+  & > div {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 0px 10px;
+  }
+}
+
+/* end of module */
+
+
+/* State */
+#off-canvas-btn:hover #tmgt-off-canvas-parent{
+  left: 0;
+}
+/* end of State */
+
+/* Theme */
+
+/* end of Theme */
+
+
+

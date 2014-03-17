@@ -1,25 +1,54 @@
-<div id="reports">
-  <% unless reports.empty? %>
-      <% reports.each do |report| %>
-          <div id='<%= dom_id(report)%>'>
-            <%= report.user.name %>
-            <%= report.report_date %>
-            <%= report.status %>
-            <%= link_to "View Detail",user_report_path(report.user,report) %>
-            <%= link_to "Edit",edit_user_report_path(report.user,report) %>
-            <% if can?(:submit,report) then%>
-                <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
 
-                   <%= f.submit 'Submit Report' %>
-                <%end %>
-            <% end %>
+
+      <div class="row tmgt-view-report-page">
+          <div class="large-3 columns tmgt-container">
+            Date
           </div>
-      <% end %>
-  <% else %>
-      You have not generated reports for this week yet.
-      <%= form_tag(user_reports_path(current_user)) do %>
-         <%= submit_tag 'Generate Now' %>
-      <%end%>
+          <div class="large-3 columns tmgt-container">
+            Status
+          </div>
+          <div class="large-5 columns tmgt-container">
+            Actions
+          </div>
+      </div> <!-- eo rows -->
+<% unless reports.empty? %>
+  <% reports.each do |report| %>
+      <div id='<%= dom_id(report)%>'  class="row tmgt-view-report-page">
+        <div class="large-3 columns tmgt-container">
+          <%= report.report_date %>
+        </div>
+        <div class="large-3 columns tmgt-container">
+          <%= report.status %>
+        </div>
+        <div class="large-5 columns tmgt-container">
+          <div class="row">
+              <div class="large-4 columns">
 
+                <%= link_to "View Detail",user_report_path(report.user,report) %>
+              </div>
+            <div class="large-4 columns">
+
+              <%= link_to "Edit",edit_user_report_path(report.user,report) %>
+            </div>
+            <div class="large-4 columns">
+              <% if can?(:submit,report) then%>
+                  <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put) do |f| %>
+
+                      <%= f.submit 'Submit Report' %>
+                  <%end %>
+              <% end %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% else %>
+  You have not generated reports for this week yet.
+  <%= form_tag(user_reports_path(current_user)) do %>
+      <%= submit_tag 'Generate Now' %>
   <%end%>
-</div>
+
+<%end%>
+

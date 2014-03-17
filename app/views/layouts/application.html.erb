@@ -1,23 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-  <title>ReportingSystem1</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p id="notice">
-  <%= notice %>
-</p>
-<p id="alert">
-  <%= alert %>
-</p>
-<% if current_user then %>
-    <%= link_to('sign out',logout_path(),method: :delete) %>
-<% else %>
-    <%= link_to('sign in',new_user_session_path) %>
-<% end %>
-<%= yield %>
-</body>
-</html>
+    <% if current_user %>
+        <% if current_user.admin? %>
+            <%= render partial: 'layouts/admin' %>
+        <% elsif current_user.leader? %>
+            <%= render partial: 'layouts/leader' %>
+        <% else current_user.member? %>
+            <%= render partial: 'layouts/member' %>
+        <% end %>
+    <% else %>
+        <%= render partial: 'layouts/default' %>
+    <% end %>
