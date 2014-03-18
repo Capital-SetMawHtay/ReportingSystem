@@ -18,8 +18,8 @@
                       <%= link_to user_reports_path(current_user) do %>
                         <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Write Report"></i>
                       <% end %>
-                      <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o",'data-tooltip' => '', 'data-options' => "disable_for_touch:true" ,:title => "Chat Message") %>
-                      <%= link_to users_path do %>
+                      <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o",'data-tooltip' => '', 'data-options' => "disable_for_touch:true" ,:title => "Chat Message"),users_path %>
+                      <%= link_to '/chat' do %>
                          <i class="fa fa-comments tip-bottom radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"></i>
                       <% end %>
                       <%= link_to user_reports_path(current_user) do %>

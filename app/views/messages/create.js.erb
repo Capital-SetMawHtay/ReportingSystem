@@ -1,0 +1,10 @@
+<% @users.each do|user| %>
+<% publish_to "/messages/#{user.id}" do %>
+$("#<%= dom_id(@message.channel)%> .messages").append("<%= j render(@message) %>");
+<%end%>
+<% end %>
+
+<% publish_to "/messages/test" do %>
+
+<% end %>
+$("#new_message")[0].reset();

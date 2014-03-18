@@ -14,8 +14,9 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @group = Group.new(params[:group])
-    @group.users<<current_user
+    @group.users<<@user
     @group.save
     respond_to do |format|
       format.html
@@ -30,13 +31,5 @@ class GroupsController < ApplicationController
       format.js
     end
   end
-  def update_users
-    @group = Group.find(params[:id])
-    user_list = params[:user_ids]
-    @group.update_attributes({:user_list => user_list.to_sentence(words_connector: ',',last_word_connector: ',',two_words_connector: ',')})
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+
 end

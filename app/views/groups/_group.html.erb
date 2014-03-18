@@ -1,10 +1,7 @@
 <div id='<%= dom_id(group)%>'>
-  <li class='name'>
-
-    <%= group.name %>
-
+  <li class='use_group' data-gid="<%=group.id%>">
+    <span class="name">
+       <%= group.name %>
+    </span>
   </li>
-  <%= link_to 'add users',edit_group_path()
-
-
 </div>

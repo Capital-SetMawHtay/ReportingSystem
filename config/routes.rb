@@ -27,8 +27,9 @@ ReportingSystem1::Application.routes.draw do
         put :submit
       end
     end
+
+    resources :groups
   end
-  resources :groups
   resources :messages
 
   get '/chat'=>'chat#index'
