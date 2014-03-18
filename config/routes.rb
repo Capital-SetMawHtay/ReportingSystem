@@ -30,6 +30,7 @@ ReportingSystem1::Application.routes.draw do
 
     resources :groups
   end
+  resources :subscriptions
   resources :messages
 
   get '/chat'=>'chat#index'
