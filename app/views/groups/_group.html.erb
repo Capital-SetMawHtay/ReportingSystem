@@ -1,3 +1,10 @@
 <div id='<%= dom_id(group)%>'>
-  <li class='name'><%= group.name %></li>
+  <li class='name'>
+
+    <%= group.name %>
+
+  </li>
+  <%= link_to 'add users',edit_group_path()
+
+
 </div>
