@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
   #===Associations====
   belongs_to :team
   has_many :reports
-
+  has_many :messages
+  has_many :subscriptions
+  has_many :groups, through: :subscriptions
   #======Scopes========
 
   scope :non_admin, lambda {where("role != 'admin'")}

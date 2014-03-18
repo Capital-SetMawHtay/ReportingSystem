@@ -1,0 +1,104 @@
+<div class="large-9 columns" >
+  <h4>Ruby Team</h4>
+  <section class="tmgt-container-section">
+    <div class="tmgt-chat-box" id="custom-scrollbar">
+      <div class="user-chat">
+        <div class="profile-pic">
+          <em>woo:</em><br>
+          <img src="img/1.jpg" alt="" width="100%">
+        </div>  <!-- eo user profile pic -->
+        <div class="msg">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, voluptate, adipisci illum officiis reiciendis harum assumenda esse commodi fuga at nulla necessitatibus! Odio iure quisquam suscipit vel architecto molestias ipsam. lorem
+        </div> <!-- eo user msg -->
+        <div class="clear"></div>
+      </div>  <!-- eo user-chat -->
+
+      <div class="member-chat">
+        <div class="profile-pic">
+          <em>woo:</em><br>
+          <img src="img/1.jpg" alt="" width="100%">
+        </div>  <!-- eo member profile pic -->
+        <div class="msg">
+          lorem
+        </div>  <!-- eo member msg -->
+        <div class="clear"></div>
+      </div>  <!-- eo member-chat -->
+
+      <div class="clear"></div>
+
+      <div class="user-chat">
+        <div class="profile-pic">
+          <em>woo:</em><br>
+          <img src="img/1.jpg" alt="" width="100%">
+        </div>  <!-- eo user profile pic -->
+        <div class="msg">
+          hi
+        </div> <!-- eo user msg -->
+        <div class="clear"></div>
+      </div>  <!-- eo user-chat -->
+
+      <div class="member-chat">
+        <div class="profile-pic">
+          <em>woo:</em><br>
+          <img src="img/1.jpg" alt="" width="100%">
+        </div>  <!-- eo member profile pic -->
+        <div class="msg">
+          lorem
+        </div>  <!-- eo member msg -->
+        <div class="clear"></div>
+      </div>  <!-- eo member-chat -->
+
+      <div class="clear"></div>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>  <!-- eo tmgt-chat-box #custom-scrollbar -->
+
+  </section>  <!-- eo tmgt-container-section -->
+
+  <section class="tmgt-positioning-container">
+    <div class="row tmgt-chat-control">
+      <%= form_for Message.new,remote: true do |f|%>
+      <div class="large-9 columns">
+          <%= f.text_area :content,cols: '30',rows: '5',class: 'tmgt-container-textarea' %>
+          <%= f.hidden_field :channel_id,value: ''%>
+      </div>
+        <div class="large-3 columns">
+        <%= f.submit "Send",class: 'tmgt-btn-red' %>
+
+        </div>
+        </div>
+        <%end%>
+        </section>  <!-- eo tmgt-positioning-container -->
+  <br><br><br><br><br><br><br>
+</div>  <!-- eo large-12 columns -->
+
+<div class="large-3 columns">
+  <h4>Team Member</h4>
+  <ul class="tmgt-container-member-btn-group" id="groups">
+    <% @groups.each do|group| %>
+        <%= render :partial=> 'groups/group', locals: {group: group} %>
+    <% end %>
+  </ul>
+
+  <fieldset id='group_field'>
+    <legend>Add new group</legend>
+    <div id='new_group_form'>
+      <%= form_for @group,remote: true do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %> <br>
+          <%= f.submit 'create'%>
+      <% end %>
+    </div>
+  </fieldset>
+</div> <!-- end of large-3 columns -->
+
+
+
+
+
+
+<% if current_user then %>
+    <%= subscribe_to "/messages/#{current_user.id}" %>
+<% end %>
+
+<%= subscribe_to '/messages/test' %>

@@ -1,0 +1,14 @@
+<h1><%= @group.name %> </h1>
+<ul class="group_user_list">
+    <% @group.users.each do|u| %>
+        <li><%= u.name %></li>
+    <% end %>
+</ul>
+<%= form_for(:group,url: update_users_group_path(@group),remote: true,method: :put) do|f| %>
+    <% @users.each do|user| %>
+        <%= user.email %>
+        <%= check_box_tag 'user_ids[]', user.id %>
+        <br>
+    <% end  %>
+    <%= f.submit 'add' %>
+<%end %>
