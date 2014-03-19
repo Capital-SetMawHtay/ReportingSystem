@@ -27,6 +27,7 @@
         <%= render partial: 'layouts/common/chat_groups' %>
         <div class="large-12 columns main-process-before" id="main-process">
           <div class="rows">
+            <%= javascript_include_tag "application" %>
             <%= yield %>
           </div><!-- eo rows -->
         </div> <!-- eo large-12columns -->
@@ -34,6 +35,5 @@
     </div> <!-- eo large-12columns -->
   </div>  <!-- eo row hack-row -->
 </section>  <!-- eo main-section -->
-<%= javascript_include_tag "application" %>
 </body>
 </html>

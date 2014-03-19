@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
-  load_and_authorize_resource :user
-  load_and_authorize_resource :report,:except => [:index]
+  authorize_resource :user
+  authorize_resource :report,:except => [:index]
   def index
     @reports = current_user.reports.this_week.order(:report_date)
   end

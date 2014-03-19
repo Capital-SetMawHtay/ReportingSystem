@@ -7,7 +7,7 @@ class TeamReportsController < ApplicationController
 
 
   def index
-    @team_reports = TeamReport.accessible_by(current_ability)
+    #@team_reports = TeamReport.accessible_by(current_ability)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @team_reports }

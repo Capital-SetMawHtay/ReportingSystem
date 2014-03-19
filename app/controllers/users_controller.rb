@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource :user
+ authorize_resource :user
   def index
       @users = User.non_admin
   end
