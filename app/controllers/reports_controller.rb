@@ -1,6 +1,8 @@
+require_relative '../../lib/report_file_generator/daily_report_excel.rb'
+
 class ReportsController < ApplicationController
   load_and_authorize_resource :user
-  load_and_authorize_resource :report,:except => [:index]
+  load_and_authorize_resource :report,:except => [:index,:get_excel]
   def index
     @reports = current_user.reports.this_week.order(:report_date)
   end
@@ -41,6 +43,13 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @report.update_attributes(status: 'submitted')
     redirect_to user_reports_path(@report.user),notice: 'Report successfully submitted'
+  end
+
+  def get_excel
+    @reports = current_user.reports.this_week.order(:report_date)
+    e = ReportFileGenerator::DailyReportExcel.new(@reports,"#{Rails.root}/storage/report_excel.xlsx")
+    e.to_excel
+    send_file("#{Rails.root}/storage/report_excel.xlsx",type: "application/vnd.ms-excel")
   end
 
 end

@@ -29,4 +29,11 @@ class Report < ActiveRecord::Base
     where(report_date: date)
   end
 
+  def start_time
+    DateTime.new(2007, 12, 4, 9, 0, 0, 0)
+  end
+
+  def end_time
+    DateTime.new(2014,12,4,17,30,0,0)
+  end
 end

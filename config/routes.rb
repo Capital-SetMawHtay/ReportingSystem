@@ -26,7 +26,11 @@ ReportingSystem1::Application.routes.draw do
       member do
         put :submit
       end
+      collection do
+        get :get_excel
+      end
     end
+
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

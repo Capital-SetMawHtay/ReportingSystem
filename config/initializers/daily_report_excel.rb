@@ -1,0 +1,1 @@
+require "#{Rails.root}/lib/report_file_generator/daily_report_excel.rb"
