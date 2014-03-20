@@ -10,4 +10,6 @@
 
 -excel files zipping
 
--notification systemss
+-notification systems
+
+-to put team_reports controller under admin namespace

@@ -1,18 +1,4 @@
 $('#groups').append('<%= escape_javascript(render partial: 'groups/group',locals: {group: @group})%>');
 $('#all_groups').append('<%= escape_javascript(render partial: 'groups/group',locals: {group: @group})%>');
-$('#new_group').reset();
-
-
-$('#groups li:last-child').on('click',function(){
-    var gid = $(this).data('gid');
-    $('#new_message').show();
-    $('#message_group_id').attr('value',gid);
-    $('.tmgt-chat-box').text('Loading');
-    $.ajax({
-        url: '/messages',
-        data: {group_id: gid},
-        dataType: "script"
-    });
-    var t = $(this).find('.name').text();
-    $('#current_group').text(t);
-});
+$('.use_group').groupClick();
+$('#group_name').val('');
