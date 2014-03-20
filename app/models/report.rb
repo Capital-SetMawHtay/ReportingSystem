@@ -30,10 +30,10 @@ class Report < ActiveRecord::Base
   end
 
   def start_time
-    DateTime.new(2007, 12, 4, 9, 0, 0, 0)
+    Time.new(2014,3,20,9,0)
   end
 
   def end_time
-    DateTime.new(2014,12,4,17,30,0,0)
+    Time.new(2014,3,20,17,30)
   end
 end

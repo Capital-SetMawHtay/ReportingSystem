@@ -42,7 +42,7 @@ class DailyReportExcel
         sheet.merge_cells("F6:G6")
 
         @daily_reports.each do |dr|
-          sheet.add_row [dr.report_date,dr.start_time.strftime('%k:%m%P')+"-"+dr.end_time.strftime('%k:%m%P'),'Will be:',dr.plan,'','Report Problem:',dr.problem],:style =>default_cell
+          sheet.add_row [dr.report_date,dr.start_time.strftime('%I:%M%P')+"-"+dr.end_time.strftime('%I:%M%P'),'Will be:',dr.plan,'','Report Problem:',dr.problem],:style =>default_cell
           row1 = sheet.rows.last
           sheet.add_row ['','','Experience:',dr.experience,'','Solution:',dr.solution],:style => default_cell
           row2 = sheet.rows.last
