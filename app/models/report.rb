@@ -36,4 +36,20 @@ class Report < ActiveRecord::Base
   def end_time
     Time.new(2014,3,20,17,30)
   end
+  #to get the plan of previous report
+  def plan_for_today
+     previous_date = previous_day(report_date)
+     previous_report = Report.find_by_report_date(previous_date)
+     (previous_report.nil? || previous_report.blank?) ? 'nothing' : (previous_report.plan)
+  end
+
+  private
+    # if the date is monday then previous is last friday else previous is yesterday
+    def previous_day(date)
+      if(Date.today.beginning_of_week === date) then
+        previous = date-3
+      else
+        previous = date-1
+      end
+    end
 end

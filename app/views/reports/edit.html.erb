@@ -1,5 +1,8 @@
 Edit Report
-
+<div id="plan_for_today">
+  <h4>What you planned for today was:</h4>
+  <%= @report.plan_for_today %>
+</div>
 <%= form_for([@report.user,@report],method: :put) do|f| %>
     <!-- Form url  -->
       <div class="large-6 columns">
