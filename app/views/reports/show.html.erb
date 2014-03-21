@@ -1,32 +1,55 @@
-<h2>
-  <%= @report.user.email %>
-  <%= @report.report_date %>
-  <%= @report.user.team.name %>
-</h2>
-
-<div class="report_view">
-  <div>
-    plan
-  </div>
-  <div>
-    <%= @report.plan %>
-  </div>
-  <div>
-    experience
-  </div>
-  <div>
-    <%= @report.experience %>
-  </div>
-  <div>
-    problem
-  </div>
-  <div>
-    <%= @report.problem %>
-  </div>
-  <div>
-    solution
-  </div>
-  <div>
-    <%= @report.solution %>
-  </div>
+<div class="large-12 columns">
+    <div class="rows">
+      <div class="large-2 columns tmgt-btn-budge-style1">
+         <h5><%= @report.user.email %></h5>
+      </div>
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5><%= @report.report_date %></h5>
+      </div>
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5>
+          <%= @report.user.team.name %>
+        </h5>
+      </div>
+    </div>
 </div>
+<div id="plan_for_today" class="large-6 large-offset-3 columns">
+  <h4>What you planned for today was:</h4>
+  <%= @report.plan_for_today %>
+</div>
+
+<div class="large-6 columns">
+  <section class="tmgt-report-detail-container-budge">
+    <header class="tmgt-plan">Experience</header>
+    <div class="tmgt-container-section">
+      <%= @report.experience %>
+    </div>
+  </section>
+</div>
+<div class="large-6 columns">
+  <section class="tmgt-report-detail-container-budge">
+    <header class="tmgt-problem">Next plan</header>
+    <div class="tmgt-container-section">
+      <%= @report.plan %>
+    </div>
+    <!--<textarea name="problem" id="" cols="30" rows="10"></textarea>-->
+  </section>
+</div>
+<div class="large-6 columns">
+  <section class="tmgt-report-detail-container-budge">
+    <header class="tmgt-exp">Problems</header>
+    <div class="tmgt-container-section">
+      <%= @report.problem %>
+    </div>
+  </section>
+</div>
+<div class="large-6 columns">
+  <section class="tmgt-report-detail-container-budge">
+    <header class="tmgt-solution">Solution</header>
+    <div class="tmgt-container-section">
+      <%= @report.solution %>
+    </div>
+  </section>
+</div>
+
+
