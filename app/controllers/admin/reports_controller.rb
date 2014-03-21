@@ -1,8 +1,8 @@
 class Admin::ReportsController < ApplicationController
   append_before_filter :lock_out_non_admin
-  load_and_authorize_resource :report
+  authorize_resource :report
   def index
-    @reports = @reports.get_by_date(Date.today).order(:report_date)
+    @reports = Report.get_by_date(Date.today).order(:report_date).group_by{|r|r.user.team.name}
   end
 
   private
