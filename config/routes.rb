@@ -11,6 +11,7 @@ ReportingSystem1::Application.routes.draw do
   namespace :admin do
     resources :report_files
     resources :reports
+    post 'zipper/create', as: 'make_zip'
   end
 
   namespace :leader do
