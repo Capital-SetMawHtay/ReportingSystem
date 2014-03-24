@@ -1,11 +1,20 @@
 require 'axlsx'
+require 'fileutils'
 module ReportFileGenerator
+
+
 class DailyReportExcel
-   def initialize(reports,path)
+   def initialize(reports,path=nil)
        @daily_reports = reports
        @file_path = path
    end
-
+   def generate_file_path(report,root_path)
+     base_path = "/#{root_path}/#{report.report_date}/#{report.user.team.name}/#{report.user.name}/"
+     FileUtils.mkdir_p(base_path)
+     file_name = "#{report.report_date}-#{report.user.team.name}-#{report.user.name}.xlsx"
+     @file_path = base_path.concat(file_name)
+     self
+   end
   def to_excel
     p = Axlsx::Package.new
     wb = p.workbook
@@ -63,6 +72,7 @@ class DailyReportExcel
       end
     end
     p.serialize(@file_path)
+    @file_path
   end
 
 end

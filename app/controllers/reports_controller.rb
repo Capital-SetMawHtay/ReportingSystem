@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
 
   def get_excel
     @reports = current_user.reports.this_week.order(:report_date)
-    e = ReportFileGenerator::DailyReportExcel.new(@reports,"#{Rails.root}/storage/report_excel.xlsx")
+
     e.to_excel
     send_file("#{Rails.root}/storage/report_excel.xlsx",type: "application/vnd.ms-excel")
   end

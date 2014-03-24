@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
 
   #====Associations=====
   belongs_to :user
-
+  has_one :report_file
   #=====Scopes=====
   scope :this_week,lambda{where(:report_date => ((Date.today.beginning_of_week)..(Date.today.end_of_week))) }
   scope :today, lambda { where(report_date: Date.today)}

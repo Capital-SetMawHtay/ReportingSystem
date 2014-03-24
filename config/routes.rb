@@ -9,6 +9,7 @@ ReportingSystem1::Application.routes.draw do
 
   root :to => "home#index"
   namespace :admin do
+    resources :report_files
     resources :reports
   end
 

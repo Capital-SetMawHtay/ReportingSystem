@@ -4,14 +4,21 @@
     <div id="<%= team %>">
       <h2><%= team %></h2>
     <%reports.each do|report| %>
-    <div id='<%= dom_id(report)%>'>
+        <div id='<%= dom_id(report)%>'>
 
-      <%= report.user.email %>
-      <%= report.report_date %>
-      <%= report.status %>
-      <%= link_to "View Detail",user_report_path(report.user,report) %>
-      <%= link_to "Edit",edit_user_report_path(report.user,report) %>
-    </div>
+          <%= report.user.email %>
+          <%= report.report_date %>
+          <%= report.status %>
+          <%= link_to "View Detail",user_report_path(report.user,report) %>
+          <%= link_to "Edit",edit_user_report_path(report.user,report) %>
+          <div class="report_file_form">
+              <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
+                  <%= f.hidden_field :report_id, value: report.id %>
+                  <%= f.hidden_field :file_date, value: Date.today %>
+                  <%= f.submit 'Generate' %>
+              <% end %>
+          </div>
+        </div>
     <% end %>
     </div>
 <% end %>
