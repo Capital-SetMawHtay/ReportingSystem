@@ -13,6 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20140321093834) do
 
+  create_table "adminmails", :force => true do |t|
+    t.string   "sender_mail"
+    t.string   "sender_password"
+    t.string   "receiver_mail"
+    t.string   "cc"
+    t.string   "subject"
+    t.date     "date"
+    t.text     "content"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false

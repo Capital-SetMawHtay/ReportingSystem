@@ -8,6 +8,7 @@ class Ability
       can :manage,Report
       can :manage,Team
       can :manage,TeamReport
+      can :manage,Adminmail
     elsif(user.member?)
       can :read,User
       can :read,Team

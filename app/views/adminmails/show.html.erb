@@ -1,0 +1,40 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<p>
+  <b>Sender mail:</b>
+  <%= @adminmail.sender_mail %>
+</p>
+
+<p>
+  <b>Sender password:</b>
+  <%= @adminmail.sender_password %>
+</p>
+
+<p>
+  <b>Receiver mail:</b>
+  <%= @adminmail.receiver_mail %>
+</p>
+
+<p>
+  <b>Cc:</b>
+  <%= @adminmail.cc %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @adminmail.subject %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @adminmail.date %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @adminmail.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_adminmail_path(@adminmail) %> |
+<%= link_to 'Back', adminmails_path %>

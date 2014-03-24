@@ -20,6 +20,9 @@ ReportingSystem1::Application.routes.draw do
     end
   end
 
+  resources :adminmails
+
+
   resources :teams do
     resources :team_reports
   end
