@@ -11,7 +11,7 @@ module ZipCompressions
           # Two arguments:
           # - The name of the file as it will appear in the archive
           # - The original file, including the path to find it
-          zipfile.add(f.file_name, f.file_path)
+          zipfile.add(f.file_name, f.file_path) unless zip
         end
       end
     end

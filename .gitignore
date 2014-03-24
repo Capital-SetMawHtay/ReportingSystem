@@ -20,6 +20,7 @@ script/startzeus.sh
 .idea
 /.idea/*
 /storage
+/storage/*
 /storage/*.*
 
 

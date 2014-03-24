@@ -42,6 +42,11 @@ class Report < ActiveRecord::Base
      previous_report = Report.find_by_report_date(previous_date)
      (previous_report.nil? || previous_report.blank?) ? 'nothing' : (previous_report.plan)
   end
+  #the method asks if a report file is generated for this instance of report
+  def generated?
+    !report_file.nil?
+  end
+
 
   private
     # if the date is monday then previous is last friday else previous is yesterday
