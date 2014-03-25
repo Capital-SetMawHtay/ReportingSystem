@@ -27,9 +27,19 @@ end
 
 class ZipperController < ApplicationController
 
+  def download
+    @file_date = params[:date]
+    send_file "#{Rails.root}/storage/zips/#{@file_date}/awitd_daily_reports_#{@file_date}.zip",content_type: 'application/zip'
+  end
+
   def create
     @today_files = ReportFile.today
+    @zip_date = Date.today
     ZipCompressions::ReportZipper.zip(@today_files,generate_zip_path)
+    respond_to do|format|
+      format.html {redirect_to :back,notice: 'Your zip file is created!'}
+      format.js
+    end
   end
 
 
@@ -38,7 +48,7 @@ class ZipperController < ApplicationController
       base_path = "#{Rails.root}/storage/zips/#{Date.today}"
       FileUtils.mkdir_p(base_path)
       file_name = "awitd_daily_reports_#{Date.today}.zip"
-      base_path.concat(file_name)
+      base_path.concat("/#{file_name}")
 
     end
 

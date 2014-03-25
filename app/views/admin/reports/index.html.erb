@@ -1,8 +1,10 @@
 <h1>Reports</h1>
+
 <div id="reports">
 <% @reports.each do |team,reports| %>
     <div id="<%= team %>">
       <h2><%= team %></h2>
+
     <%reports.each do|report| %>
         <div id='<%= dom_id(report)%>'>
 
@@ -29,5 +31,7 @@
 <% end %>
 </div>
 
+<div id="download_link_container">
 
-<%= button_to 'Zip Today Reports',admin_make_zip_path,method: :post %>
+  <%= button_to 'Zip Today Reports',admin_make_zip_path,method: :post,remote: true %>
+</div>
