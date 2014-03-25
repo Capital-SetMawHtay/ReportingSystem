@@ -1,5 +1,9 @@
 class AdminmailMailer < ActionMailer::Base
 
+  class MailNotSentException < Exception
+
+  end
+
 	def init_email_account(sender_mail)  
       ActionMailer::Base.raise_delivery_errors = true
       ActionMailer::Base.smtp_settings = {
@@ -13,10 +17,10 @@ class AdminmailMailer < ActionMailer::Base
       }
   end
 
-  def sending_mail(user)
-    @adminmail = user
-    attachments["rails.png"] = File.read("#{Rails.root}/app/assets/images/rails.png")
-    mail(:from => user.sender_mail, :to => user.receiver_mail, :subject => user.subject,:cc => user.cc)
+  def sending_mail(mail)
+    @adminmail = mail
+    attachments["#{mail.file_file_name}"] =  File.read(mail.file.path) unless mail.file.nil?
+    mail(:from => mail.sender_mail, :to => mail.receiver_mail, :subject => mail.subject,:cc => mail.cc)
   end
  
 end

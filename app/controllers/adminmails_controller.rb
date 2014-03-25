@@ -43,20 +43,19 @@ class AdminmailsController < ApplicationController
   def create
     @adminmail = Adminmail.new(params[:adminmail])
 
-    require "timeout"
-    begin
-      status = Timeout::timeout(5){
-        AdminmailMailer.init_email_account(@adminmail)
-      }
-    rescue Timeout::Error
-      puts 'Please send again.'
-    end
 
-    AdminmailMailer.sending_mail(@adminmail).deliver
+
 
 
     respond_to do |format|
       if @adminmail.save
+        init_mail
+        begin
+          AdminmailMailer.sending_mail(@adminmail).deliver
+        rescue Net::SMTPAuthenticationError
+           redirect_to :back,notice: 'Wrong credentials, mail not sent'
+          return
+        end
         format.html { redirect_to @adminmail, notice: 'Adminmail was successfully created.' }
         format.json { render json: @adminmail, status: :created, location: @adminmail }
       else
@@ -93,4 +92,16 @@ class AdminmailsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+   def init_mail
+     require "timeout"
+     begin
+       status = Timeout::timeout(5){
+         AdminmailMailer.init_email_account(@adminmail)
+       }
+     rescue Timeout::Error
+       puts 'Please send again.'
+     end
+   end
 end
