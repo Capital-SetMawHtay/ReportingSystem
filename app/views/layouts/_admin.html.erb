@@ -24,17 +24,10 @@
   <div class="row hack-row">
     <div class="large-12 columns">
       <div class="row">
-        <div class="large-3 columns tmgt-off-canvas-parent-before" id="tmgt-off-canvas-parent">
-          <section id="tmgt-container-off-canvas-menu">
-            <ul>
-              <li>Write Report</li>
-              <li>View Report</li>
-            </ul>
-            <h4>Notifications</h4>
-          </section> <!-- eo tmgt-container-off-canvas-menu -->
-        </div> <!-- eo tmgt-off-canvas-parent-before -->
+        <%= render partial: 'layouts/common/chat_groups' %>
         <div class="large-12 columns main-process-before" id="main-process">
           <div class="rows">
+            <%= javascript_include_tag "application" %>
             <%= yield %>
           </div><!-- eo rows -->
         </div> <!-- eo large-12columns -->
@@ -42,6 +35,5 @@
     </div> <!-- eo large-12columns -->
   </div>  <!-- eo row hack-row -->
 </section>  <!-- eo main-section -->
-<%= javascript_include_tag "application" %>
 </body>
 </html>

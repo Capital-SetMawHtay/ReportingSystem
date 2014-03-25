@@ -1,0 +1,10 @@
+<div id='<%= dom_id(group)%>'>
+  <li class='use_group' data-gid="<%=group.id%>">
+    <span class="name">
+       <%= group.name %>
+    </span>
+    <div class="hidden_user_list">
+        <%= render partial: 'subscriptions/hidden_user_list',locals: {group: group} %>
+    </div>
+  </li>
+</div>

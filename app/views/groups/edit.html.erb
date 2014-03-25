@@ -1,0 +1,14 @@
+<h1><%= @group.name %> </h1>
+<ul class="group_user_list">
+    <% @group.users.each do|u| %>
+        <li><%= u.name %></li>
+    <% end %>
+</ul>
+<%= form_for(:group,url: subscription_path(id: @group.id),method: :put) do|f| %>
+    <% @users.each do|user| %>
+        <%= user.email %>
+        <%= check_box_tag 'user_ids[]', user.id,@group.users.include?(user)? true : false%>
+        <br>
+    <% end  %>
+    <%= f.submit 'add' %>
+<%end %>

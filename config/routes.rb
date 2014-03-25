@@ -37,7 +37,15 @@ ReportingSystem1::Application.routes.draw do
       end
     end
 
+<<<<<<< HEAD
+=======
+    resources :groups
+>>>>>>> chat_with_frontend
   end
+  resources :subscriptions
+  resources :messages
+
+  get '/chat'=>'chat#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

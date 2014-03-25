@@ -1,0 +1,4 @@
+$('.tmgt-chat-box').text('');
+<% @messages.each do|m|%>
+$('.tmgt-chat-box').append('<%= j(message_presenter(m))%>');
+<% end %>

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140324091324) do
 
   create_table "adminmails", :force => true do |t|
@@ -28,6 +29,9 @@ ActiveRecord::Schema.define(:version => 20140324091324) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
+=======
+ActiveRecord::Schema.define(:version => 20140318043054) do
+>>>>>>> chat_with_frontend
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -43,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20140324091324) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+<<<<<<< HEAD
 
   create_table "report_files", :force => true do |t|
     t.date     "file_date"
@@ -51,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20140324091324) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+=======
+>>>>>>> chat_with_frontend
 
   create_table "reports", :force => true do |t|
     t.text     "plan"

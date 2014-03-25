@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
   #===Associations====
   belongs_to :team
   has_many :reports
-
+  has_many :messages
+  has_many :subscriptions
+  has_many :groups, through: :subscriptions
+  has_many :owned_groups,class_name: 'Group' ,inverse_of: :owner
   #======Scopes========
 
   scope :non_admin, lambda {where("role != 'admin'")}

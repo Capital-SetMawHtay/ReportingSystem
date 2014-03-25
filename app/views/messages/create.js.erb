@@ -1,0 +1,9 @@
+<% @message.group.users.each do|user| %>
+<% publish_to "/messages/#{user.id}" do %>
+    $(".tmgt-chat-box").append("<%= j message_presenter(@message) %>");
+<%end%>
+<% end %>
+
+<% publish_to "/messages/test" do %>
+<% end %>
+$("#new_message")[0].reset();
