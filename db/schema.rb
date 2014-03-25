@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321093834) do
+ActiveRecord::Schema.define(:version => 20140324091324) do
+
+  create_table "adminmails", :force => true do |t|
+    t.string   "sender_mail"
+    t.string   "sender_password"
+    t.string   "receiver_mail"
+    t.string   "cc"
+    t.string   "subject"
+    t.date     "date"
+    t.text     "content"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
 
   create_table "groups", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,35 @@
+
+<div class='row'>
+    <div class='large-6 large-offset-1 columns'>
+        <h1>Listing adminmails</h1>
+        <table>
+          <tr>
+            <th>Sender mail</th>
+            <!-- <th>Sender password</th> -->
+            <th>Receiver mail</th>
+            <th>Cc</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Content</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+
+        <% @adminmails.each do |adminmail| %>
+          <tr>
+            <td><%= adminmail.sender_mail %></td>
+            <!-- <td><%= adminmail.sender_password %></td> -->
+            <td><%= adminmail.receiver_mail %></td>
+            <td><%= adminmail.cc %></td>
+            <td><%= adminmail.subject %></td>
+            <td><%= adminmail.date %></td>
+            <td><%= adminmail.content %></td>
+            <td><%= link_to 'Show', adminmail %></td>
+            <td><%= link_to 'Edit', edit_adminmail_path(adminmail) %></td>
+            <td><%= link_to 'Destroy', adminmail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+</div>

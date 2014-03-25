@@ -11,15 +11,23 @@
           <%= report.status %>
           <%= link_to "View Detail",user_report_path(report.user,report) %>
           <%= link_to "Edit",edit_user_report_path(report.user,report) %>
-          <div class="report_file_form">
-              <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
-                  <%= f.hidden_field :report_id, value: report.id %>
-                  <%= f.hidden_field :file_date, value: Date.today %>
-                  <%= f.submit 'Generate' %>
-              <% end %>
+              <div class="report_file_form">
+                <% unless report.generated? %>
+                    <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
+                        <%= f.hidden_field :report_id, value: report.id %>
+                        <%= f.hidden_field :file_date, value: Date.today %>
+                        <%= f.submit 'Generate' %>
+                    <% end %>
+                <% else %>
+                     generated
+                <% end %>
           </div>
+
         </div>
     <% end %>
     </div>
 <% end %>
 </div>
+
+
+<%= button_to 'Zip Today Reports',admin_make_zip_path,method: :post %>
