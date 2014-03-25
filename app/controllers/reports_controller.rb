@@ -46,10 +46,12 @@ class ReportsController < ApplicationController
   end
 
   def get_excel
+    @report =  Report.find(params[:id])
     @reports = current_user.reports.this_week.order(:report_date)
+    generator = ReportFileGenerator::DailyReportExcel.new(@reports)
+    path = generator.generate_file_path(@report,"#{Rails.root}/storage/custom").to_excel
 
-    e.to_excel
-    send_file("#{Rails.root}/storage/report_excel.xlsx",type: "application/vnd.ms-excel")
+    send_file(path,type: "application/vnd.ms-excel")
   end
 
 end

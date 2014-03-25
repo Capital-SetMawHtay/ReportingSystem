@@ -19,5 +19,8 @@ npm-debug.log
 script/startzeus.sh
 .idea
 /.idea/*
+/storage
+/storage/*
+/public/system
 
 

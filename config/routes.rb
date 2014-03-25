@@ -27,7 +27,7 @@ ReportingSystem1::Application.routes.draw do
       member do
         put :submit
       end
-      collection do
+      member do
         get :get_excel
       end
     end

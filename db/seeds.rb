@@ -10,6 +10,7 @@ Team.destroy_all
 Report.destroy_all
 TeamReport.destroy_all
 
+@admin_team = Team.create!(name: 'admin team')
 admin = User.new
 admin.email = 'admin@gmail.com'
 admin.name = 'admin'
@@ -18,7 +19,7 @@ admin.address = 'admin home'
 admin.employee_number = 'AW-01'
 admin.phone_number = '1234'
 admin.role = 'admin'
-admin.team_id = 1
+admin.team_id = @admin_team.id
 admin.date_of_birth = Date.today - 500
 admin.save!
 @leaders = []
