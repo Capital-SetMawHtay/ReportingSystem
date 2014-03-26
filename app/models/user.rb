@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   #===Associations====
   belongs_to :team
   has_many :reports
+  has_many :activities
   has_many :messages
   has_many :subscriptions
   has_many :groups, through: :subscriptions

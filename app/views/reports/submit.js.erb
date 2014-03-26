@@ -1,0 +1,6 @@
+<% publish_to "/messages/test" do %>
+    alert('<%="#{current_user.name} has #{@noti.action} #{@noti.trackable_type}. "%>');
+<% end %>
+
+$('#edit_<%= dom_id(@report)%>').remove();
+$('#<%= dom_id(@report)%> .report_status').innerHTML('<%= j(@report.status)+"<br/> <br/>"%>');

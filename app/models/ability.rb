@@ -8,6 +8,7 @@ class Ability
       can :manage,Report
       can :manage,Team
       can :manage,TeamReport
+      cannot :submit,Report,{:status => 'submitted'}
       can :manage,Adminmail
     elsif(user.member?)
       can :read,User

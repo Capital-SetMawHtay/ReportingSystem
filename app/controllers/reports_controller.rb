@@ -36,6 +36,7 @@ class ReportsController < ApplicationController
   end
 
   def update
+    @report = Report.find(params[:id])
     @report.update_attributes!(params[:report])
     redirect_to user_reports_path(@report.user),notice: 'Report successfully updated'
   end
@@ -43,7 +44,12 @@ class ReportsController < ApplicationController
   def submit
     @report = Report.find(params[:id])
     @report.update_attributes(status: 'submitted')
-    redirect_to user_reports_path(@report.user),notice: 'Report successfully submitted'
+    @noti = current_user.activities.create! action: 'submitted', trackable: @report
+    respond_to do |format|
+      format.html {    redirect_to user_reports_path(@report.user),notice: 'Report successfully submitted' }
+      format.js
+    end
+
   end
 
   def get_excel

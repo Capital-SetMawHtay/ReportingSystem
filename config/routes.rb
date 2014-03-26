@@ -2,6 +2,9 @@ ReportingSystem1::Application.routes.draw do
 
 
 
+  resources :activities
+
+
   devise_for :users
   devise_scope :user do
     delete "/logout" => "devise/sessions#destroy"
