@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "foundation/components/alert-boxes";
+@import "foundation/components/buttons";
 
   $list_header: #2C3E50;
   $alert-bg: #C0392B;
@@ -44,4 +45,18 @@ ul.cm-home-ads{
   color: ghostwhite;
   background-color: #333333;
   padding: 10px;
+}
+
+.cm-tab-container{
+  width: 100%;
+}
+
+.cm-button-generated {
+  @include button-base;
+  @include button-size;
+  @include button-style(#2C3E50, true, true);
+}
+
+.cm-row-margin-remove{
+  margin-left: -10px!important;
 }

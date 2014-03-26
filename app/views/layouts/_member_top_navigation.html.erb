@@ -1,0 +1,36 @@
+<nav class="tab-bar">
+  <section class="left-small">
+    <!-- logo and off canvas btn -->
+    <!-- use left-off-canvas-toggle class when you wanna activate off canvas efx provided by foundation      -->
+    <a class="menu-icon" id="off-canvas-btn">
+      <span></span>
+    </a>
+  </section> <!-- eo left-small -->
+  <section class="right tab-bar-section">
+    <h1>AWITD Team Management</h1>
+    <!-- Notification sound -->
+    <audio id="notification">
+      <source src="muziz/1.ogg" type="audio/ogg" />
+      <source src="muziz/1.mp3" type="audio/mpeg" />
+    </audio>
+    <!-- Nav menu and notification implementation  -->
+                    <span class="right" id="tooltip-group">
+                      <%= link_to user_reports_path(current_user) do %>
+                        <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Write Report"></i>
+                      <% end %>
+                      <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o",'data-tooltip' => '', 'data-options' => "disable_for_touch:true" ,:title => "Chat Message"),users_path %>
+                      <%= link_to '/chat' do %>
+                         <i class="fa fa-comments tip-bottom radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"></i>
+                      <% end %>
+                      <%= link_to user_reports_path(current_user) do %>
+                         <i class="fa fa-envelope tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Send Your Mail"></i>
+                      <% end %>
+                      <%= link_to teams_path  do %>
+                        <i class="fa fa-group tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Your Team"></i>
+                      <% end %>
+                      <%= link_to logout_path,method: :delete do %>
+                        <i class="fa fa-gears tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Settings"></i>
+                      <% end %>
+                    </span>
+  </section>   <!-- eo right tab-bar-section -->
+</nav> <!-- eo tab-bar -->

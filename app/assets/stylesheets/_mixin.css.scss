@@ -32,3 +32,32 @@
   -moz-text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
   -o-text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
 }
+
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 320px) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: 321px) and (max-width: 1024px) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: 1024px) { @content; }
+  }
+  @else if $media == handhelds-ls-pt {
+    @media only screen and (min-width: 200px) and (max-width: 480px) { @content; }
+  }
+  @else if $media == tablet-bp-fst {
+    @media only screen and (min-width: 481px) and (max-width: 650px) { @content; }
+  }
+  @else if $media == tablet-bp-snd {
+    @media only screen and (min-width: 651px) and (max-width: 1024px) { @content; }
+  }
+}
+
+@mixin scale($attr) {
+  transform: $attr;
+  -webkit-transform: $attr;
+  -moz-transform: $attr;
+  -o-transform: $attr;
+}

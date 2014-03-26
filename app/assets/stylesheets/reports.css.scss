@@ -1,13 +1,9 @@
-// Place all the styles related to the Reports controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 /**
 	* By the use of the foundation offcanvs menu , some of the foundation must be hacked.
 	* -- Override --  means this override foundation built in style
 	* this style is written with the laws of smacc
 	* my moudles are prefix with tmgt (Definition - Team Management ) without prefix with html element and also avoid id selector because it will be inherited from the other class.
+	* I set all media queries responsiveness control with nested property of each elment .
 */
 
 
@@ -15,7 +11,7 @@
 
 // variable
 $bodyBg 		: #f0f0f0;
-$font   		: Raleway,sans-serif;
+$font   		: sans-serif;
 $problem-color  : #c0392b;
 $plan-color		: #1ca6ff;
 $exp-color		: #2c3e50;
@@ -23,12 +19,18 @@ $solut-color	: #27ae60;
 $background 	: #6f7b82;
 $submit-color 	: #e67e22;
 
-@font-face {
-  font-family: 'Bitstream Vera Sans';
-  font-style: normal;
-  font-weight: 400;
-  src:  local('?'),url('../fonts/Raleway-Medium.otf') format('otf'), url('../fonts/Raleway-Regular.ttf') format('truetype');
-}
+// responsiveness var
+$break-small-pt : 320px;
+$break-medium-pt: 768px;
+$break-small-ls : 480px;
+$break-medium-ls: 1024px;
+
+//@font-face {
+//  font-family: 'Raleway';
+//  font-style: normal;
+//  font-weight: 400;
+//  src:  local('?'),url('../fonts/Raleway-Medium.otf') format('otf'), url('../fonts/Raleway-Regular.ttf') format('truetype');
+//}
 
 
 
@@ -41,6 +43,31 @@ $submit-color 	: #e67e22;
   position: absolute;
   font-weight: normal;
 }
+
+// foundation's row has max-width 100px by default so hack for a little bit to full screen width
+.hack-row {
+  min-width: 100% !important;
+}
+
+aside#off-canvas-menu {
+  color: #fff;
+  ul {
+    margin-top: 30px; // make room for offcanvas btn
+    margin-left: 0px;
+    li {
+      list-style-type: none;
+      padding: 15px 0px 15px 10px;
+      border-bottom: 1px solid #222;
+      &:first-child {
+        border-top: 1px solid #222;
+      }
+      &::hover {
+        background: rgba(0,0,0,.6);
+      }
+    }
+  }
+}
+
 // end of foundations framework hack
 
 
@@ -73,38 +100,27 @@ section.tab-bar-section  {
   }
 }
 
-// foundation's row has max-width 100px by default so hack for a little bit to full screen width
-.hack-row {
-  min-width: 100% !important;
-}
+
 
 // major layout
-aside#off-canvas-menu {
-  color: #fff;
-  ul {
-    margin-top: 30px; // make room for offcanvas btn
-    margin-left: 0px;
-    li {
-      list-style-type: none;
-      padding: 15px 0px 15px 10px;
-      border-bottom: 1px solid #222;
-      &::first-child {
-        borderr-top: 1px solid #222;
-      }
-      &::hover {
-        background: rgba(0,0,0,.6);
-      }
-    }
-  }
-}
 
 div#main-process {
   overflow: hidden;
   @include transition(all,ease-in-out,.5s);
+  min-height: 600px;
 }
 
 .main-process-after {
-  left: 350px;
+  left: 25%;
+  @include respond-to(handhelds-ls-pt) {
+    left: 75%;
+  }
+  @include respond-to(tablet-bp-fst) {
+    left: 75%;
+  }
+  @include respond-to(tablet-bp-snd) {
+    left: 35%;
+  }
 }
 .main-process-before {
   left: 0px;
@@ -114,16 +130,66 @@ div#tmgt-off-canvas-parent {
   position: absolute;
   @include transition(all,ease-in-out,.5s);
 }
+/* nothing speciall in large in medium screen , only affect in small screen */
+.tmgt-tooltip {
+  position: relative;
+  .wrapper {
+    @include transition(all,ease-in,0.3s);
+    @include respond-to(handhelds-ls-pt) {
+      background: rgba(33,33,33,.5);
+      position: absolute;
+      width: 45px;
+      z-index: 1500;
+      padding: 5px;
+      margin: 0 auto;
+      right: -10px;
+      top: 45px;
+      @include scale(scaleX(0));
+      opacity: 0;
+      // visibility: hidden;
+    }
+  }
+  .tooltip-group-activated {
+    opacity: 1;
+    @include scale(scaleX(1));
+  }
+  i {
+    @include respond-to(handhelds-ls-pt) {
+      position: relative;
+    }
+  }
+}
+/* state controller this class will be toggled when clicking off-canvas-right-btn */
+
+
 
 /* state behavior of tmgt-off-canvas-parent before clicking the canvas btn*/
 div.tmgt-off-canvas-parent-before {
   left: -350px;
   position: absolute;
+  @include respond-to(handhelds-ls-pt) {
+    left: -75%;
+  }
+  @include respond-to(tablet-bp-fst) {
+    left: -75%;
+  }
 }
 
 .tmgt-off-canvas-parent-after {
   left: 0px;
   opacity: 1;
+  @media screen and (max-width: $break-small-pt) {
+
+  }
+  @media screen and (min-width: $break-medium-pt) {
+
+  }
+  @media screen and (max-width: $break-small-ls) {
+
+  }
+  @media screen and (min-width: $break-medium-ls) {
+
+  }
 }
 
 section#tmgt-container-off-canvas-menu {
@@ -146,8 +212,17 @@ section#tmgt-container-off-canvas-menu {
   }
 }
 
+.tmgt-container-notifcation {
+  @extend %tmgt-container;
+  border-radius: 2px;
+  height: 200px;
+  padding: 20px;
+  border: 1px solid rgba(33,33,33,.2);
+}
+
+
 section#main-section {
-//  overflow: hidden;
+  overflow: hidden;
   margin-top: 10px;
   height: 100%;
   display: block;
@@ -199,10 +274,13 @@ section#main-section {
     padding: 10px 20px;
     border-radius: 5px;
     float: left;
-    position: absolute;
     max-width: 500px;
     line-height: 20px;
-
+  }
+  .chat-container {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
   }
   .user-chat , .member-chat {
     position: relative;
@@ -342,6 +420,10 @@ section#main-section {
   }
 }
 
+#tmgt-member-group {
+  height: 300px;
+}
+
 .tmgt-btn-red {
   background: #f3686b;
   padding: 10px 30px;
@@ -461,9 +543,11 @@ header.tmgt-solution {
   font-size: 12px;
   @include transition(all,ease-in-out,.2s);
   text-align: center;
-  padding-top: 1px;
+  padding-top: 0px;
   top: 15px;
   opacity: 0;
+  text-indent: 0px;
+  line-height: 12px;
   border: 1px solid #fff;
 }
 .tmgt-notification-budge-after {
@@ -472,11 +556,72 @@ header.tmgt-solution {
 }
 
 // view report page
-.tmgt-view-report-page {
-  & > div {
+.tmgt-super-admin {
+  .tmgt-container {
+    padding: 5px;
+    border-radius: 3px;
     text-align: center;
-    padding: 10px 20px;
-    margin: 0px 10px;
+    margin-right: 20px;
+  }
+
+}
+
+.tmgt-container-form-panel {
+  display: block;
+  @extend %tmgt-container;
+  position: static;
+  border-radius: 3px;
+  margin: 15px 0px 0px 15px;
+  padding: 10px;
+  ul {
+    li {
+      list-style-type: none;
+    }
+
+    @include respond-to(handhelds-ls-pt) {
+
+    }
+  }
+}
+
+.tmgt-attachment-table {
+  margin-top: 15px;
+  th {
+    color: #ccc;
+    background: #0f1315;
+    padding: 15px;
+  }
+  th,td {
+    min-width: 180px;
+    text-align: center;
+  }
+  tr {
+    &:nth-child(2n) {
+      background: rgba(200,200,200,.2);
+    }
+    &:nth-child(2n+1) {
+      background: rgba(115,115,115,.2);
+    }
+  }
+}
+
+.tmgt-floating-msg {
+  text-align: center;
+  color: #709ecd;
+  opacity: 0;
+  z-index: 1000;
+  margin-bottom: 5px;
+  @include transition(all,ease-in,.1s);
+}
+.tmgt-chat-user-group {
+  position: relative;
+  top: -15px;
+  img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+    border: 1px solid #aaa;
   }
 }
 
@@ -484,9 +629,7 @@ header.tmgt-solution {
 
 
 /* State */
-#off-canvas-btn:hover #tmgt-off-canvas-parent{
-  left: 0;
-}
+
 /* end of State */
 
 /* Theme */

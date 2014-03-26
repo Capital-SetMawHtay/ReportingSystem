@@ -1,37 +1,96 @@
 <h1>Reports</h1>
 
-<div id="reports">
+<dl class="tabs" data-tab id="chatbox-tab-switcher">
+  <% @reports.each do|team,reports| %>
+    <dd><a href="#panel-<%= team.split().flatten.join %>"><%= team %></a></dd>
+  <% end %>
+</dl>
+<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container cm-row-margin-remove">
 <% @reports.each do |team,reports| %>
-    <div id="<%= team %>">
-      <h2><%= team %></h2>
+    <div class="content cm-tab-container cm-row-margin-remove" id="panel-<%= team.split.flatten.join %>">
+      <ul class="cm-listview">
+        <li class="row tmgt-view-report-page cm-listheader cm-row-margin-remove">
+              <div class="large-2 columns">
+                Name
+              </div>
+              <div class="large-2 columns">
+                Date
+              </div>
+              <div class="large-2 columns">
+                Status
+              </div>
+              <div class="large-5 columns">
+                Actions
+              </div>
+        </li> <!-- eo rows -->
+        <br/>
+        <% reports.each do |report| %>
+            <li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page cm-row-margin-remove">
+              <div class="large-2 columns">
+                  <div class="row">
+                    <div class="large-12 columns report_date">
+                      <%= report.user.name %>
+                      <br/>
+                      <br/>
+                    </div>
+                  </div>
+              </div>
+              <div class="large-2 columns">
+                <div class="row">
+                  <div class="large-12 columns report_date">
+                    <%= report.report_date %>
+                    <br/>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+              <div class="large-2 columns">
+                <div class="row">
+                  <div class="large-12 columns report_status">
+                    <%= report.status %>
+                    <br/>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+              <div class="large-5 columns">
+                <div class="row">
+                  <div class="large-4 columns">
 
-    <%reports.each do|report| %>
-        <div id='<%= dom_id(report)%>'>
-
-          <%= report.user.email %>
-          <%= report.report_date %>
-          <%= report.status %>
-          <%= link_to "View Detail",user_report_path(report.user,report) %>
-          <%= link_to "Edit",edit_user_report_path(report.user,report) %>
-              <div class="report_file_form">
-                <% unless report.generated? %>
-                    <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
-                        <%= f.hidden_field :report_id, value: report.id %>
-                        <%= f.hidden_field :file_date, value: Date.today %>
-                        <%= f.submit 'Generate' %>
+                    <%= link_to user_report_path(report.user,report) do%>
+                        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Detail</i>
                     <% end %>
-                <% else %>
-                     generated
-                <% end %>
-          </div>
-
-        </div>
-    <% end %>
+                    <br/>
+                    <br/>
+                  </div>
+                  <div class="large-4 columns">
+                    <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
+                        <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Excel</i>
+                    <% end %>
+                    <br/>
+                    <br/>
+                  </div>
+                  <div class="large-4 columns report_file_form">
+                        <% unless report.generated? %>
+                            <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
+                                <%= f.hidden_field :report_id, value: report.id %>
+                                <%= f.hidden_field :file_date, value: Date.today %>
+                                <%= f.submit 'Generate',class: 'tiny button info round' %>
+                            <% end %>
+                        <% else %>
+                            <button class='cm-button-generated tiny'>generated</button>
+                        <% end %>
+                      </div>
+              </div>
+              </div>
+            </li>
+        <% end %>
+        </ul>
     </div>
 <% end %>
-</div>
+</section>
 
 <div id="download_link_container">
 
-  <%= button_to 'Zip Today Reports',admin_make_zip_path,method: :post,remote: true %>
+  <%= button_to 'Zip Today Reports',admin_make_zip_path,method: :post,class: 'button success',remote: true %>
 </div>
