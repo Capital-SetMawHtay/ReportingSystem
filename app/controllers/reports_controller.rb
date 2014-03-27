@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
   authorize_resource :report,:except => [:index]
   def index
     @reports = current_user.reports.this_week.order(:report_date)
+    @reports = @reports.paginate(:page=>params[:page],:per_page=>5)
   end
 
   def show

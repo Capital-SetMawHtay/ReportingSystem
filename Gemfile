@@ -39,6 +39,8 @@ gem 'devise'
 gem 'cancan'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'will_paginate'
+gem 'will_paginate-foundation'
 
 gem 'axlsx'
 gem 'rubyzip'

@@ -3,7 +3,7 @@ class AdminmailsController < ApplicationController
   # GET /adminmails
   # GET /adminmails.json
   def index
-    @adminmails = Adminmail.all
+    @adminmails = Adminmail.paginate(:page=>params[:page],:per_page=>5)
 
     respond_to do |format|
       format.html # index.html.erb

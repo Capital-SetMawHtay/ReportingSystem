@@ -31,5 +31,8 @@
           </tr>
         <% end %>
         </table>
+      <div class="pagination-centered">
+        <%= will_paginate @adminmails, renderer: FoundationPagination::Rails %>
+      </div>
     </div>
 </div>
