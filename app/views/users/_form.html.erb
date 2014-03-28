@@ -1,0 +1,83 @@
+<% if @user.errors.any? then %>
+     <div class="alert-box alert">
+       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this member from being saved:</h2>
+       <ul>
+           <% @user.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+           <% end %>
+       </ul>
+    </div>
+<% end %>
+<%= form_for(@user) do |f| %>
+    <div class="row">
+      <div class="large-6 columns">
+        <div>
+          <%= f.label :name %>
+          <br/>
+          <%= f.text_field :name, :autofocus => true %>
+        </div>
+        <div>
+          <%= f.label :email %>
+          <br/>
+          <%= f.email_field :email %>
+        </div>
+        <div>
+          <%= f.label :address %>
+          <br/>
+          <%= f.text_area :address, rows: 4 %>
+        </div>
+        <div>
+          <%= f.label :employee_number %>
+          <br/>
+          <%= f.text_field :employee_number %>
+        </div>
+        <div>
+          <%= f.label :teams %>
+          <br/>
+          <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <div>
+          <%= f.label :date_of_birth %>
+          <br/>
+          <%= f.date_select :date_of_birth %>
+          <div>
+            member
+            <%= f.radio_button :role, "member",:id=> "member" %>
+            leader
+            <%= f.radio_button :role, "leader", :id=> "leader" %>
+          </div>
+
+          <%if @user.id.nil? %>
+             <fieldset>
+                  <legend>
+                    <font color="#dc143c">Enter Passwords</font>
+                  </legend>
+
+
+              <div><%= f.label :password %><br />
+                <%= f.password_field :password %>
+              </div>
+
+              <div><%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation %>
+              </div>
+             </fieldset>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 large-offset-8 columns">
+        <div>
+          <%= f.submit class: 'button medium info' %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<% end %>

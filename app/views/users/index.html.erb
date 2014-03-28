@@ -9,7 +9,14 @@
         Date
       </div>
       <div class="large-3 columns tmgt-container">
-        Team name
+        <div class="row">
+          <div class="large-6 columns">
+            Team
+          </div>
+          <div class="large-6 columns">
+            Leader?
+          </div>
+        </div>
       </div>
       <div class="large-5 columns tmgt-container">
         Actions
@@ -24,19 +31,33 @@
           </div>
 
           <div class="large-3 columns team_name">
-            <%= u.team.name %>
+            <div class="row">
+              <div class="large-6 columns">
+                <%= u.team.name %>
+              </div>
+              <div class="large-6 columns">
+                <%if u.leader? then %>
+                    <i class="fa  fa-star radius leader_icon" data-tooltip data-options="disable_for_touch:true" title="leader"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
 
 
           <div class="large-5 columns">
             <% if can? :edit,u then%>
                 <div class="row">
-                    <div class="large-6 columns">
-                      <%= link_to edit_user_path(u) do %>
-                          <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Edit Profile"> Edit</i>
+                    <div class="large-4 columns">
+                      <%= link_to user_path(u) do %>
+                          <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Profile"> Detail</i>
                       <% end %>
                     </div>
-                    <div class="large-6 columns">
+                  <div class="large-4 columns">
+                    <%= link_to edit_user_path(u) do %>
+                        <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Edit Profile"> Edit</i>
+                    <% end %>
+                  </div>
+                    <div class="large-4 columns">
                       <a href="#" class="transfer_link button tiny info round">
                         <i class="fa fa-share-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Transfer Team"> Transfer</i>
                       </a>

@@ -2,14 +2,16 @@
 
 -add controller level authorizations for admin controllers
 
--will_paginate foundation for index pages
 
 -paperclip file upload for user photos
 
--report excel file producing
-
--excel files zipping
 
 -notification systems
 
 -to put team_reports controller under admin namespace
+
+-team member promotion to leader **
+
+-reset password **
+
+-chat system

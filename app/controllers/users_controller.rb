@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if(@user.save!)
+    if(@user.save)
       redirect_to @user, notice: "User successfully created!"
     else
       render "new"
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do|format|
       format.html do
-        if@user.update_attributes!(params[:user])then
+        if@user.update_attributes(params[:user])then
           redirect_to users_path(active_team: @user.team.name),notice: "User successfully updated"
         else
-          redirect_to :back,alert: 'Sorry something went wrong'
+          render 'edit'
         end
       end
       format.js do
