@@ -237,6 +237,7 @@ section#main-section {
 %tmgt-container,.tmgt-container {
   @include tmgt-boxshadow();
   background: #fff;
+  text-align: center;
 }
 .tmgt-container-textarea {
   @extend %tmgt-container;

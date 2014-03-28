@@ -1,6 +1,5 @@
 <%= form_for(@team, :remote => true ) do |f| %>
-    <%= f.label :name %>
+    <br/>
     <%= f.text_field :name %>
-
-    <%= f.submit "Save" %>
+    <%= f.submit "Save", :class=>"button small info radius" %>
 <% end %>

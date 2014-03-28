@@ -5,11 +5,11 @@
     <dd><a href="#panel-<%= team.split().flatten.join %>"><%= team %></a></dd>
   <% end %>
 </dl>
-<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container cm-row-margin-remove">
+<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
 <% @reports.each do |team,reports| %>
     <div class="content cm-tab-container cm-row-margin-remove" id="panel-<%= team.split.flatten.join %>">
       <ul class="cm-listview">
-        <li class="row tmgt-view-report-page cm-listheader cm-row-margin-remove">
+        <li class="row tmgt-view-report-page cm-listheader">
               <div class="large-2 columns">
                 Name
               </div>
@@ -46,9 +46,8 @@
               </div>
               <div class="large-2 columns">
                 <div class="row">
-                  <div class="large-12 columns report_status">
-                    <%= report.status %>
-                    <br/>
+                  <div class="large-12 columns report_status symbol_size">
+                    <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
                     <br/>
                   </div>
                 </div>

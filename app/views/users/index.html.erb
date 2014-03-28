@@ -1,46 +1,61 @@
-<h1> Member List </h1>
-<ul class="cm-listview">
+<h3> Member List </h3>
+<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
+<div class="cm-listview-wrapper   cm-row-margin-remove">
+    <%= render partial: 'user_teams_secondary_nav',locals: {active_team: @active_team} %>
+    <ul class="cm-listview">
 
-<li class="row tmgt-view-report-page cm-listheader">
-  <div class="large-3 columns tmgt-container">
-    Date
-  </div>
-  <div class="large-3 columns tmgt-container">
-    Status
-  </div>
-  <div class="large-5 columns tmgt-container">
-    Actions
-  </div>
-</li> <!-- eo rows -->
-  <% @users.each do |u| %>
-    <li id='<%= dom_id(u) %>' class='row tmgt-view-report-page'>
-
-      <div class="large-3 columns tmgt-container">
-        <%= u.name %>
+    <li class="row cm-listheader">
+      <div class="large-3 columns">
+        Date
       </div>
-
-      <div class="large-3 columns tmgt-container">
-        <%= u.team.name %>
+      <div class="large-3 columns">
+        Team name
       </div>
-
-
-      <div class="large-5 columns tmgt-container">
-        <% if can? :edit,u then%>
-            <div class="row">
-                <div class="large-6 columns">
-                  <%= link_to "Edit Profile",edit_user_path(u) %>
-                </div>
-                <div class="large-6 columns">
-                  <a href="#" class="transfer_link">Transfer Team</a>
-                  <%= render partial: 'team_transfer_form',locals:{user: u} %>
-                </div>
-             </div>
-
-        <% end %>
+      <div class="large-5 columns">
+        Actions
       </div>
-    </li>
+    </li> <!-- eo rows -->
+      <br/>
+      <% @users.each do |u| %>
+        <li id='<%= dom_id(u) %>' class='row tmgt-view-report-page'>
+
+          <div class="large-3 columns">
+            <%= u.name %>
+          </div>
+
+          <div class="large-3 columns team_name">
+            <%= u.team.name %>
+          </div>
 
 
-<%end%>
-</ul>
-<%=link_to "New Member",new_user_path%>
+          <div class="large-5 columns">
+            <% if can? :edit,u then%>
+                <div class="row">
+                    <div class="large-6 columns">
+                      <%= link_to edit_user_path(u) do %>
+                          <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Edit Profile"> Edit</i>
+                      <% end %>
+                    </div>
+                    <div class="large-6 columns">
+                      <a href="#" class="transfer_link button tiny info round">
+                        <i class="fa fa-share-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Transfer Team"> Transfer</i>
+                      </a>
+                      <%= render partial: 'team_transfer_form',locals:{user: u} %>
+                    </div>
+                 </div>
+
+            <% end %>
+          </div>
+        </li>
+
+
+    <%end%>
+    </ul>
+</div>
+</section>
+<div class="pagination-centered">
+  <%= will_paginate @users, renderer: FoundationPagination::Rails %>
+</div>
+<%= link_to new_user_path,class: 'button info small radius' do %>
+    <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Member"> New</i>
+<% end %>

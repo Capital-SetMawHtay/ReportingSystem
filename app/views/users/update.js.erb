@@ -1,3 +1,4 @@
 $('#<%= dom_id(@user)%> .team_name').text('<%= @user.team.name %>');
-$('#<%= dom_id(@user)%> form').remove();
+$('#<%= dom_id(@user)%> .team_name').addClass('cm-transfer-success');
+$('#<%= dom_id(@user)%> form').slideUp('fast');
 $('#<%= dom_id(@user)%> .transfer_link').show();

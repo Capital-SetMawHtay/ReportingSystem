@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   #======Scopes========
 
   scope :non_admin, lambda {where("role != 'admin'")}
-
+  scope :by_team, lambda{|t|joins(:team).where('teams.name = ?',t)}
   # attr_accessible :title, :body
   validates :name,:employee_number, :role, :date_of_birth, presence: true
   validates :role, inclusion: {in: ROLES }
@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   def leader?
     self.role == "leader"
   end
+
 
 
 end

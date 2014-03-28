@@ -1,6 +1,15 @@
-<tr id="<%= dom_id team %>">
-    <td><%= team.name %></td>
-    <td><%= team.users.count %></td>
-    <td><%= link_to "Rename",edit_team_path(team), :remote => true %></td>
-</tr>
+<li id="<%= dom_id team %>" class="row">
+  <div class="large-3 columns tmgt-container">
+    <%= team.name %>
+  </div>
+  <div class="large-3 columns tmgt-container">
+    <%= team.users.count %>
+  </div>
+  <div class="large-5 columns tmgt-container">
+    <%= link_to edit_team_path(team), :remote => true do %>
+        <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Rename"> Rename</i>
+    <% end %>
+  </div>
+</li>
+
 

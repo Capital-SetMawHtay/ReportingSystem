@@ -1,15 +1,35 @@
-<table id="teams">
-  <% @teams.each do |t| %>
-      <%= render t %>
-  <% end %>
-</table>
+<h1> Team List </h1>
+<div class="cm-listview-wrapper">
+    <ul id="teams" class="cm-listview cm-list-container">
+      <li class="row cm-listheader">
+        <div class="large-3 columns tmgt-container">
+          Name
+        </div>
+        <div class="large-3 columns tmgt-container">
+          Total Member
+        </div>
+        <div class="large-5 columns tmgt-container">
+          Action
+        </div>
+      </li>
+      <% @teams.each do |t| %>
+          <%= render t %>
+      <% end %>
+    </ul>
+  <br/>
+  <br/>
+    <div class="pagination-centered">
+      <%= will_paginate @users, renderer: FoundationPagination::Rails %>
+    </div>
 
-<br />
-<div id="info">
-  new
-</div>
-<div id="form">
-    <%= render :partial => "form" %>
+    <br />
+    <div class="radius secondary label">
+      <h4>New</h4>
+    </div>
+
+    <div id="form">
+        <%= render :partial => "form" %>
+    </div>
 </div>
 
 

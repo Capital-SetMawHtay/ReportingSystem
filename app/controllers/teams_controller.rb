@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
     @team = Team.new
+    @teams = Team.paginate(:page=>params[:page],:per_page=>5)
 
     respond_to do |format|
       format.html # index.html.erb

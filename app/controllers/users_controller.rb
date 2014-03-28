@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
  authorize_resource :user
   def index
-      @users = User.non_admin
+      @active_team = params[:active_team] || 'all'
+      if @active_team == 'all' then
+        @users = User.non_admin
+      else
+        @users = User.non_admin.by_team(@active_team)
+      end
+      @users = @users.paginate(:page=>params[:page],:per_page=>5)
   end
 
   def new
@@ -30,9 +36,9 @@ class UsersController < ApplicationController
     respond_to do|format|
       format.html do
         if@user.update_attributes!(params[:user])then
-          redirect_to users_path,notice: "User successfully updated"
+          redirect_to users_path(active_team: @user.team.name),notice: "User successfully updated"
         else
-          render "edit"
+          redirect_to :back,alert: 'Sorry something went wrong'
         end
       end
       format.js do

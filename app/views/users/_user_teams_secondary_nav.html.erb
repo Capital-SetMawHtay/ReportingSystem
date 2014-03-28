@@ -1,0 +1,11 @@
+<dl class="sub-nav">
+    <dt>Filter:</dt>
+    <dd class="<%= active_team_chooser('all',active_team)%>">
+      <%= link_to "All",users_path%>
+    </dd>
+    <% Team.all.each do|team| %>
+        <dd class="<%= active_team_chooser(team.name,active_team)%>">
+          <%= link_to team.name,users_path(active_team: team.name) %>
+        </dd>
+    <% end %>
+</dl>
