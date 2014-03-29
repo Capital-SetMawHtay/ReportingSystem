@@ -86,3 +86,27 @@ ul.cm-home-ads{
   font-size: 1.5em;
   color: seagreen;
 }
+
+.cm-rounded-image{
+  width: 80px;
+  height: 70px;
+  border-radius: 20px;
+}
+.avatar{
+  padding-bottom: 20px;
+}
+
+input[type="file"] {
+  background: rgba(155,155,155,.3);
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+
+}
+
+#user_date_of_birth_1i, #user_date_of_birth_2i, #user_date_of_birth_3i {
+  width: 80px;
+  margin-right: 10px;
+}
+
+

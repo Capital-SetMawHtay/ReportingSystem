@@ -13,40 +13,51 @@
       <div class="large-6 columns">
         <div>
           <%= f.label :name %>
-          <br/>
+
           <%= f.text_field :name, :autofocus => true %>
         </div>
         <div>
           <%= f.label :email %>
-          <br/>
+
           <%= f.email_field :email %>
         </div>
         <div>
           <%= f.label :address %>
-          <br/>
+
           <%= f.text_area :address, rows: 4 %>
         </div>
+        <br/>
         <div>
           <%= f.label :employee_number %>
-          <br/>
+
           <%= f.text_field :employee_number %>
         </div>
         <div>
           <%= f.label :teams %>
-          <br/>
+
           <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
         </div>
+        <br/>
+
       </div>
       <div class="large-6 columns">
         <div>
+          <div>
           <%= f.label :date_of_birth %>
-          <br/>
+
           <%= f.date_select :date_of_birth %>
+          </div>
+          <br/>
           <div>
             member
             <%= f.radio_button :role, "member",:id=> "member" %>
             leader
             <%= f.radio_button :role, "leader", :id=> "leader" %>
+          </div>
+          <div>
+            <%= f.label :photo %>
+
+            <%= f.file_field :photo %>
           </div>
 
           <%if @user.id.nil? %>
