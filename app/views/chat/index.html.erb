@@ -30,24 +30,41 @@
     </div>  <!-- eo large-12 columns -->
 
     <div class="large-3 columns">
-      <h4>Team Member</h4>
-      <ul class="tmgt-container-member-btn-group" id="groups">
-        <h4>Your groups</h4>
-        <% @groups.each do|group| %>
-            <%= render :partial=> 'groups/own_group', locals: {group: group} %>
-        <% end %>
-      </ul>
-
-      <fieldset id='group_field'>
-        <legend>Add new group</legend>
-        <div id='new_group_form'>
-          <%= form_for ([current_user,@group]),remote: true do |f| %>
-              <%= f.label :name %>
-              <%= f.text_field :name %> <br>
-              <%= f.submit 'create'%>
-          <% end %>
+      <div class="row">
+        <div class="large-12 columns">
+          <h4>Groups You've involved</h4>
+          <ul class="tmgt-container-member-btn-group" id="chat_groups">
+                <%= render partial: 'layouts/common/chat_groups' %>
+          </ul>
+          <br/>
         </div>
-      </fieldset>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+            <ul class="tmgt-container-member-btn-group" id="owned_groups">
+            <h4>Your groups</h4>
+            <% @owned_groups.each do|group| %>
+                <%= render :partial=> 'groups/own_group', locals: {group: group} %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns">
+          <fieldset id='group_field'>
+            <legend>Add new group</legend>
+            <div id='new_group_form'>
+              <%= form_for ([current_user,@group]),remote: true do |f| %>
+                  <%= f.label :name %>
+                  <%= f.text_field :name %> <br>
+                  <%= f.submit 'create'%>
+              <% end %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+
     </div> <!-- end of large-3 columns -->
 
 

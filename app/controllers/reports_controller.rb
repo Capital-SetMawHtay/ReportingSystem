@@ -3,7 +3,7 @@ require_relative '../../lib/report_file_generator/daily_report_excel.rb'
 class ReportsController < ApplicationController
 
   authorize_resource :user
-  authorize_resource :report,:except => [:index]
+  authorize_resource :report
   def index
     @reports = current_user.reports.this_week.order(:report_date)
 

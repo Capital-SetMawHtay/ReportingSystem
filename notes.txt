@@ -2,10 +2,6 @@
 
 -add controller level authorizations for admin controllers
 
-
--paperclip file upload for user photos
-
-
 -notification systems
 
 -to put team_reports controller under admin namespace

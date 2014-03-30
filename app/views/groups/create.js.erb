@@ -1,4 +1,4 @@
-$('#groups').append('<%= escape_javascript(render partial: 'groups/group',locals: {group: @group})%>');
+$('#owned_groups').append('<%= escape_javascript(render partial: 'groups/own_group',locals: {group: @group})%>');
 $('#all_groups').append('<%= escape_javascript(render partial: 'groups/group',locals: {group: @group})%>');
 $('.use_group').groupClick();
 $('#group_name').val('');

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :subscriptions
   has_many :groups, through: :subscriptions
-  has_many :owned_groups,class_name: 'Group' ,inverse_of: :owner
+  has_many :owned_groups,foreign_key: 'owner_id',class_name: 'Group' ,inverse_of: :owner
   #======Scopes========
 
   scope :non_admin, lambda {where("role != 'admin'")}

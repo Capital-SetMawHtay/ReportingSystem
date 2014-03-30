@@ -11,9 +11,9 @@ class Ability
       cannot :submit,Report,{:status => 'submitted'}
       can :manage,Adminmail
     elsif(user.member?)
-      can :read,User
+      can :read,User,{:id => user.id}
       can :read,Team
-      can :read, Report
+      can :read, Report,{:user_id => user.id}
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
       can [:edit,:update],Report,{:user_id => user.id}

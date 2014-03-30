@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-
+  append_before_filter :authenticate_user!
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url,status: 403,notice: "Access Denied on #{exception.action} with #{exception.subject.inspect}"
   end

@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name,:owner_id
   has_many :subscriptions
   has_many :users, through: :subscriptions
   has_many :messages

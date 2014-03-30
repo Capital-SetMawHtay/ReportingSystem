@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+
+  authorize_resource :team
   def index
     @teams = Team.all
     @team = Team.new

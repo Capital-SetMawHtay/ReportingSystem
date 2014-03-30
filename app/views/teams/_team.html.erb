@@ -10,8 +10,10 @@
     <br/>
   </div>
   <div class="large-5 columns">
+    <% if can?(:write,team) %>
     <%= link_to edit_team_path(team), :remote => true do %>
         <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Rename"> Rename</i>
+    <% end %>
     <% end %>
   </div>
 </li>

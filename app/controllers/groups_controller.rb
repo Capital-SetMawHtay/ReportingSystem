@@ -16,8 +16,9 @@ class GroupsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @group = Group.new(params[:group])
-    @group.users<<@user
-    @group.save
+    @group.owner_id = current_user.id
+    @group.save!
+    @group.subscriptions.create(user_id: current_user.id)
     respond_to do |format|
       format.html
       format.js

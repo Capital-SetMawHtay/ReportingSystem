@@ -97,6 +97,8 @@
 <div class="pagination-centered">
   <%= will_paginate @users, renderer: FoundationPagination::Rails %>
 </div>
-<%= link_to new_user_path,class: 'button info small radius' do %>
-    <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Member"> New</i>
+<% if can? :create,:user %>
+    <%= link_to new_user_path,class: 'button info small radius' do %>
+        <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Member"> New</i>
+    <% end %>
 <% end %>
