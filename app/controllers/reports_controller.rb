@@ -11,6 +11,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    authorize! :read,@report
   end
 
   def edit

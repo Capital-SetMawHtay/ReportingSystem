@@ -16,6 +16,7 @@ class Ability
       can :read, Report,{:user_id => user.id}
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
+      cannot :submit,Report,{:status => 'reviewed'}
       can [:edit,:update],Report,{:user_id => user.id}
       cannot :update,Report do|report|
         report.user_id != user.id

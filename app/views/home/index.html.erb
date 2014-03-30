@@ -8,6 +8,7 @@
   <li>generate report files</li>
 </ul>
 <div class="panel" align="center">
-
-  <%= link_to 'sign in',new_user_session_path,class: 'button radius' %>
+  <% unless current_user %>
+    <%= link_to 'sign in',new_user_session_path,class: 'button radius' %>
+  <% end %>
 </div>
