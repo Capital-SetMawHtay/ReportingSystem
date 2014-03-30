@@ -3,4 +3,4 @@
 <% end %>
 
 $('#edit_<%= dom_id(@report)%>').remove();
-$('#<%= dom_id(@report)%> .report_status').innerHTML('<%= j(@report.status)+"<br/> <br/>"%>');
+$('#<%= dom_id(@report)%> .report_status').replaceWith('<%= raw j(@report.status)+"<br/> <br/>"%>');

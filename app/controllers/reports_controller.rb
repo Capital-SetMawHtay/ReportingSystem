@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
     @reports = []
     first = Date.today.beginning_of_week
     last = Date.today.beginning_of_week+4
-    unless Report.find_by_report_date(first)
+    unless current_user.reports.find_by_report_date(first)
       (first..last).each do |date|
         @reports<<Report.create!(report_date: date,user_id: current_user.id,status: 'pending')
       end

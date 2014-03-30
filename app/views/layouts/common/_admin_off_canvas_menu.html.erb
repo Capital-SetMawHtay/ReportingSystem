@@ -1,0 +1,18 @@
+<div class="large-3 medium-4 small-9 columns tmgt-off-canvas-parent-before" id="tmgt-off-canvas-parent">
+  <section id="tmgt-container-off-canvas-menu">
+    <ul>
+      <li><%= link_to "Write Report",user_reports_path(current_user)%></li>
+      <li><%= link_to "Compose Mail",new_adminmail_path %></li>
+    </ul>
+    <h4>Notifications</h4>
+    <div class="tmgt-container-notifcation" id="tmgt-notification">
+      <ul>
+          <% Activity.today.each do|activity| %>
+             <li>
+               <%= "#{activity.user.name} #{activity.action} #{activity.trackable_type} " %>
+             </li>
+          <% end %>
+      </ul>
+    </div>
+  </section> <!-- eo tmgt-container-off-canvas-menu -->
+</div> <!-- eo tmgt-off-canvas-parent-before -->
