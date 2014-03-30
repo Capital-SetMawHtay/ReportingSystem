@@ -3,7 +3,7 @@ require_relative '../../lib/report_file_generator/daily_report_excel.rb'
 class ReportsController < ApplicationController
 
   authorize_resource :user
-  authorize_resource :report
+  #authorize_resource :report
   def index
     @user = User.find(params[:user_id])
     authorize!(:index,@user)
@@ -19,6 +19,7 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+    authorize! :edit,@report
   end
 
   def create
