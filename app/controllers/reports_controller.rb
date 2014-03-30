@@ -5,6 +5,9 @@ class ReportsController < ApplicationController
   authorize_resource :user
   authorize_resource :report
   def index
+    @user = User.find(params[:user_id])
+    authorize!(:index,@user)
+    #@reports = @user.reports.this_week.order(:report_date)
     @reports = current_user.reports.this_week.order(:report_date)
 
   end
@@ -22,14 +25,15 @@ class ReportsController < ApplicationController
     @reports = []
     first = Date.today.beginning_of_week
     last = Date.today.beginning_of_week+4
-    (first..last).each do |date|
-      @reports<<Report.create!(report_date: date,user_id: current_user.id,status: 'pending')
+    unless Report.find_by_report_date(first)
+      (first..last).each do |date|
+        @reports<<Report.create!(report_date: date,user_id: current_user.id,status: 'pending')
+      end
     end
     respond_to do |format|
       format.html do
         redirect_to user_reports_path(current_user.id)
       end
-      format.js
     end
   end
 

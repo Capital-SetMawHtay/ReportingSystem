@@ -13,7 +13,8 @@ class Ability
     elsif(user.member?)
       can :read,User,{:id => user.id}
       can :read,Team
-      can :read, Report,{:user_id => user.id}
+      can :index,Report,{:user_id => user.id}
+      can :show, Report,{:user_id => user.id}
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
       cannot :submit,Report,{:status => 'reviewed'}
