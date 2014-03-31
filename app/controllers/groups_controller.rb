@@ -33,4 +33,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def open
+    @user = User.find(params[:user_id])
+    @group = Group.find(params[:id])
+    respond_to do|format|
+      format.js
+    end
+  end
+
 end

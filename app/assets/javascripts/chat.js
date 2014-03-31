@@ -3,8 +3,12 @@ $('#new_message').hide();
     jQuery.fn.groupClick = function(){
       this.on('click',function(){
           var gid = $(this).data('gid');
+          var uid = $(this).data('uid');
           $('#new_message').show();
-          $('#message_group_id').attr('value',gid);
+          $('#message_group_id').val = gid;
+          $.ajax({
+             url: '/users/'+uid+'/groups/'+gid+'/open'
+          });
           $('.tmgt-chat-box').text('Loading');
           $.ajax({
               url: '/messages',

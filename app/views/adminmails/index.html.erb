@@ -1,38 +1,70 @@
-
-<div class='row'>
-    <div class='large-6 large-offset-1 columns'>
-        <h1>Listing adminmails</h1>
-        <table>
-          <tr>
-            <th>Sender mail</th>
-            <!-- <th>Sender password</th> -->
-            <th>Receiver mail</th>
-            <th>Cc</th>
-            <th>Subject</th>
-            <th>Date</th>
-            <th>Content</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-
-        <% @adminmails.each do |adminmail| %>
-          <tr>
-            <td><%= adminmail.sender_mail %></td>
-            <!-- <td><%= adminmail.sender_password %></td> -->
-            <td><%= adminmail.receiver_mail %></td>
-            <td><%= adminmail.cc %></td>
-            <td><%= adminmail.subject %></td>
-            <td><%= adminmail.date %></td>
-            <td><%= adminmail.content %></td>
-            <td><%= link_to 'Show', adminmail %></td>
-            <td><%= link_to 'Edit', edit_adminmail_path(adminmail) %></td>
-            <td><%= link_to 'Destroy', adminmail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-        </table>
-      <div class="pagination-centered">
-        <%= will_paginate @adminmails, renderer: FoundationPagination::Rails %>
-      </div>
+<section id="reports" class="tabs-content tmgt-container-section">
+  <div class="row">
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5>Mail list</h5>
     </div>
+  </div>
+  <div class="cm-listview-wrapper   cm-row-margin-remove">
+
+  <ul class="cm-listview">
+  <li class="row cm-listheader">
+    <div class="large-1 columns tmgt-container">
+      Date
+    </div>
+    <div class="large-2 columns tmgt-container">
+      Subject
+    </div>
+    <div class="large-3 columns tmgt-container">
+      To
+    </div>
+    <div class="large-3 columns tmgt-container">
+      Cc
+    </div>
+    <div class="large-3 columns tmgt-container">
+      Actions
+    </div>
+  </li><br/>
+
+    <% @adminmails.each do |u| %>
+        <li>
+          <div class="large-1 columns tmgmt-container">
+            <%= u.date %>
+          </div>
+
+          <div class="large-2  columns tmgmt-container">
+            <%= u.subject %>
+          </div>
+
+          <div class="large-3 columns tmgmt-container">
+            <%= u.receiver_mail %>
+          </div>
+
+          <div class="large-3 columns tmgmt-container">
+            <%= u.cc %>
+          </div>
+
+          <div class="large-3 columns tmgmt-container">
+            <% if can? :edit,u then%>
+                <div class="row">
+                  <div class="large-6 columns">
+                    <%= link_to u do%>
+                        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true" title="Show mail"> show</i>
+                    <% end %>
+                  </div>
+                  <div class="large-6 columns">
+                    <%= link_to u, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="fa fa-eraser radius" data-tooltip data-options="disable_for_touch:true" title="Delete Mail"> Delete</i>
+                    <% end %>
+                  </div>
+                </div>
+
+            <% end %>
+          </div>
+        </li><br/><br/>
+    <%end%>
+  </ul>
+</div>
+</section>
+<div class="pagination-centered">
+  <%= will_paginate @adminmails, renderer: FoundationPagination::Rails %>
 </div>

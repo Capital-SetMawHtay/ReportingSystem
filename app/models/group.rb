@@ -4,4 +4,6 @@ class Group < ActiveRecord::Base
   has_many :users, through: :subscriptions
   has_many :messages
   belongs_to :owner,foreign_key: :owner_id,class_name: 'User',inverse_of: :owned_groups
+
+  scope :last_opened,lambda{where(last_opened: true)}
 end

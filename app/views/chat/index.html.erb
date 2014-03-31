@@ -1,18 +1,10 @@
     <div class="large-9 columns" >
       <%= render partial: 'tabs',locals: {groups: @groups} %>
-      <section class="tabs-content tmgt-container-section">
+      <section class="tabs-content tmgt-container-section" id="chat_container">
+         <% @groups.each do|g| %>
+            <%= render partial: 'chat/chat_panel',locals: {group: g} %>
+        <% end %>
 
-        <div class="content active" id="panel-1">
-          <!-- chat message area 1 -->
-            <div class="tmgt-chat-user-group">
-            <img src="img/1.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
-            <img src="img/2.png" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
-            <img src="img/3.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
-          </div>
-            <div class="tmgt-chat-box" id="custom-scrollbar">
-
-            </div>  <!-- eo tmgt-chat-box #custom-scrollbar -->
-        </div>
       </section>  <!-- eo tmgt-container-section -->
         <div class="row tmgt-chat-control">
           <%= form_for Message.new,remote: true do |f|%>

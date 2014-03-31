@@ -1,5 +1,5 @@
 <div id='<%= dom_id(group)%>'>
-  <li class='use_group' data-gid="<%=group.id%>">
+  <li class='use_group' data-gid="<%=group.id%>" data-uid="<%= current_user.id %>">
     <span class="name">
        <%= group.name %>
     </span>

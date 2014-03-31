@@ -1,0 +1,13 @@
+<div class="content active" id="panel-<%= dom_id(group) %>">
+  <!-- chat message area 1 -->
+  <div class="tmgt-chat-user-group">
+    <img src="img/1.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
+    <img src="img/2.png" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
+    <img src="img/3.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
+  </div>
+  <div class="tmgt-chat-box" id="custom-scrollbar">
+     <% group.messages.each do|message| %>
+       <%= message_presenter(message) %>
+     <% end %>
+  </div>  <!-- eo tmgt-chat-box #custom-scrollbar -->
+</div>

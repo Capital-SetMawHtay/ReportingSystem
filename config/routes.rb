@@ -40,7 +40,11 @@ ReportingSystem1::Application.routes.draw do
       end
     end
 
-    resources :groups
+    resources :groups do
+      member do
+        get :open
+      end
+    end
   end
   resources :subscriptions
   resources :messages

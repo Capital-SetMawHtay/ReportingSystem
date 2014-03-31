@@ -1,9 +1,5 @@
 <dl class="tabs" data-tab id="chatbox-tab-switcher">
   <% groups.each do|group| %>
-     <dd>
-       <a href="#<%= group.name %>">
-         <%= group.name %>
-       </a>
-     </dd>
+     <%= render partial: 'groups/group_tab', locals: {group: group} %>
   <% end %>
 </dl>

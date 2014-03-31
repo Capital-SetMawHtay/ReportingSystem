@@ -1,0 +1,9 @@
+$tabContainer = $('#chatbox-tab-switcher');
+$targetTab = $tabContainer.find('#tab-<%= dom_id(@group)%>');
+if(!$targetTab){
+    $tabContainer.append('<%= j(render partial: 'groups/group_tab',locals: {group: @group})%>');
+}
+var $targetPanel = $('#chat_container').find('#panel-<%= @group.id %>');
+if(!$targetPanel){
+    $('#chat_container').append('<%= j(render partial: 'chat/chat_panel',locals: {group: @group})  %>');
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140328083741) do
+ActiveRecord::Schema.define(:version => 20140331073950) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -43,9 +43,10 @@ ActiveRecord::Schema.define(:version => 20140328083741) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "owner_id"
+    t.boolean  "last_opened"
   end
 
   create_table "messages", :force => true do |t|
