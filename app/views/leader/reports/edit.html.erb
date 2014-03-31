@@ -1,38 +1,85 @@
-<h1>Review Report</h1>
-<h2>
-  <%= @report.user.name %>
-  <%= @report.report_date %>
-  <%= @report.user.team.name %>
-</h2>
 
-<div class="report_view">
-  <div>
-    plan
+<div class="large-12 columns">
+  <div class="rows">
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5><%= @report.user.name %></h5>
+    </div>
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5><%= @report.report_date %></h5>
+    </div>
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5>
+        <%= @report.user.team.name %>
+      </h5>
+    </div>
   </div>
-  <div>
-    <%= @report.plan %>
+</div>
+<div id="plan_for_today">
+  <div class="row">
+    <div class="large-12 columns">
+      <section class="cm-report-edit-fields">
+        <header class="tmgt-plan">Planned for Today</header>
+        <div class="cm-planned-report tmgt-container">
+          <%= @report.plan_for_today %>
+        </div>
+      </section>
+    </div>
   </div>
-  <div>
-    experience
+</div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-plan">Experience</header>
+      <div class="tmgt-container-section">
+        <%= @report.experience %>
+      </div>
+    </section>
   </div>
-  <div>
-    <%= @report.experience %>
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-problem">Next plan</header>
+      <div class="tmgt-container-section">
+        <%= @report.plan %>
+      </div>
+    </section>
   </div>
-  <div>
-    problem
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-exp">Problems</header>
+      <div class="tmgt-container-section">
+        <%= @report.problem %>
+      </div>
+    </section>
   </div>
-  <div>
-    <%= @report.problem %>
-  </div>
-  <div>
-    solution
-  </div>
-  <div>
-    <%= @report.solution %>
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-solution">Solution</header>
+      <div class="tmgt-container-section">
+        <%= @report.solution %>
+      </div>
+    </section>
   </div>
 </div>
 <%= form_for(@report,url: leader_team_report_path(@report),method: :put) do|f| %>
-    <%= f.label :review %>
-    <%= f.text_field :review, rows: 5 %>
-    <%= f.submit 'Write'%>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="rows">
+      <div class="tmgt-containner-leader-review">
+        <div class="large-2 columns">
+          <span>Leader's Review</span>
+        </div>
+        <div class="large-8 columns">
+          <%= f.text_area :review, rows: 10 %>
+        </div>
+        <div class="large-2 columns">
+            <%= f.submit 'Write',class: 'button primary medium cm-leader-review-button'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% end %>

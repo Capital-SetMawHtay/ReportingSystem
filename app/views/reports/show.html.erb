@@ -1,7 +1,7 @@
 <div class="large-12 columns">
     <div class="rows">
       <div class="large-2 columns tmgt-btn-budge-style1">
-         <h5><%= @report.user.email %></h5>
+         <h5><%= @report.user.name %></h5>
       </div>
       <div class="large-2 columns tmgt-btn-budge-style1">
         <h5><%= @report.report_date %></h5>
@@ -13,42 +13,70 @@
       </div>
     </div>
 </div>
-<div id="plan_for_today" class="large-6 large-offset-3 columns">
-  <h4>What you planned for today was:</h4>
-  <%= @report.plan_for_today %>
-</div>
-
-<div class="large-6 columns">
-  <section class="tmgt-report-detail-container-budge">
-    <header class="tmgt-plan">Experience</header>
-    <div class="tmgt-container-section">
-      <%= @report.experience %>
+<div id="plan_for_today">
+  <div class="row">
+    <div class="large-12 columns">
+      <section class="cm-report-edit-fields">
+        <header class="tmgt-plan">Planned for Today</header>
+        <div class="cm-planned-report tmgt-container">
+          <%= @report.plan_for_today %>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 </div>
-<div class="large-6 columns">
-  <section class="tmgt-report-detail-container-budge">
-    <header class="tmgt-problem">Next plan</header>
-    <div class="tmgt-container-section">
-      <%= @report.plan %>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-plan">Experience</header>
+      <div class="tmgt-container-section">
+        <%= @report.experience %>
+      </div>
+    </section>
+  </div>
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-problem">Next plan</header>
+      <div class="tmgt-container-section">
+        <%= @report.plan %>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-exp">Problems</header>
+      <div class="tmgt-container-section">
+        <%= @report.problem %>
+      </div>
+    </section>
+  </div>
+  <div class="large-6 columns">
+    <section class="tmgt-report-detail-container-budge">
+      <header class="tmgt-solution">Solution</header>
+      <div class="tmgt-container-section">
+        <%= @report.solution %>
+      </div>
+    </section>
+  </div>
+</div>
+<% unless @report.review.blank? %>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="rows">
+          <div class="tmgt-containner-leader-review">
+            <div class="large-2 columns">
+              <span>Leader's Review</span>
+            </div>
+            <div class="large-8 columns">
+                <%= @report.review %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-</div>
-<div class="large-6 columns">
-  <section class="tmgt-report-detail-container-budge">
-    <header class="tmgt-exp">Problems</header>
-    <div class="tmgt-container-section">
-      <%= @report.problem %>
-    </div>
-  </section>
-</div>
-<div class="large-6 columns">
-  <section class="tmgt-report-detail-container-budge">
-    <header class="tmgt-solution">Solution</header>
-    <div class="tmgt-container-section">
-      <%= @report.solution %>
-    </div>
-  </section>
-</div>
+<% end %>
 
 

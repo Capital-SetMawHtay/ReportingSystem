@@ -1,9 +1,15 @@
-<div class="row">
-  <div class="large-12 columns">
-    <div class="rows">
-      <div class="large-2 columns tmgt-btn-budge-style1">
-        <h5>Edit Report</h5>
-      </div>
+<div class="large-12 columns">
+  <div class="rows">
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5><%= @report.user.name %></h5>
+    </div>
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5><%= @report.report_date %></h5>
+    </div>
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5>
+        <%= @report.user.team.name %>
+      </h5>
     </div>
   </div>
 </div>
