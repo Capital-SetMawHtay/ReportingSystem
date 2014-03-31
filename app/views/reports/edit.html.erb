@@ -1,29 +1,48 @@
-Edit Report
+<div class="row">
+  <div class="large-12 columns">
+    <div class="rows">
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5>Edit Report</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="plan_for_today">
-  <h4>What you planned for today was:</h4>
-  <%= @report.plan_for_today %>
+  <div class="row">
+      <div class="large-12 columns">
+        <section class="cm-report-edit-fields">
+          <header class="tmgt-plan">Planned for Today</header>
+          <div class="cm-planned-report tmgt-container">
+            <%= @report.plan_for_today %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>
 <%= form_for([@report.user,@report],method: :put) do|f| %>
     <!-- Form url  -->
     <div class="row">
       <div class="large-6 columns">
         <section class="cm-report-edit-fields">
-          <header class="tmgt-plan">Plan</header>
-          <%= f.text_area :plan,class: 'tmgt-container-textarea' %>
+          <header class="tmgt-exp">Experience</header>
+          <%= f.text_area :experience,class: 'tmgt-container-textarea' %>
         </section>
       </div>
+
       <div class="large-6 columns">
         <section class="cm-report-edit-fields">
-          <header class="tmgt-problem">Problems</header>
-          <%= f.text_area :problem,class: 'tmgt-container-textarea'%>
+          <header class="tmgt-plan">Next Plan</header>
+          <%= f.text_area :plan,class: 'tmgt-container-textarea' %>
         </section>
       </div>
     </div>
     <div class="row">
       <div class="large-6 columns">
         <section class="cm-report-edit-fields">
-          <header class="tmgt-exp">Experience</header>
-          <%= f.text_area :experience,class: 'tmgt-container-textarea' %>
+          <header class="tmgt-problem">Problems</header>
+          <%= f.text_area :problem,class: 'tmgt-container-textarea'%>
         </section>
       </div>
       <div class="large-6 columns">
