@@ -110,6 +110,11 @@ $user_chat_gruoup.mCustomScrollbar({
 	# there is no cb 
 })
 
+$('#mCSB_1').mCustomScrollbar({
+  scrollButtons:
+    enable: true,
+  theme: "dark"
+})
 
 $notification_container.mCustomScrollbar({
 	scrollButtons:
