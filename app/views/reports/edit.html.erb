@@ -5,36 +5,42 @@ Edit Report
 </div>
 <%= form_for([@report.user,@report],method: :put) do|f| %>
     <!-- Form url  -->
+    <div class="row">
       <div class="large-6 columns">
-        <section class="tmgt-report-detail-container-budge">
+        <section class="cm-report-edit-fields">
           <header class="tmgt-plan">Plan</header>
-          <%= f.text_area :plan %>
-          <!--<textarea name="plan" id="" cols="30" rows="10"></textarea>-->
+          <%= f.text_area :plan,class: 'tmgt-container-textarea' %>
         </section>
       </div>
       <div class="large-6 columns">
-        <section class="tmgt-report-detail-container-budge">
+        <section class="cm-report-edit-fields">
           <header class="tmgt-problem">Problems</header>
           <%= f.text_area :problem,class: 'tmgt-container-textarea'%>
-          <!--<textarea name="problem" id="" cols="30" rows="10"></textarea>-->
         </section>
       </div>
+    </div>
+    <div class="row">
       <div class="large-6 columns">
-        <section class="tmgt-report-detail-container-budge">
+        <section class="cm-report-edit-fields">
           <header class="tmgt-exp">Experience</header>
-          <!--<textarea name="experience" id="" cols="30" rows="10"></textarea>-->
-          <%= f.text_area :experience %>
+          <%= f.text_area :experience,class: 'tmgt-container-textarea' %>
         </section>
       </div>
       <div class="large-6 columns">
-        <section class="tmgt-report-detail-container-budge">
+        <section class="cm-report-edit-fields">
           <header class="tmgt-solution">Solution</header>
-          <%= f.text_area :solution%>
-          <!--<textarea name="solution" id="" cols="30" rows="10"></textarea>-->
+          <div>
+            <%= f.text_area :solution,class: 'tmgt-container-textarea'%>
+          </div>
         </section>
       </div>
-      <div class="large-12 tmgt-right-btn-group">
-        <%= f.submit 'Write and Preview',class: 'button radius'%>
+    </div>
+    <br/><br/>
+      <div class="row">
+
+        <div class="large-12 tmgt-right-btn-group">
+          <%= f.submit 'Write and Preview',class: 'button radius'%>
+        </div>
       </div>
     <!-- eo form -->
 <% end %>

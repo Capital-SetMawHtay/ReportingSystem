@@ -484,13 +484,14 @@ section#main-section {
     text-align: center;
     padding: 10px;
   }
-  textarea {
-    @extend %tmgt-container;
-    min-height: 180px;
-  }
+//  textarea {
+//    @extend %tmgt-container;
+//    min-height: 180px;
+//  }
 }
 .tmgt-right-btn-group {
   text-align: right;
+  padding-right: 30px;
 }
 
 .tmgt-containner-leader-review {

@@ -14,7 +14,9 @@ class Ability
       can :read,User,{:id => user.id}
       can :read,Team
       can :index,Report,{:user_id => user.id}
-      can :show, Report,{:user_id => user.id}
+      can :read, Report do|report|
+        report.user_id === user.id
+      end
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
       cannot :submit,Report,{:status => 'reviewed'}
@@ -28,6 +30,10 @@ class Ability
       can :read,User
       can :read, Team
       can :read,Report
+      can :review,Report do|report|
+        report.try(:user).try(:team) == user.team
+      end
+      cannot :review,Report,{:status => 'reviewed'}
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
       can :create,Report,{:user_id => user.id}

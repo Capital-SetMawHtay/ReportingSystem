@@ -1,19 +1,105 @@
-<section class="tmgt-container-section">
+<section id="reports" class="tabs-content tmgt-container-section">
   <div class="row">
     <div class="large-2 columns tmgt-btn-budge-style1">
       <h5>Member Info</h5>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-6 columns">
-      <div class="label info radius">
-        Name
-      </div>
-      <div>
-        <%= @user.name %>
-      </div>
+    <div class="large-2 columns">
+      <%= link_to "Back to Report", users_path,class: 'button medium info' %>
     </div>
   </div>
-  <%= link_to "back",users_path %>
-
+  <br/><br/><br/>
+  <div class='row'>
+    <div class='large-6 columns user-show-col'>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Name
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.name %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Email
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.email %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Address
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.address %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Phone no
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.phone_number %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Employee no
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.employee_number %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Team
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.team.name %>
+        </div>
+      </div>
+    </div>
+    <div class='large-6 columns'>
+      <div class='row'>
+        <div class='large-3 columns'>
+        </div>
+        <div class='large-9 columns'>
+          <%= image_tag @user.photo.url(:medium),:width=>"100px",:height=>"100px"%>
+        </div>
+      </div><br/><br/><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Date of Birth
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.date_of_birth %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Started Date
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.started_date %>
+        </div>
+      </div><br/><br/>
+      <div class='row'>
+        <div class='large-2 columns label secondary radius'>
+          Role
+        </div>
+        <div class='large-1 columns'>:</div>
+        <div class='large-9 columns'>
+          <%= @user.role %>
+        </div>
+      </div><br/><br/>
+    </div>
+  </div>
 </section>

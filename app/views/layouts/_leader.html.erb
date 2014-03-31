@@ -12,19 +12,8 @@
 </head>
 
 <body>
-<%= render partial: 'layouts/admin_top_navigation' %>
-<p id="notice">
-  <%= notice %>
-</p>
-<p id="alert">
-  <%= alert %>
-</p>
-<% if current_user then %>
-    <%= link_to('sign out',logout_path(),method: :delete) %>
-<% else %>
-    <%= link_to('sign in',new_user_session_path) %>
-<% end %>
-
+<%= render partial: 'layouts/leader_top_navigation' %>
+<%= render partial: 'layouts/common/notice' %>
 
 <!-- Body -->
 <section class="main-section" id="main-section">

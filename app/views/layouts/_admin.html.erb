@@ -14,9 +14,7 @@
 <body>
 <%= render partial: 'layouts/admin_top_navigation' %>
 <%= render partial: 'layouts/common/notice' %>
-<% unless current_user then %>
-    <%= link_to('sign in',new_user_session_path) %>
-<% end %>
+
 
 
 <!-- Body -->

@@ -16,20 +16,13 @@
     <!-- Nav menu and notification implementation  -->
                     <span class="right" id="tooltip-group">
                       <%= link_to user_reports_path(current_user) do %>
-                        <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Write Report"></i>
+                        <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Manage Member Reports"></i>
                       <% end %>
-                      <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o",'data-tooltip' => '', 'data-options' => "disable_for_touch:true" ,:title => "Chat Message"),users_path %>
                       <%= link_to '/chat' do %>
-                         <i class="fa fa-comments tip-bottom radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"></i>
-                      <% end %>
-                      <%= link_to user_reports_path(current_user) do %>
-                         <i class="fa fa-envelope tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Send Your Mail"></i>
-                      <% end %>
-                      <%= link_to teams_path  do %>
-                        <i class="fa fa-group tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Your Team"></i>
+                         <i class="fa fa-comments-o tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Enter Chat Room"></i>
                       <% end %>
                       <%= link_to logout_path,method: :delete do %>
-                        <i class="fa fa-gears tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Settings"></i>
+                        <i class="fa fa-sign-out tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Log out"></i>
                       <% end %>
                     </span>
   </section>   <!-- eo right tab-bar-section -->
