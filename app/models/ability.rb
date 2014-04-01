@@ -10,6 +10,9 @@ class Ability
       can :manage,TeamReport
       cannot :submit,Report,{:status => 'submitted'}
       can :manage,Adminmail
+      cannot :submit,Report do|report|
+        !report.submittable?
+      end
     elsif(user.member?)
       can :read,User,{:id => user.id}
       can :read,Team
@@ -20,6 +23,9 @@ class Ability
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
       cannot :submit,Report,{:status => 'reviewed'}
+      cannot :submit,Report do|report|
+        !report.submittable?
+      end
       can [:edit,:update],Report,{:user_id => user.id}
       cannot :update,Report do|report|
         report.user_id != user.id
@@ -36,6 +42,9 @@ class Ability
       cannot :review,Report,{:status => 'reviewed'}
       can :submit,Report,{:user_id => user.id }
       cannot :submit,Report,{:status => 'submitted'}
+      cannot :submit,Report do|report|
+        !report.submittable?
+      end
       can :create,Report,{:user_id => user.id}
       can :update,Report do|report|
          report.try(:user).try(:team) == user.team

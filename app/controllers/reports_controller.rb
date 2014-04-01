@@ -51,6 +51,7 @@ class ReportsController < ApplicationController
   def submit
     @report = Report.find(params[:id])
     @report.update_attributes(status: 'submitted')
+    @team = current_user.team
     @noti = current_user.activities.create! action: 'submitted', trackable: @report
     respond_to do |format|
       format.html {    redirect_to user_reports_path(@report.user),notice: 'Report successfully submitted' }

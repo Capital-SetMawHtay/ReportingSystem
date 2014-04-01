@@ -5,4 +5,5 @@ class Activity < ActiveRecord::Base
 
   #scope
   scope :today,lambda{where("created_at > ?",DateTime.now - 1)}
+
 end

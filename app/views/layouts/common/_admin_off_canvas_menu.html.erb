@@ -4,13 +4,12 @@
       <li><%= link_to "Write Report",user_reports_path(current_user)%></li>
       <li><%= link_to "Compose Mail",new_adminmail_path %></li>
     </ul>
-    <h4>Notifications</h4>
-    <div class="tmgt-container-notifcation" id="tmgt-notification">
+    <h4>Notifications for Today</h4>
+    <div id="cm-notification">
+
       <ul>
           <% Activity.today.each do|activity| %>
-             <li>
-               <%= "#{activity.user.name} #{activity.action} #{activity.trackable_type} " %>
-             </li>
+              <%= render partial: 'activities/activity',locals: {activity: activity} %>
           <% end %>
       </ul>
     </div>

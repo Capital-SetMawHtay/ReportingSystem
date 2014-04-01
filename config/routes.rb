@@ -14,6 +14,7 @@ ReportingSystem1::Application.routes.draw do
   namespace :admin do
     resources :report_files
     resources :reports
+    resources :team_reports
     post 'zipper/create'=> "zipper#create", as: 'make_zip'
     get 'zipper/download/:date'=>'zipper#download',as: 'zip_download'
   end

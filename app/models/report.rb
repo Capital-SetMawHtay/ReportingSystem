@@ -47,6 +47,9 @@ class Report < ActiveRecord::Base
     !report_file.nil?
   end
 
+  def submittable?
+    status == 'pending' && report_date <= Date.today
+  end
 
   private
     # if the date is monday then previous is last friday else previous is yesterday

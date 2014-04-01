@@ -1,20 +1,68 @@
-<div id="team_reports">
-  <% @team_reports.each do |team_report| %>
-    <div id='<%= dom_id(team_report) %>'>
-        <div class="content">
-          <%= team_report.content.truncate(50)%>
-        </div>
-        <div class="date">
-          <%= team_report.report_date %>
-        </div>
-        <div class="status">
-          <%= team_report.status %>
-        </div>
-        <div class="actions">
-          <%= link_to 'View Detail',team_team_report_path(team_report.team,team_report) %>
-          <%= link_to 'Edit',edit_team_team_report_path(team_report.team,team_report) %>
-        </div>
+
+
+  <section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
+    <div class="row">
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5>Team Reports</h5>
+      </div>
     </div>
-  <% end %>
-</div>
-<%= link_to 'new',new_team_team_report_path() %>
+    <div class="cm-listview-wrapper   cm-row-margin-remove">
+      <ul id="teams" class="cm-listview">
+        <li class="row tmgt-view-report-page cm-listheader">
+          <div class="large-3 columns tmgt-container">
+            Date
+          </div>
+          <div class="large-3 columns tmgt-container">
+            Status
+          </div>
+          <div class="large-5 columns tmgt-container">
+            Action
+          </div>
+        </li>
+        <br/>
+        <% @team_reports.each do |team_report| %>
+            <li id="<%= dom_id team_report %>" class="row tmgt-view-report-page">
+              <div class="large-3 columns">
+                <%= team_report.report_date %>
+                <br/>
+                <br/>
+              </div>
+              <div class="large-3 columns">
+                <%= team_report.status %>
+                <br/>
+                <br/>
+              </div>
+              <div class="large-5 columns">
+                <div class="row">
+                  <div class="large-6 columns">
+                    <%= link_to team_team_report_path(team_report.team,team_report) do%>
+                        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Detail</i>
+                    <% end %>
+                  </div>
+                  <div class="large-6 columns">
+                    <% if can?(:edit,team_report) %>
+                        <%= link_to edit_team_team_report_path(team_report.team,team_report), :remote => true do %>
+                            <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Rename"> Rename</i>
+                        <% end %>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+        <% end %>
+      </ul>
+      <br/>
+      <br/>
+
+    </div>
+  </section>
+<% if can? :create,TeamReport %>
+    <div class="row">
+      <div class="large-2 large-offset-10 columns">
+        <%= link_to new_team_team_report_path(),class: 'button medium success radius' do %>
+            <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Team Report"> New</i>
+        <% end %>
+      </div>
+    </div>
+<% end %>

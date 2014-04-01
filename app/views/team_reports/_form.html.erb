@@ -14,18 +14,24 @@
         </div>
     <% end %>
     <div class="field">
-      <%= f.label :content %>
+      <div class='large-2 columns label secondary radius'>
+        <%= f.label :content %>
+      </div>
       <%= f.text_area :content %>
-    </div>
-    <div class="field">
-      <%= f.label :report_date %>
+    </div>  <br/>
+    <fieldset>
+    <div class="kmn-date-time">
+      <legend class='label secondary radius'>
+        <%= f.label :report_date %>
+      </legend>
       <%= f.date_select :report_date %>
     </div>
+    </fieldset><br/>
     <div class="field">
       <%= f.hidden_field :team_id,:value => current_user.team_id %>
-    </div>
+    </div>   <br/>
     <div class="actions">
-      <%= f.submit 'Save' %>
+      <%= f.submit 'Save',class: 'button medium primary radius' %>
     </div>
 <% end %>
 

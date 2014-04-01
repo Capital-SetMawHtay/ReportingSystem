@@ -1,0 +1,58 @@
+
+
+<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
+  <div class="row">
+    <div class="large-2 columns tmgt-btn-budge-style1">
+      <h5>Team Reports</h5>
+    </div>
+  </div>
+  <div class="cm-listview-wrapper   cm-row-margin-remove">
+    <ul id="teams" class="cm-listview">
+      <li class="row tmgt-view-report-page cm-listheader">
+        <div class="large-3 columns tmgt-container">
+          Date
+        </div>
+        <div class="large-3 columns tmgt-container">
+          Status
+        </div>
+        <div class="large-3 columns tmgt-container">
+          Team
+        </div>
+        <div class="large-3 columns tmgt-container">
+          Action
+        </div>
+      </li>
+      <br/>
+      <% @team_reports.each do |team_report| %>
+          <li id="<%= dom_id team_report %>" class="row tmgt-view-report-page">
+            <div class="large-3 columns">
+              <%= team_report.report_date %>
+              <br/>
+              <br/>
+            </div>
+            <div class="large-3 columns">
+              <%= team_report.status %>
+              <br/>
+              <br/>
+            </div>
+            <div class="large-3 columns">
+              <%= team_report.team.name %>
+              <br/>
+              <br/>
+            </div>
+            <div class="large-3 columns">
+
+                  <%= link_to team_team_report_path(team_report.team,team_report) do%>
+                      <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Detail</i>
+                  <% end %>
+
+
+            </div>
+          </li>
+      <% end %>
+    </ul>
+    <br/>
+    <br/>
+
+  </div>
+</section>

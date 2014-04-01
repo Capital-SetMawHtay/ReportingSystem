@@ -40,12 +40,12 @@ $right_offcanvs_btn.on "click", ->
 
 # this is just a notification sound testing 
 # TODO: create utility function to notify the sound 
-$menu_btn.on "click", ->
-	$(this).parent().children().removeClass('active')
-	#notification sound testing 
-	song = $('#notification')[0]
-	song.play()
-	$(this).addClass('active')		
+#$menu_btn.on "click", ->
+#	$(this).parent().children().removeClass('active')
+#	#notification sound testing
+#	song = $('#notification')[0]
+#	song.play()
+#	$(this).addClass('active')
 	# use unbind method to prevent additional call when the item is already activated  
 
 
@@ -62,9 +62,9 @@ fireNotification()
 # TODO: notification will be caused by some of served site chat msg is occurred 
 # this is just a testing purpose 
 # already append the notification class before used 
-$menu_btn.append appendHtml
-$menu_btn.on "click", ->	
-	$(this).find('div').toggleClass('tmgt-notification-budge-after')
+#$menu_btn.append appendHtml
+#$menu_btn.on "click", ->
+#	$(this).find('div').toggleClass('tmgt-notification-budge-after')
 
 #silver bullet to cure appending scroll text also append in body of next tab view when  switching tab in index.html
 $tab_switcher.on "click", ->
@@ -108,6 +108,12 @@ $user_chat_gruoup.mCustomScrollbar({
 		enable: true,
 	theme: "dark"
 	# there is no cb 
+})
+
+$('#tmgt-notification ul').mCustomScrollbar({
+  scrollButtons:
+    enable: true,
+  theme: "dark"
 })
 
 $('#mCSB_1').mCustomScrollbar({

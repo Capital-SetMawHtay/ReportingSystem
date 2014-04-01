@@ -1,11 +1,21 @@
-<h1>Reports</h1>
+<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
+
+<div class="row">
+  <div class="large-2 columns tmgt-btn-budge-style1">
+    <h5>Today Reports</h5>
+  </div>
+
+</div>
+
 
 <dl class="tabs" data-tab id="chatbox-tab-switcher">
   <% @reports.each do|team,reports| %>
-    <dd><a href="#panel-<%= team.split().flatten.join %>"><%= team %></a></dd>
+    <dd >
+      <a href="#panel-<%= team.split().flatten.join %>"><%= team %><%= render partial: 'layouts/common/submitted_report_count',locals: {team_name: team,submitted_reports: reports} %></a>
+
+    </dd>
   <% end %>
 </dl>
-<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
 <% @reports.each do |team,reports| %>
     <div class="content cm-tab-container cm-row-margin-remove" id="panel-<%= team.split.flatten.join %>">
       <ul class="cm-listview">
@@ -25,67 +35,9 @@
         </li> <!-- eo rows -->
         <br/>
         <% reports.each do |report| %>
-            <li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page cm-row-margin-remove">
-              <div class="large-2 columns">
-                  <div class="row">
-                    <div class="large-12 columns report_date">
-                      <%= report.user.name %>
-                      <br/>
-                      <br/>
-                    </div>
-                  </div>
-              </div>
-              <div class="large-2 columns">
-                <div class="row">
-                  <div class="large-12 columns report_date">
-                    <%= report.report_date %>
-                    <br/>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-              <div class="large-2 columns">
-                <div class="row">
-                  <div class="large-12 columns report_status symbol_size">
-                    <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-              <div class="large-5 columns">
-                <div class="row">
-                  <div class="large-4 columns">
-
-                    <%= link_to user_report_path(report.user,report) do%>
-                        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Detail</i>
-                    <% end %>
-                    <br/>
-                    <br/>
-                  </div>
-                  <div class="large-4 columns">
-                    <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
-                        <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Excel</i>
-                    <% end %>
-                    <br/>
-                    <br/>
-                  </div>
-                  <div class="large-4 columns report_file_form">
-                        <% unless report.generated? %>
-                            <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
-                                <%= f.hidden_field :report_id, value: report.id %>
-                                <%= f.hidden_field :file_date, value: Date.today %>
-                                <%= f.submit 'Generate',class: 'tiny button info round' %>
-                            <% end %>
-                        <% else %>
-                            <button class='cm-button-generated tiny'>generated</button>
-                        <% end %>
-                      </div>
-              </div>
-              </div>
-            </li>
-
+            <%= render partial:'admin/reports/report',locals: {report: report} %>
         <% end %>
-        </ul>
+      </ul>
     </div>
 <% end %>
 </section>

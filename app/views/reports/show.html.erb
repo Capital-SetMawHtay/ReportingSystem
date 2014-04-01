@@ -11,6 +11,11 @@
           <%= @report.user.team.name %>
         </h5>
       </div>
+      <div class="large-2 columns">
+
+          <%= link_to "Back", user_reports_path(@report.user),class: 'button medium info' %>
+
+      </div>
     </div>
 </div>
 <div id="plan_for_today">

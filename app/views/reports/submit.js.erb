@@ -1,6 +1,15 @@
-<% publish_to "/messages/test" do %>
-    alert('<%="#{current_user.name} has #{@noti.action} #{@noti.trackable_type}. "%>');
+<% publish_to "/messages/#{current_user.team.get_leader.id}" do %>
+alert('Hi leader');
+$('#tmgt-notification ul').prepend('<%= j(render partial: 'activities/activity',locals: {activity: @noti} )%>');
+<% end %>
+<% publish_to "/messages/#{User.get_admin.id}" do %>
+    alert('Hello');
+    $('#cm-notification ul').prepend('<%= j(render partial: 'activities/activity',locals: {activity: @noti} )%>');
+   $('#panel-<%= @team.name.split.flatten.join %> ul').append('<%= j(render partial:'admin/reports/report',locals: {report: @report}) %>');
+   $('a').increseSubmittedCount('<%= @team.name %>');
+   $('a').notifyChat();
 <% end %>
 
+
 $('#edit_<%= dom_id(@report)%>').remove();
-$('#<%= dom_id(@report)%> .report_status').replaceWith('<%= raw j(@report.status)+"<br/> <br/>"%>');
+$('#<%= dom_id(@report)%> .report_status').html('<%= raw j(@report.status)+"<br/> <br/>"%>');

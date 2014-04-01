@@ -1,11 +1,28 @@
-<h1>Detail Team Report</h1>
-
-<div id='<%= dom_id(@team_report)%>'>
-    <div class="header">
-        <%= @team_report.report_date %>
-        <%= @team_report.team.name %>
+<section class="tmgt-container-section">
+<div class="row">
+  <div class="large-12 columns">
+    <div class="rows">
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5><%= @team_report.team.name %></h5>
+      </div>
+      <div class="large-2 columns tmgt-btn-budge-style1">
+        <h5><%= @team_report.report_date %></h5>
+      </div>
+      <div class="large-2 columns">
+          <%= link_to "Back", team_team_reports_path(@team_report.team),class: 'button medium info' %>
+      </div>
     </div>
-    <div class="content">
-      <%= @team_report.content %>
+  </div>
+</div>
+
+<div id='<%= dom_id(@team_report)%>' class="row">
+    <div class="large-12 columns">
+      <section class="cm-report-edit-fields">
+        <header class="tmgt-plan">Content</header>
+        <div class="cm-planned-report tmgt-container">
+          <%= @team_report.content %>
+        </div>
+      </section>
     </div>
 </div>
+</section>

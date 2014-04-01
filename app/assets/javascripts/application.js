@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require private_pub
 //= require foundation
-//= require mousewheel
 //= require scrollbar
+//= require mousewheel
 //= require chat
 //= require control
 //= require users
+//= require admin
 $(function(){ $(document).foundation(); });

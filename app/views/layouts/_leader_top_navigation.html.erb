@@ -15,11 +15,11 @@
     </audio>
     <!-- Nav menu and notification implementation  -->
                     <span class="right" id="tooltip-group">
+                      <%= link_to team_team_reports_path(current_user.team) do %>
+                        <i class="fa fa-clipboard tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Team Reports"></i>
+                      <% end %>
                       <%= link_to user_reports_path(current_user) do %>
                         <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Manage Member Reports"></i>
-                      <% end %>
-                      <%= link_to '/chat' do %>
-                         <i class="fa fa-comments-o tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Enter Chat Room"></i>
                       <% end %>
                       <%= link_to logout_path,method: :delete do %>
                         <i class="fa fa-sign-out tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Log out"></i>

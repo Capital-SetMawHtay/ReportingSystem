@@ -104,7 +104,7 @@ input[type="file"] {
 
 }
 
-#user_date_of_birth_1i, #user_date_of_birth_2i, #user_date_of_birth_3i {
+.kmn-date-time select{
   width: 80px;
   margin-right: 10px;
 }
@@ -140,4 +140,22 @@ input[type="file"] {
 
 .cm-leader-review-button{
   margin-top: 75px;
+}
+
+#chat_notification {
+  position: absolute;
+  left: 250px;
+  border: 1px solid #8B8B8B;
+  padding: 5px;
+  line-height: 1  ;
+  margin-top: 8px;
+  background: #444;
+  -webkit-box-shadow:inset 1px 2px 5px 0px rgba(111,112,127,.75) , 1px 2px 5px 0px rgba(111,112,127,.75);
+  -moz-box-shadow: inset 1px 2px 5px 0px rgba(111,112,127,.75)  , 1px 2px 5px 0px rgba(111,112,127,.75);;
+  -o-box-shadow: inset 1px 2px 5px 0px rgba(111,112,127,.25), 1px 2px 5px 0px rgba(111,112,127,.75);;
+  box-shadow:  inset 1px 2px 5px 0px rgba(111,112,127,.75) , 1px 2px 5px 0px rgba(111,112,127,.75); ;
+}
+
+#cm-notification{
+  height: 100%;
 }
