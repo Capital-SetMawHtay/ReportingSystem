@@ -20,6 +20,7 @@
   <div class="row hack-row">
     <div class="large-12 columns">
       <div class="row">
+        <%= javascript_include_tag "application" %>
         <%= render partial: 'layouts/leader_offcanvas_menu' %>
         <!-- eo tmgt-off-canvas-parent-before -->
         <div class="large-12 columns main-process-before" id="main-process">
@@ -31,6 +32,5 @@
     </div> <!-- eo large-12columns -->
   </div>  <!-- eo row hack-row -->
 </section>  <!-- eo main-section -->
-<%= javascript_include_tag "application" %>
 </body>
 </html>

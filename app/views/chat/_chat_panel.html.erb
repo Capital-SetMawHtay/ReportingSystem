@@ -1,9 +1,9 @@
-<div class="content active" id="panel-<%= dom_id(group) %>">
+<div class="content" id="<%= group.name %>">
   <!-- chat message area 1 -->
   <div class="tmgt-chat-user-group">
-    <img src="img/1.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
-    <img src="img/2.png" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
-    <img src="img/3.jpg" class="tip-bottom radius" alt="" data-tooltip data-options="disable_for_touch:true" title="Write Report">
+    <% group.users.each do |u| %>
+      <%= image_tag u.photo,class: "tip-bottom radius",'data-tooltip'=>'','data-options'=> "disable_for_touch:true",'title'=> u.name %>
+    <% end %>
   </div>
   <div class="tmgt-chat-box" id="custom-scrollbar">
      <% group.messages.each do|message| %>

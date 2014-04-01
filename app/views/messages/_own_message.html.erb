@@ -1,7 +1,7 @@
 <div class="user-chat">
   <div class="profile-pic">
     <em><%= message.user.email.truncate(10)%></em><br>
-    <img src="img/1.jpg" alt="" width="100%">
+    <%= image_tag message.user.photo,class: "tip-bottom radius",'data-tooltip'=>'','data-options'=> "disable_for_touch:true",'title'=> message.user.name %>
   </div>  <!-- eo user profile pic -->
   <div class="msg">
     <%= message.content %>
