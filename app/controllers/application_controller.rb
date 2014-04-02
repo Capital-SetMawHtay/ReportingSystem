@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     case resource.role
-      when 'admin' then teams_path
+      when 'admin' then admin_reports_path
       when 'leader'then user_reports_path(resource)
       when 'member'then user_reports_path(resource)
       else root_url

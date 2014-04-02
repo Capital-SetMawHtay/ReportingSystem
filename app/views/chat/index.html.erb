@@ -10,7 +10,8 @@
           <%= form_for Message.new,remote: true do |f|%>
                 <div class="large-9 columns">
                   <%= f.text_area :content,cols: '30',rows: '5',class: 'tmgt-container-textarea' %>
-                  <%= f.hidden_field :group_id,value: ''%>
+                  <%= f.hidden_field :group_id,value: ''%> <a href="#", class: "close pull-right noti_close">&times;</a>
+
                 </div>
                 <div class="large-3 columns">
                 <%= f.submit "Send",class: 'tmgt-btn-red' %>

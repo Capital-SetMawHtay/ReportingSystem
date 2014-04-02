@@ -4,14 +4,6 @@
       <li><%= link_to "Write Report",user_reports_path(current_user)%></li>
       <li><%= link_to "Compose Mail",new_adminmail_path %></li>
     </ul>
-    <h4>Notifications for Today</h4>
-    <div id="cm-notification">
 
-      <ul>
-          <% Activity.today.each do|activity| %>
-              <%= render partial: 'activities/activity',locals: {activity: activity} %>
-          <% end %>
-      </ul>
-    </div>
   </section> <!-- eo tmgt-container-off-canvas-menu -->
 </div> <!-- eo tmgt-off-canvas-parent-before -->
