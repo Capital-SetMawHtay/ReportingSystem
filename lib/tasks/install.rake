@@ -1,0 +1,1 @@
+#TODO make an installation script with db initialization and faye server running

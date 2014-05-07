@@ -3,8 +3,6 @@ alert('Hi leader');
 $('#tmgt-notification ul').prepend('<%= j(render partial: 'activities/activity',locals: {activity: @noti} )%>');
 <% end %>
 <% publish_to "/messages/#{User.get_admin.id}" do %>
-    alert('Hello');
-    $('#cm-notification ul').prepend('<%= j(render partial: 'activities/activity',locals: {activity: @noti} )%>');
    $('#panel-<%= @team.name.split.flatten.join %> ul').append('<%= j(render partial:'admin/reports/report',locals: {report: @report}) %>');
    $('a').increseSubmittedCount('<%= @team.name %>');
    $('a').notifyChat();

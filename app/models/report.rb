@@ -48,7 +48,7 @@ class Report < ActiveRecord::Base
   end
 
   def submittable?
-    status == 'pending' && report_date <= Date.today
+    status == 'pending' && report_date == Date.today
   end
 
   private
