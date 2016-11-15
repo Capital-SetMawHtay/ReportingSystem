@@ -11,7 +11,7 @@
 
 // variable
 $bodyBg 		: #f0f0f0;
-$font   		: sans-serif;
+$font   		: 'Droid Serif';
 $problem-color  : #c0392b;
 $plan-color		: #1ca6ff;
 $exp-color		: #2c3e50;
@@ -256,6 +256,7 @@ section#main-section {
   border-radius: 5px;
   margin-bottom: 15px;
   padding: 15px;
+  min-height: 300px;
 }
 /* tmgt chat box, chat box is only available in chat box page */
 .tmgt-chat-box {

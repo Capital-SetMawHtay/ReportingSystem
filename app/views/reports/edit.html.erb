@@ -20,7 +20,7 @@
         <section class="cm-report-edit-fields">
           <header class="tmgt-plan">Planned for Today</header>
           <div class="cm-planned-report tmgt-container">
-            <%= @report.plan_for_today %>
+            <%= simple_format(@report.plan_for_today) %>
           </div>
         </section>
       </div>
