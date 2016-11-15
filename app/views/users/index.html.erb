@@ -11,88 +11,69 @@
       <%= render partial: 'user_teams_secondary_nav',locals: {active_team: @active_team} %>
     </div>
   </div>
-  <div class="cm-listview-wrapper   cm-row-margin-remove">
-
-    <ul class="cm-listview">
-
-    <li class="row cm-listheader">
-      <div class="large-2 columns tmgt-container">
-        Photo
-      </div>
-      <div class="large-2 columns tmgt-container">
-        Name
-      </div>
-      <div class="large-3 columns tmgt-container">
-        <div class="row">
-          <div class="large-6 columns">
-            Team
-          </div>
-          <div class="large-6 columns">
-            Leader?
-          </div>
-        </div>
-      </div>
-      <div class="large-4 columns tmgt-container">
-        Actions
-      </div>
-    </li> <!-- eo rows -->
-      <br/>
-      <% @users.each do |u| %>
-        <li id='<%= dom_id(u) %>' class='row tmgt-view-report-page'>
-
-          <div class="large-2 columns tmgmt-container">
-            <div class="avatar">
-              <%= image_tag u.photo.url(:medium),:width=>"100px",:height=>"100px",class: 'cm-rounded-image'%>
-            </div>
-          </div>
-
-          <div class="large-2 columns">
-            <%= u.name %>
-          </div>
-
-          <div class="large-3 columns team_name">
-            <div class="row">
-              <div class="large-6 columns">
+  <div class="row">
+      <table class="large-12">
+        <thead>
+          <tr>
+            <th>
+              Photo
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+              Team
+            </th>
+            <th>
+              Leader?
+            </th>
+            <th colspan="3">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |u| %>
+            <tr id='<%= dom_id(u) %>'>
+              <td>
+                <div class="avatar">
+                  <%= image_tag u.photo.url(:medium),:width=>"100px",:height=>"100px",class: 'cm-rounded-image'%>
+                </div>
+              </td>
+              <td>
+                <%= u.name %>
+              </td>
+              <td>
                 <%= u.team.name %>
-              </div>
-              <div class="large-6 columns">
+              </td>
+              <td>
                 <%if u.leader? then %>
                     <i class="fa  fa-star radius leader_icon" data-tooltip data-options="disable_for_touch:true" title="leader"></i>
                 <% end %>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="large-4 columns">
-            <% if can? :edit,u then%>
-                <div class="row">
-                    <div class="large-4 columns">
-                      <%= link_to user_path(u) do %>
-                          <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Profile"> Detail</i>
-                      <% end %>
-                    </div>
-                  <div class="large-4 columns">
-                    <%= link_to edit_user_path(u) do %>
-                        <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Edit Profile"> Edit</i>
-                    <% end %>
-                  </div>
-                    <div class="large-4 columns">
-                      <a href="#" class="transfer_link button tiny info round">
-                        <i class="fa fa-share-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Transfer Team"> Transfer</i>
-                      </a>
-                      <%= render partial: 'team_transfer_form',locals:{user: u} %>
-                    </div>
-                 </div>
-
-            <% end %>
-          </div>
-        </li>
-
-
-    <%end%>
-    </ul>
-</div>
+              </td>
+              <% if can? :edit,u then%>
+                <td>
+                  <%= link_to user_path(u) do %>
+                    <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Profile"> Detail</i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to edit_user_path(u) do %>
+                    <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Edit Profile"> Edit</i>
+                  <% end %>
+                </td>
+                <td>
+                  <a href="#" class="transfer_link button tiny info round">
+                    <i class="fa fa-share-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Transfer Team"> Transfer</i>
+                  </a>
+                  <%= render partial: 'team_transfer_form',locals:{user: u} %>
+                </td>
+              <% end %>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>  
+  </div>
 </section>
 <div class="pagination-centered">
   <%= will_paginate @users, renderer: FoundationPagination::Rails %>
