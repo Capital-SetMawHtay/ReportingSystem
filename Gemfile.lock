@@ -1,5 +1,5 @@
 GEM
-  remote: http://localhost:8808/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -73,6 +73,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.0.1)
+    dotenv-rails (2.0.1)
+      dotenv (= 2.0.1)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -257,6 +260,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   database_cleaner
   devise
+  dotenv-rails
   factory_girl_rails
   faker
   font-awesome-rails
@@ -277,3 +281,6 @@ DEPENDENCIES
   will_paginate
   will_paginate-foundation
   zeus (= 0.13.4.pre2)
+
+BUNDLED WITH
+   1.13.6

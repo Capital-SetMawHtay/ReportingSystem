@@ -1,4 +1,4 @@
-source 'http://localhost:8808'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -22,5 +22,5 @@ script/startzeus.sh
 /storage
 /storage/*
 /public/system
-
+.env
 
