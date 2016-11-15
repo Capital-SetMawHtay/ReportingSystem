@@ -24,7 +24,7 @@
       <section class="cm-report-edit-fields">
         <header class="tmgt-plan">Planned for Today</header>
         <div class="cm-planned-report tmgt-container">
-          <%= @report.plan_for_today %>
+          <%= simple_format(@report.plan_for_today) %>
         </div>
       </section>
     </div>
@@ -36,7 +36,7 @@
     <section class="tmgt-report-detail-container-budge">
       <header class="tmgt-plan">Experience</header>
       <div class="tmgt-container-section">
-        <%= @report.experience %>
+        <%= simple_format(@report.experience) %>
       </div>
     </section>
   </div>
@@ -44,7 +44,7 @@
     <section class="tmgt-report-detail-container-budge">
       <header class="tmgt-problem">Next plan</header>
       <div class="tmgt-container-section">
-        <%= @report.plan %>
+        <%= simple_format(@report.plan) %>
       </div>
     </section>
   </div>
@@ -54,7 +54,7 @@
     <section class="tmgt-report-detail-container-budge">
       <header class="tmgt-exp">Problems</header>
       <div class="tmgt-container-section">
-        <%= @report.problem %>
+        <%= simple_format(@report.problem) %>
       </div>
     </section>
   </div>
@@ -62,7 +62,7 @@
     <section class="tmgt-report-detail-container-budge">
       <header class="tmgt-solution">Solution</header>
       <div class="tmgt-container-section">
-        <%= @report.solution %>
+        <%= simple_format(@report.solution) %>
       </div>
     </section>
   </div>
@@ -76,7 +76,7 @@
               <span>Leader's Review</span>
             </div>
             <div class="large-8 columns">
-                <%= @report.review %>
+                <%= simple_format(@report.review) %>
             </div>
           </div>
         </div>
