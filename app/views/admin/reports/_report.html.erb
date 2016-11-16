@@ -1,58 +1,33 @@
-<li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page cm-row-margin-remove">
-  <div class="large-2 columns">
-    <div class="row">
-      <div class="large-12 columns report_date">
-        <%= report.user.name %>
-        <br/>
-        <br/>
-      </div>
-    </div>
-  </div>
-  <div class="large-2 columns">
-    <div class="row">
-      <div class="large-12 columns report_date">
-        <%= report.report_date %>
-        <br/>
-        <br/>
-      </div>
-    </div>
-  </div>
-  <div class="large-2 columns">
-    <div class="row">
-      <div class="large-12 columns report_status symbol_size">
-        <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
-        <br/>
-      </div>
-    </div>
-  </div>
-  <div class="large-5 columns">
-    <div class="row">
-      <div class="large-4 columns">
+<tr id='<%= dom_id(report)%>'>
+  <td>
+    <%= report.user.name %>
+  </td>
+  <td>
+    <%= report.report_date %>
+  </td>
+  <td>
+    <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
+  </td>
+    <td>
 
-        <%= link_to user_report_path(report.user,report) do%>
-            <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Detail</i>
-        <% end %>
-        <br/>
-        <br/>
-      </div>
-      <div class="large-4 columns">
-        <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
-            <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Chat Message"> Excel</i>
-        <% end %>
-        <br/>
-        <br/>
-      </div>
-      <div class="large-4 columns report_file_form">
-        <% unless report.generated? %>
-            <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true) do|f| %>
-                <%= f.hidden_field :report_id, value: report.id %>
-                <%= f.hidden_field :file_date, value: Date.today %>
-                <%= f.submit 'Generate',class: 'tiny button info round' %>
-            <% end %>
-        <% else %>
-            <button class='cm-button-generated tiny'>generated</button>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</li>
+      <%= link_to user_report_path(report.user,report) do%>
+          <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Detail"> Detail</i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
+          <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Download Excel File"> Excel</i>
+      <% end %>
+    </td>
+    <td>
+      <% unless report.generated? %>
+          <%= form_for(:report_file,url: admin_report_files_path(report.build_report_file),remote: true, html: {class: "report_file_form"}) do|f| %>
+              <%= f.hidden_field :report_id, value: report.id %>
+              <%= f.hidden_field :file_date, value: Date.today %>
+              <%= f.submit 'Generate',class: 'tiny button info round' %>
+          <% end %>
+      <% else %>
+          <i class="fa fa-check radius" style="color: green;" data-tooltip data-options="disable_for_touch:true"  title="Reports for this user has been generated"> Genereated</i>
+      <% end %>
+    </td>
+</tr>

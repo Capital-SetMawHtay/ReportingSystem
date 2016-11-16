@@ -1,1 +1,1 @@
-$("#<%= dom_id(@report)%> .report_file_form").find('form').replaceWith("<button class='tiny button success disabled'>generated</button>");
+$("#<%= dom_id(@report)%> .report_file_form").replaceWith("<i class='fa fa-check radius' style='color: green;' data-tooltip data-options='disable_for_touch:true' title='Reports for this user has been generated'> Genereated</i>");

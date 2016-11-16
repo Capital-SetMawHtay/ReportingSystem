@@ -16,30 +16,37 @@
     </dd>
   <% end %>
 </dl>
-<% @reports.each do |team,reports| %>
-    <div class="content cm-tab-container cm-row-margin-remove" id="panel-<%= team.split.flatten.join %>">
-      <ul class="cm-listview">
-        <li class="row tmgt-view-report-page cm-listheader">
-              <div class="large-2 columns">
+  <div class="tabs-content">
+    <% @reports.each do |team,reports| %>
+      <div id="panel-<%= team.split().flatten.join %>" class="content" role="tabpanel">
+        <table>
+          <thead>
+            <tr>
+              <th>
                 Name
-              </div>
-              <div class="large-2 columns">
+              </th>
+              <th>
                 Date
-              </div>
-              <div class="large-2 columns">
+              </th>
+              <th>
                 Status
-              </div>
-              <div class="large-5 columns">
+              </th>
+              <th>
                 Actions
-              </div>
-        </li> <!-- eo rows -->
-        <br/>
-        <% reports.each do |report| %>
-            <%= render partial:'admin/reports/report',locals: {report: report} %>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="panel-<%= team.split.flatten.join %>">  
+              <% reports.each do |report| %>
+                  <%= render partial:'admin/reports/report',locals: {report: report} %>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
 </section>
 
 
