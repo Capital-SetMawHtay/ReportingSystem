@@ -4,45 +4,28 @@
       <h5>Team List</h5>
     </div>
   </div>
-<section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
-<div class="cm-listview-wrapper   cm-row-margin-remove">
-    <ul id="teams" class="cm-listview">
-      <li class="row tmgt-view-report-page cm-listheader">
-        <div class="large-3 columns tmgt-container">
-          Name
-        </div>
-        <div class="large-3 columns tmgt-container">
-          Total Members
-        </div>
-        <div class="large-5 columns tmgt-container">
-          Action
-        </div>
-      </li>
-      <br/>
-      <% @teams.each do |t| %>
-          <%= render t %>
-      <% end %>
-    </ul>
-  <br/>
-  <br/>
-    <div class="pagination-centered">
-      <%= will_paginate @users, renderer: FoundationPagination::Rails %>
-    </div>
-
-    <br />
-    <% if can?(:create,Team) %>
+  <section  id="reports">
     <div class="row">
-      <div class="large-4 large-offset-4 columns">
-        <div class="radius secondary label" id="form_status">
-          <h4>New</h4>
-        </div>
-        <div id="form">
-          <%= render :partial => "form" %>
+      <div class="large-6 columns panel">
+        <ul id="teams" class="side-nav">
+          <% @teams.each do |t| %>
+              <%= render t %>
+          <% end %>
+        </ul>
+        <div class="pagination-centered">
+          <%= will_paginate @users, renderer: FoundationPagination::Rails %>
         </div>
       </div>
+      <% if can?(:create,Team) %>
+        <div class="large-5 large-offset-1 columns panel info">
+            <div class="radius secondary label" id="form_status">
+              <h4>New</h4>
+            </div>
+            <div id="form">
+              <%= render :partial => "form" %>
+            </div>
+        </div>
+      <% end %>    
     </div>
-    <% end %>
-
-</div>
-</section>
+  </section>
 </section>

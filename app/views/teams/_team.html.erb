@@ -1,21 +1,17 @@
-<li id="<%= dom_id team %>" class="row tmgt-view-report-page">
-  <div class="large-3 columns">
-    <%= team.name %>
-    <br/>
-    <br/>
+<li id="<%= dom_id team %>" class="info-panel row">
+  <div class="large-6 columns">
+    <%= team.name %>  
   </div>
-  <div class="large-3 columns">
-    <%= team.users.count %>
-    <br/>
-    <br/>
+  <div class="large-6 columns">
+    { <%= team.users.count %> } members
   </div>
-  <div class="large-5 columns">
-    <% if can?(:write,team) %>
-    <%= link_to edit_team_path(team), :remote => true do %>
-        <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Rename"> Rename</i>
-    <% end %>
-    <% end %>
-  </div>
+  <% if can?(:write,team) %>
+    <div class="large-12 columns">
+      <%= link_to edit_team_path(team), :remote => true do %>
+          <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true" title="Rename"> Rename</i>
+      <% end %>
+    </div>   
+  <% end %>
 </li>
 
 

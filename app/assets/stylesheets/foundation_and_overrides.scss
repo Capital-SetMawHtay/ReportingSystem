@@ -627,6 +627,10 @@
 
 // $panel-header-adjust: true;
 // $callout-panel-link-color: $primary-color;
+@import "foundation/components/panels"; 
+.info-panel {
+  @include panel($bg:white);
+}
 
 // Pricing Tables
 
