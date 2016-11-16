@@ -37,7 +37,7 @@
             <tr id='<%= dom_id(u) %>'>
               <td>
                 <div class="avatar">
-                  <%= image_tag u.photo.url(:medium),:width=>"100px",:height=>"100px",class: 'cm-rounded-image'%>
+                  <%= image_tag (u.photo.url(:medium).blank? ? u.photo.url(:medium) : "https://randomuser.me/api/portraits/#{ ["men", "women"].sample}/#{rand(1..100)}.jpg"),:width=>"100px",:height=>"100px",class: 'cm-rounded-image'%>
                 </div>
               </td>
               <td>
