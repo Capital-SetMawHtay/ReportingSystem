@@ -8,58 +8,61 @@
       <%= link_to "Back", adminmails_path, :class => 'button info radius' %>
     </div>
   </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Sender mail
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.sender_mail %>
-    </div>
-  </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Receiver mail
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.receiver_mail %>
-    </div>
-  </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Cc
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.cc %>
-    </div>
-  </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Subject
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.subject %>
-    </div>
-  </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Date
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.date %>
-    </div>
-  </div><br/><br/>
-  <div class='row user-show-col'>
-    <div class='large-2 columns label radius secondary lbl-font-size'>
-      Content
-    </div>
-    <div class='large-1 columns'>:</div>
-    <div class='large-9 columns'>
-      <%= @adminmail.content %>
-    </div>
-  </div><br/>
+  <div class="panel">
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Sender mail
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.sender_mail %>
+      </div>
+    </div><br/><br/>
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Receiver mail
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.receiver_mail %>
+      </div>
+    </div><br/><br/>
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Cc
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.cc %>
+      </div>
+    </div><br/><br/>
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Subject
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.subject %>
+      </div>
+    </div><br/><br/>
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Date
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.date %>
+      </div>
+    </div><br/><br/>
+    <div class='row user-show-col'>
+      <div class='large-2 columns label radius secondary lbl-font-size'>
+        Content
+      </div>
+      <div class='large-1 columns'>:</div>
+      <div class='large-9 columns'>
+        <%= @adminmail.content %>
+      </div>
+    </div><br/>
+  </div>
+  
 </section>

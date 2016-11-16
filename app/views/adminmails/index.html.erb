@@ -1,69 +1,68 @@
 <section id="reports" class="tabs-content tmgt-container-section">
   <div class="row">
     <div class="large-2 columns tmgt-btn-budge-style1">
-      <h5>Mail list</h5>
+      <h5>Sent Emails</h5>
     </div>
   </div>
-  <div class="cm-listview-wrapper   cm-row-margin-remove">
+  <div class="row">
+    <table class="large-12 columns">
+      <thead>
+        <tr>
+          <th>
+            Date
+          </th>
+          <th>
+            Subject
+          </th>
+          <th>
+            To
+          </th>
+          <th>
+            Cc
+          </th>
+          <th colspan="2">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        
 
-  <ul class="cm-listview">
-  <li class="row cm-listheader">
-    <div class="large-1 columns tmgt-container">
-      Date
-    </div>
-    <div class="large-2 columns tmgt-container">
-      Subject
-    </div>
-    <div class="large-3 columns tmgt-container">
-      To
-    </div>
-    <div class="large-3 columns tmgt-container">
-      Cc
-    </div>
-    <div class="large-3 columns tmgt-container">
-      Actions
-    </div>
-  </li><br/>
+      <% @adminmails.each do |u| %>
+          <tr>
+            <td>
+              <%= u.date %>
+            </td>
 
-    <% @adminmails.each do |u| %>
-        <li>
-          <div class="large-1 columns tmgmt-container">
-            <%= u.date %>
-          </div>
+            <td >
+              <%= u.subject %>
+            </td>
 
-          <div class="large-2  columns tmgmt-container">
-            <%= u.subject %>
-          </div>
+            <td>
+              <%= u.receiver_mail %>
+            </td>
 
-          <div class="large-3 columns tmgmt-container">
-            <%= u.receiver_mail %>
-          </div>
-
-          <div class="large-3 columns tmgmt-container">
-            <%= u.cc %>
-          </div>
-
-          <div class="large-3 columns tmgmt-container">
+            <td>
+              <%= u.cc %>
+            </td>
             <% if can? :edit,u then%>
-                <div class="row">
-                  <div class="large-6 columns">
-                    <%= link_to u do%>
-                        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true" title="Show mail"> Detail</i>
-                    <% end %>
-                  </div>
-                  <div class="large-6 columns">
-                    <%= link_to u, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                        <i class="fa fa-eraser radius" data-tooltip data-options="disable_for_touch:true" title="Delete Mail"> Delete</i>
-                    <% end %>
-                  </div>
-                </div>
-
+              <td>
+                <%= link_to u do%>
+                    <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true" title="Show mail"> Detail</i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to u, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="fa fa-eraser radius" data-tooltip data-options="disable_for_touch:true" title="Delete Mail"> Delete</i>
+                <% end %>
+              </td>
             <% end %>
-          </div>
-        </li><br/><br/>
-    <%end%>
-  </ul>
-</div>
+            </div>
+          </tr>
+      <%end%>
+      </tbody>
+    </table>
+  </div>
 </section>
 <div class="pagination-centered">
   <%= will_paginate @adminmails, renderer: FoundationPagination::Rails %>

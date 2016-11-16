@@ -19,7 +19,9 @@ class AdminmailMailer < ActionMailer::Base
 
   def sending_mail(mail)
     @adminmail = mail
-    attachments["#{mail.file_file_name}"] =  File.read(mail.file.path) unless mail.file.nil?
+    if mail.file.present?
+      attachments["#{mail.file_file_name}"] =  File.read(mail.file.path)
+    end 
     mail(:from => mail.sender_mail, :to => mail.receiver_mail, :subject => mail.subject,:cc => mail.cc)
   end
  
