@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates :name,:employee_number, :role, :date_of_birth, presence: true
   validates :role, inclusion: {in: ROLES }
-  validates_attachment :photo,:presence=>true,
+  validates_attachment :photo,
                        :content_type=>{:content_type=>/^image\/(png|gif|jpeg|jpg)/,:message=>'must be an image file type'},
                        :size=>{:in=>0..1.megabytes,:message=>" must not be greater than 1 Megabyte!"}
 
