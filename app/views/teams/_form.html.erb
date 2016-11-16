@@ -2,4 +2,7 @@
     <br/>
     <%= f.text_field :name %>
     <%= f.submit "Save", :class=>"button small info radius" %>
+    <% unless @team.new_record? %>
+      <%= link_to "Cancel", new_team_path, remote: true %>
+    <% end %>
 <% end %>

@@ -7,8 +7,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="large-10 columns">
       <%= render partial: 'user_teams_secondary_nav',locals: {active_team: @active_team} %>
+    </div>
+    <div class="large-2 columns">
+      <% if can? :create,User %>
+          <%= link_to new_user_path,class: 'button success small radius' do %>
+              <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Member"> New</i>
+          <% end %>
+      <% end %>
     </div>
   </div>
   <div class="row">
@@ -77,13 +84,4 @@
 </section>
 <div class="pagination-centered">
   <%= will_paginate @users, renderer: FoundationPagination::Rails %>
-</div>
-<div class="row">
-  <div class="large-2 large-offset-10 columns">
-    <% if can? :create,User %>
-        <%= link_to new_user_path,class: 'button success small radius' do %>
-            <i class="fa fa-plus-square radius" data-tooltip data-options="disable_for_touch:true" title="New Member"> New</i>
-        <% end %>
-    <% end %>
-  </div>
 </div>

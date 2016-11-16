@@ -12,6 +12,13 @@ class TeamsController < ApplicationController
     end
   end
 
+  def new
+    @team = Team.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @team = Team.new(params[:team])
     respond_to do |format|
