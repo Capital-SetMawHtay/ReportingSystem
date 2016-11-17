@@ -39,7 +39,7 @@ class Report < ActiveRecord::Base
   #to get the plan of previous report
   def plan_for_today
      previous_date = previous_day(report_date)
-     previous_report = Report.find_by_report_date(previous_date)
+     previous_report = Report.where(report_date: previous_date, user_id: user.id).first
      (previous_report.nil? || previous_report.blank?) ? 'nothing' : (previous_report.plan)
   end
   #the method asks if a report file is generated for this instance of report
