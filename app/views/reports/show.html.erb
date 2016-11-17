@@ -1,70 +1,38 @@
-<div class="large-12 columns">
-    <div class="rows">
-      <div class="large-2 columns tmgt-btn-budge-style1">
-         <h5><%= @report.user.name %></h5>
-      </div>
-      <div class="large-2 columns tmgt-btn-budge-style1">
-        <h5><%= @report.report_date %></h5>
-      </div>
-      <div class="large-2 columns tmgt-btn-budge-style1">
-        <h5>
-          <%= @report.user.team.name %>
-        </h5>
-      </div>
-      <div class="large-2 columns">
+<div class="row">
+    <div class="large-2 columns label">
+       <h5 class="white-text"><%= @report.user.name %></h5>
+    </div>
+    <div class="large-2 large-offset-1 columns label">
+      <h5 class="white-text"><%= @report.report_date %></h5>
+    </div>
+    <div class="large-2 large-offset-1 columns label">
+      <h5 class="white-text">
+        <%= @report.user.team.name %>
+      </h5>
+    </div>
+    <div class="large-2 columns">
 
-          <%= link_to "Back", user_reports_path(@report.user),class: 'button medium info' %>
+        <%= link_to "Back", :back,class: 'button medium info' %>
 
-      </div>
     </div>
 </div>
-<div id="plan_for_today">
-  <div class="row">
-    <div class="large-12 columns">
-      <section class="cm-report-edit-fields">
-        <header class="tmgt-plan">Planned for Today</header>
-        <div class="cm-planned-report tmgt-container">
-          <%= simple_format(@report.plan_for_today) %>
-        </div>
-      </section>
-    </div>
-  </div>
-</div>
+<div class="row" id="plan_for_today">
+  <%= render partial: 'report_field', locals: {heading: "Planned For Today", content: simple_format(@report.plan_for_today), front: true } %>
 </div>
 <div class="row">
   <div class="large-6 columns">
-    <section class="tmgt-report-detail-container-budge">
-      <header class="tmgt-plan">Experience</header>
-      <div class="tmgt-container-section">
-        <%= simple_format(@report.experience) %>
-      </div>
-    </section>
+    <%= render partial: 'report_field', locals: {heading: "Experience", content: simple_format(@report.experience) } %>
   </div>
   <div class="large-6 columns">
-    <section class="tmgt-report-detail-container-budge">
-      <header class="tmgt-problem">Next plan</header>
-      <div class="tmgt-container-section">
-        <%= simple_format(@report.plan) %>
-      </div>
-    </section>
+    <%= render partial: 'report_field', locals: {heading: "Next Plan", content: simple_format(@report.plan) } %>
   </div>
 </div>
 <div class="row">
   <div class="large-6 columns">
-    <section class="tmgt-report-detail-container-budge">
-      <header class="tmgt-exp">Problems</header>
-      <div class="tmgt-container-section">
-        <%= simple_format(@report.problem) %>
-      </div>
-    </section>
+    <%= render partial: 'report_field', locals: {heading: "Problems", content: simple_format(@report.problem) } %>
   </div>
   <div class="large-6 columns">
-    <section class="tmgt-report-detail-container-budge">
-      <header class="tmgt-solution">Solution</header>
-      <div class="tmgt-container-section">
-        <%= simple_format(@report.solution) %>
-      </div>
-    </section>
+    <%= render partial: 'report_field', locals: {heading: "Solution", content: simple_format(@report.solution) } %>
   </div>
 </div>
 <% unless @report.review.blank? %>
