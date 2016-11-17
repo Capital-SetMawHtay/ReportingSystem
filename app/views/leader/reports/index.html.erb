@@ -89,22 +89,35 @@
 </div>
 <section  id="reports" class="tabs-content tmgt-container-section cm-tab-container">
 
-  <div class="cm-listview-wrapper   cm-row-margin-remove">
-    <ul id="teams" class="cm-listview">
-      <li class="row tmgt-view-report-page cm-listheader">
-        <div class="large-3 columns tmgt-container">
-          Name
-        </div>
-        <div class="large-3 columns tmgt-container">
-          Status
-        </div>
-        <div class="large-5 columns tmgt-container">
-          Actions
-        </div>
-      </li>
-      <br/>
       <div id="reviewed_reports">
         <% @reviewed_reports.each do |report| %>
+        <div id="panel-<%= team.split().flatten.join %>" class="content" role="tabpanel">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="panel-<%= team.split.flatten.join %>">  
+                <% reports.each do |report| %>
+                    <%= render partial:'leader/reports/report',locals: {report: report} %>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
             <li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page">
               <div class="large-3 columns tmgt-container">
                 <div class="row">

@@ -1,0 +1,26 @@
+<tr id='<%= dom_id(report)%>'>
+  <td>
+    <%= report.user.name %>
+  </td>
+  <td>
+    <%= report.report_date %>
+  </td>
+  <td>
+    <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
+  </td>
+    <td>
+      <%= link_to user_report_path(report.user,report) do%>
+          <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Detail"> Detail</i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
+        <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Download Excel File"> Excel</i>
+      <% end %>
+    </td>
+    <td>
+      <% if can?(:review,report) then%>
+          <%= link_to "Write Review",edit_leader_team_report_path(report) %>
+      <% end %>
+    </td>
+</tr>
