@@ -17,22 +17,32 @@
     </div>
 </div>
 <div class="row" id="plan_for_today">
-  <%= render partial: 'report_field', locals: {heading: "Planned For Today", content: simple_format(@report.plan_for_today), front: true } %>
+  <%= render layout: 'report_field', locals: {heading: "Planned For Today" } do %>
+    <%= simple_format(@report.plan_for_today) %>
+  <% end %>
 </div>
 <div class="row">
   <div class="large-6 columns">
-    <%= render partial: 'report_field', locals: {heading: "Experience", content: simple_format(@report.experience) } %>
+    <%= render layout: 'report_field', locals: {heading: "Experience" } do %>
+      <%= simple_format(@report.experience) %>
+    <% end %>
   </div>
   <div class="large-6 columns">
-    <%= render partial: 'report_field', locals: {heading: "Next Plan", content: simple_format(@report.plan) } %>
+    <%= render layout: 'report_field', locals: {heading: "Next Plan" } do %>
+      <%= simple_format(@report.plan) %>
+    <% end %>
   </div>
 </div>
 <div class="row">
   <div class="large-6 columns">
-    <%= render partial: 'report_field', locals: {heading: "Problems", content: simple_format(@report.problem) } %>
+    <%= render layout: 'report_field', locals: {heading: "Problems" } do %>
+      <%= simple_format(@report.problem) %>
+    <% end %>
   </div>
   <div class="large-6 columns">
-    <%= render partial: 'report_field', locals: {heading: "Solution", content: simple_format(@report.solution) } %>
+    <%= render layout: 'report_field', locals: {heading: "Solution" } do %>
+      <%= simple_format(@report.solution) %>
+    <% end %>
   </div>
 </div>
 <% unless @report.review.blank? %>

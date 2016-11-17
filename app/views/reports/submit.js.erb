@@ -1,3 +1,3 @@
 
 $('#edit_<%= dom_id(@report)%>').remove();
-$('#<%= dom_id(@report)%> .report_status').html('<%= raw j(@report.status)+"<br/> <br/>"%>');
+$('#<%= dom_id(@report)%> .report_status').html('<i class="<%= present_report_status(@report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= @report.status %>"></i> <br/>');

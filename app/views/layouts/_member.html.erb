@@ -16,15 +16,13 @@
 <%= render partial: 'layouts/member_top_navigation' %>
 <%= render partial: 'layouts/common/notice' %>
 
-
-<!-- Body -->
 <section class="main-section" id="main-section">
   <div class="row hack-row">
     <div class="large-12 columns">
       <div class="row">
-        <%= render 'layouts/member_offcanvas_menu' %>
         <div class="large-12 columns main-process-before" id="main-process">
-          <div class="rows">
+          <div class="row">
+            <%= javascript_include_tag "application" %>
             <%= yield %>
           </div><!-- eo rows -->
         </div> <!-- eo large-12columns -->
@@ -32,8 +30,8 @@
     </div> <!-- eo large-12columns -->
   </div>  <!-- eo row hack-row -->
 </section>  <!-- eo main-section -->
-<%= javascript_include_tag "application" %>
-<%= render partial: 'layouts/common/private_pub_subscription' %>
+</body>
+</html>
 
 </body>
 </html>

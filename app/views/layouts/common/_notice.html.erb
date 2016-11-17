@@ -1,13 +1,13 @@
 <% if flash.notice then %>
-<p id="notice" data-alert class="cm-notice">
+<p id="notice" data-alert class="alert-box">
   <%= flash.notice %>
-  <a href="#" class="close pull-right">&times;</a>
+  <a href="#" class="close pull-right white-text">&times;</a>
 </p>
 <% end %>
 
 <% if flash.alert then%>
-<div id="alert" data-alert class="cm-alert">
+<div id="alert" data-alert class="alert-box">
   <%= flash.alert %>
-  <a href="#" class="close pull-right">&times;</a>
+  <a href="#" class="close pull-right white-text">&times;</a>
 </div>
 <% end %>

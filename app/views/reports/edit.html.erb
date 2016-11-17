@@ -29,36 +29,35 @@
 </div>
 <%= form_for([@report.user,@report],method: :put) do|f| %>
     <!-- Form url  -->
-    <div class="row">
-      <div class="large-6 columns">
-        <section class="cm-report-edit-fields">
-          <header class="tmgt-exp">Experience</header>
-          <%= f.text_area :experience,class: 'tmgt-container-textarea' %>
-        </section>
-      </div>
-
-      <div class="large-6 columns">
-        <section class="cm-report-edit-fields">
-          <header class="tmgt-plan">Next Plan</header>
-          <%= f.text_area :plan,class: 'tmgt-container-textarea' %>
-        </section>
-      </div>
+    <div class="row" id="plan_for_today">
+      <%= render layout: 'report_field', locals: {heading: "Planned For Today", front: true }  do %>
+          <%= simple_format(@report.plan_for_today) %>
+      <% end %>
     </div>
+
     <div class="row">
       <div class="large-6 columns">
-        <section class="cm-report-edit-fields">
-          <header class="tmgt-problem">Problems</header>
-          <%= f.text_area :problem,class: 'tmgt-container-textarea'%>
-        </section>
+          <%= render layout: 'report_field', locals: {heading: "Experience" } do %>
+            <%= f.text_area :experience, rows: 10, class: 'normal' %>
+          <% end %>
+        </div>
+        <div class="large-6 columns">
+          <%= render layout: 'report_field', locals: {heading: "Next Plan" } do %>
+            <%= f.text_area :plan, rows: 10, class: 'normal' %>
+          <% end %>
+        </div>
       </div>
-      <div class="large-6 columns">
-        <section class="cm-report-edit-fields">
-          <header class="tmgt-solution">Solution</header>
-          <div>
-            <%= f.text_area :solution,class: 'tmgt-container-textarea'%>
-          </div>
-        </section>
-      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <%= render layout: 'report_field', locals: {heading: "Problems" } do %>
+            <%= f.text_area :problem, rows: 10 , class: 'normal'%>
+          <% end %>
+        </div>
+        <div class="large-6 columns">
+          <%= render layout: 'report_field', locals: {heading: "Solution" } do %>
+            <%= f.text_area :solution, rows: 10, class: 'normal' %>
+          <% end %>
+        </div>
     </div>
     <br/><br/>
       <div class="row">

@@ -1,81 +1,27 @@
-
-   <ul class="cm-listview">
-      <li class="row tmgt-view-report-page cm-listheader">
-          <div class="large-3 columns tmgt-container">
-            Date
-          </div>
-          <div class="large-3 columns tmgt-container">
-            Status
-          </div>
-          <div class="large-5 columns tmgt-container">
-            Actions
-          </div>
-      </li> <!-- eo rows -->
+<br>
 <% unless reports.empty? %>
-  <% reports.each do |report| %>
-      <li id='<%= dom_id(report)%>'  class="row tmgt-view-report-page">
-        <div class="large-3 columns tmgt-container">
-          <div class="row">
-            <div class="large-12 columns report_date">
-                <%= report.report_date %>
-              <br/>
-              <br/>
-            </div>
-          </div>
-        </div>
-        <div class="large-3 columns tmgt-container">
-          <div class="row">
-            <div class="large-12 columns report_status">
-              <%= report.status %>
-              <br/>
-              <br/>
-            </div>
-          </div>
-        </div>
-        <div class="large-5 columns tmgt-container">
-          <div class="row">
-              <div class="large-3 columns">
-
-                <%= link_to user_report_path(report.user,report) do%>
-                    <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Report"> Detail</i>
-              <% end %>
-                <br/>
-                <br/>
-              </div>
-            <div class="large-3 columns">
-
-              <%= link_to edit_user_report_path(report.user,report) do%>
-                  <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true"  title="Edit Report"> Write</i>
-              <% end %>
-              <br/>
-              <br/>
-            </div>
-            <div class="large-6 columns">
-              <div class="row">
-                <div class="large-6 columns">
-                  <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
-                      <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Download Excel File"> Excel</i>
-                  <% end %>
-                  <br/>
-                  <br/>
-                </div>
-                <div class="large-6 columns">
-                  <% if can?(:submit,report) then%>
-                      <div class="submit_button_container">
-                        <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put,remote: true) do |f| %>
-
-                            <%= f.submit 'Submit Report',class: 'tiny button alert round' %>
-                        <%end %>
-                      </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </li>
-  <% end %>
+  <div class="content row" role="tabpanel">
+    <table class="large-12 columns">
+      <thead>
+        <tr>
+          <th>
+            Date
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% reports.each do |report| %>
+            <%= render partial:'report',locals: {report: report} %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% else %>
   You have not generated reports for this week yet.
   <%= form_tag(user_reports_path(current_user)) do %>

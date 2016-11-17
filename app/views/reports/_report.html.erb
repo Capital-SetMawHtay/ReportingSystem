@@ -1,0 +1,34 @@
+<tr id='<%= dom_id(report)%>'>
+  <td>
+    <%= report.report_date %>
+  </td>
+  <td class="report_status">
+    <i class="<%= present_report_status(report.status)%>" data-tooltip data-options="disable_for_touch:true"  title="<%= report.status %>"></i> <br/>
+  </td>
+    <td>
+
+      <%= link_to user_report_path(report.user,report) do%>
+        <i class="fa fa-list-alt radius" data-tooltip data-options="disable_for_touch:true"  title="View Report"> Detail</i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to edit_user_report_path(report.user,report) do%>
+        <i class="fa fa-pencil-square-o radius" data-tooltip data-options="disable_for_touch:true"  title="Edit Report"> Write</i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to get_excel_user_report_path(user_id: current_user.id,id: report.id) do %>
+        <i class="fa fa-arrow-down radius" data-tooltip data-options="disable_for_touch:true"  title="Download Excel File"> Excel</i>
+      <% end %>
+    </td>
+    <td>
+      <% if can?(:submit,report) then%>
+          <div class="submit_button_container">
+            <%= form_for(report,url: submit_user_report_path(report.user,report),method: :put,remote: true) do |f| %>
+
+                <%= f.submit 'Submit Report',class: 'tiny button alert round' %>
+            <%end %>
+          </div>
+      <% end %>
+    </td>
+</tr>

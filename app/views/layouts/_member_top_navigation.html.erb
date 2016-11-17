@@ -1,26 +1,25 @@
-<nav class="tab-bar">
-  <section class="left-small">
-    <!-- logo and off canvas btn -->
-    <!-- use left-off-canvas-toggle class when you wanna activate off canvas efx provided by foundation      -->
-    <a class="menu-icon" id="off-canvas-btn">
-      <span></span>
-    </a>
-  </section> <!-- eo left-small -->
-  <section class="right tab-bar-section">
-    <h1>AWITD Team Management</h1>
-    <!-- Notification sound -->
-    <audio id="notification">
-      <source src="muziz/1.ogg" type="audio/ogg" />
-      <source src="muziz/1.mp3" type="audio/mpeg" />
-    </audio>
-    <!-- Nav menu and notification implementation  -->
-                    <span class="right" id="tooltip-group">
-                      <%= link_to user_reports_path(current_user) do %>
-                        <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="Manage Member Reports"></i>
-                      <% end %>
-                      <%= link_to logout_path,method: :delete do %>
-                        <i class="fa fa-sign-out tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Log out"></i>
-                      <% end %>
-                    </span>
-  </section>   <!-- eo right tab-bar-section -->
-</nav> <!-- eo tab-bar -->
+<div class="contain-to-grid fixed">
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <div><h1 class="white-text">AWITD Reporting System</h1></div>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="right top-bar-section">
+      <ul class="right" id="tooltip-group">
+        <li>
+          <%= link_to user_reports_path(current_user) do %>
+            <i class="fa fa-print tip-bottom radius" data-tooltip data-options="disable_for_touch:true" title="My Reports">My Reports</i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to logout_path,method: :delete do %>
+            <i class="fa fa-sign-out tip-bottom radius" data-tooltip data-options="disable_for_touch:true" class="" title="Log out">Log out</i>
+          <% end %>
+        </li>
+      </ul>
+    </section>   <!-- eo right tab-bar-section -->
+  </nav> <!-- eo tab-bar -->
+</div>
+<br/><br/> <br/>
